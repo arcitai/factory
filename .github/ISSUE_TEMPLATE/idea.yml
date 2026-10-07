@@ -1,0 +1,18 @@
+name: Idea or research
+description: Bring an idea, link or question for investigation before implementation is admitted.
+labels: [research]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Idea and intended benefit
+      description: Describe the problem or question. Include useful public sources.
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision to inform
+      description: What should the research establish? State relevant scope, constraints and known alternatives.
+    validations:
+      required: true

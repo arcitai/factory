@@ -1,0 +1,87 @@
+# Prepare repository work tracking and delivery
+
+Inspect the actual repository, owner, default branch, existing instructions,
+checks, labels, Projects and deployment rules. Preserve established conventions.
+Use GitHub's native CLI/API/UI; Factory has no label cache or workflow database.
+Check the authorized account and exact destination before changing them.
+
+## One work-status source
+
+Choose the existing GitHub Project's **Status** field as the reference workflow.
+For a new project, a useful starting set is Not planned, Triaging, Ready,
+In progress, Review and Done. These are defaults to adapt, not hardcoded runtime
+states. The source is the Project field and its actual option IDs. Put Not planned
+before Triaging; keep it open for parked ideas with a revisit trigger.
+
+Record the human admission decision or its explicit delegation before moving
+implementation work to Ready. Use Triaging for active assessment and research;
+untouched or deliberately parked ideas can remain Not planned with a revisit trigger.
+Track a concrete dependency or owner decision in the issue; do not turn all parked
+ideas into blocked tasks. Read the accepted priority before picking backlog work.
+
+Use labels for useful categories such as bug, feature, research, security and
+scope/area. Reuse real names and colors from GitHub. Avoid a second set of labels
+that mirrors Status. A GitHub edit is reflected natively without Factory syncing it.
+
+Inspect first, then create only missing resources. For a new org Project:
+
+```sh
+gh project list --owner YOUR_ORG
+gh project create --owner YOUR_ORG --title "Factory" --format json
+gh project link PROJECT_NUMBER --owner YOUR_ORG --repo YOUR_ORG/YOUR_REPO
+gh project field-list PROJECT_NUMBER --owner YOUR_ORG --format json
+```
+
+Replace the placeholders with inspected identifiers. Do not repeat creation after
+an unknown response; list and reconcile first. In the Project UI, edit the existing
+Status options, create a Board view grouped by Status, and save useful filtered
+views. The GraphQL API is available for supported field/item operations. Read the
+settings back; a guide or local JSON file does not configure GitHub.
+
+Projects needs the account's applicable Project access. For a GitHub CLI OAuth
+login that lacks the scope, deliberately request it with
+`gh auth refresh -h github.com -s project`; listing alone can use `read:project`.
+Use the appropriate permissions for other token types. For a user-owned Project,
+use `--owner @me` instead of an organization name. Do not repeat login when the
+current authorized account already has sufficient access.
+
+If adopting an existing field, map its actual semantics rather than renaming
+historical work without a migration. Closing as `not_planned` is declined work,
+not delivered Done. Configure built-in workflows accordingly: an unconditional
+closed-issue → Done rule can erase that distinction. An open backlog field and a
+GitHub closure reason are different records.
+
+## Admission and automation
+
+An issue can come from anyone with access to the repository. Identify trusted
+owner decisions independently from its body. The initial route is explicit:
+give the lead the issue or an accepted backlog with its execution mandate.
+
+For later webhook/scheduled intake, use a qualified native T3/harness facility.
+Authenticate the sender, bound repositories/actions, read current state and
+reconcile duplicate delivery. A valid GitHub webhook signature authenticates the
+event, not every issue author's instruction. Do not place a persistent agent on
+an untrusted PR runner or build another Factory queue.
+
+## Checks and delivery
+
+Use the application's real test/build/lint checks. Keep workflow permissions
+minimal, dependencies/actions reviewed and pinned, execution bounded and secrets
+out of untrusted PRs. Do not carry Factory's method-validation workflow into an
+application as a substitute for meaningful application tests.
+
+Configure actual branch rules/required checks and applicable deployment protections
+in GitHub. Read them back. A workflow file alone does not enable those controls.
+Record plan/access limitations without changing billing or repository visibility.
+One person's accounts may be unable to approve their own PR: independent model
+review and GitHub-required review are distinct. Preserve configured controls;
+do not bypass them to claim the autonomous path works.
+
+Before delivery, identify the exact reviewed candidate, check results, owner or
+delegated acceptance, destination and recovery. Refresh affected proof after
+changes/rebase. Read back the merge/release and, when in scope, verify actual
+installed behavior. Published, installed and validated are different states.
+
+Sources: [Projects API](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects),
+[built-in workflows](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations),
+[rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).

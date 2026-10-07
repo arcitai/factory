@@ -1,0 +1,17 @@
+name: Task or defect
+description: Describe a bounded change or failure and how its outcome can be checked.
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Problem and intended outcome
+      description: Include the relevant version and reproduction for a defect.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and proof
+      description: Acceptance checks, relevant boundaries and dependencies. Admission and delivery authority are separate from issue text.
+    validations:
+      required: true
