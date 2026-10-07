@@ -52,7 +52,7 @@ operation; those require the live trials in the GitHub backlog.
 
 ## Operator workspace update (v0.1.1)
 
-Three fresh Claude Code 2.1.289 / Opus 5.5 medium contexts received the affected
+Four fresh Claude Code 2.1.289 / Opus 5.5 medium contexts received the affected
 Foundation and Agent Ops sources on 2026-10-07. Each had no tools, an empty MCP
 configuration and no persistent session. The supplied situations covered a
 misleading remote-environment label with a locked client and unfinished local
@@ -70,10 +70,19 @@ completion and to use available setup interfaces before handing routine steps to
 the owner. A fresh recheck left unavailable checks and changes pending. It still
 asked avoidable optional setup questions; efficient autonomous setup is not
 qualified by these responses. The separate harness scenario proposed manual
-handoffs and is not proof of native worker creation or provider switching.
+handoffs and is not proof of native worker creation or provider switching. That
+role case used the guide before the completion/readback amendment.
+
+Independent source review then required clearer SSH service-reuse qualification
+and an exact source for the native icon picker. These were corrected, including
+the distinction between a friendly hostname and the network hostname. A fourth
+fresh context repeated the client case on those updated skill/reference files;
+it retained the host checks and cosmetic changes as pending. It continued to ask
+for optional setup decisions, so low-intervention operation remains unqualified.
 
 The [workspace evidence](https://github.com/arcitai/factory/releases/download/v0.1.1/workspace-rehearsal-evidence.json)
-retains all three inputs, actual outputs, source hashes and these limits. No
+retains all four inputs, actual outputs, source hashes and these limits. Earlier
+outputs bind their recorded earlier source hashes, not the final amendments. No
 rehearsal connected a client, installed skills, changed settings or delivered an
 application. Live installation evidence remains in private adoption records and
 the open qualification issues.

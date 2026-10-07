@@ -16,7 +16,7 @@ actual environment before asking for a missing owner decision. Record only
 what changes setup, authority or proof in the project's existing private record;
 the [adoption outline](references/adoption.md) is available if one is missing.
 
-For T3/Linux-host/Mac-client setup use [the setup guide](references/setup.md).
+For T3 host/client setup use [the setup guide](references/setup.md).
 For a pinned AgentOps thread, its skills and the host/client connection,
 use [the operator workspace guide](references/workspace.md).
 For GitHub Projects, labels, PR and CI use [repository preparation](references/github.md).

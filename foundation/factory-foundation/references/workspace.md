@@ -15,12 +15,14 @@ flowchart LR
   subgraph Host[Execution host: Linux machine or VPS]
     Service[T3 background service]
     Ops[AgentOps: pinned thread in the project]
+    Tasks[Task threads with separate writer worktrees]
     Harness[Native Codex or Claude harness]
     Work[Project instructions, skills and worktrees]
     Service --> Ops --> Harness --> Work
+    Service --> Tasks --> Harness
   end
   GitHub[GitHub: Issues, Projects, PRs and CI]
-  Mac -->|Saved private connection| Service
+  Mac -->|Verified connection to existing service| Service
   Desktop -->|Same-host pairing| Service
   Work -->|Authorized operations| GitHub
 ```
@@ -42,8 +44,13 @@ the host is reachable; it does not prove which environment the thread uses.
 
 T3 0.0.45 gets the environment label from the server's friendly OS hostname. Its
 device icon can describe laptop hardware even when that laptop runs Linux.
-Neither identifies the operator's current client. Choose a clearer native icon
-when useful; avoid changing network names or adding a wrapper just to fix a label.
+Neither identifies the operator's current client. In **Settings → Connections →
+the environment's More actions → Icon**, choose **Linux/WSL** when that better
+identifies a Linux host. This saves the native `environmentIcon: "linux"` server
+setting, independent of hardware detection; it does not change where work runs.
+A clearer friendly/pretty hostname is an optional host-administration change;
+it is distinct from the network hostname. Preserve network names and access,
+and leave the cosmetic change pending if the required privilege is unavailable.
 In the thread's workspace selector, **Local checkout** means the project's main
 checkout on the selected environment, as opposed to a separate worktree. It does
 not move a remote project onto the client machine.
@@ -95,4 +102,5 @@ Checked against T3 0.0.45:
 [thread pin and settlement](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/thread-sidebar.md),
 [client connections](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/remote-access.md),
 [environment labels](https://github.com/pingdotgg/t3code/blob/v0.0.45/apps/server/src/environment/ServerEnvironmentLabel.ts),
-[environment icons](https://github.com/pingdotgg/t3code/blob/v0.0.45/apps/server/src/environment/ServerEnvironmentMachine.ts).
+[detected hardware](https://github.com/pingdotgg/t3code/blob/v0.0.45/apps/server/src/environment/ServerEnvironmentMachine.ts),
+[native icon selection](https://github.com/pingdotgg/t3code/blob/v0.0.45/apps/web/src/components/settings/EnvironmentIconPicker.tsx).

@@ -1,8 +1,8 @@
 # Set up the host and operator client
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
-optionally a phone as clients. Z13 is one example of that host. A VPS uses the
-same responsibilities. The method itself also works without T3 after qualifying
+optionally a phone as clients. The host can be a laptop, workstation or VPS.
+The method itself also works without T3 after qualifying
 the chosen harness's discovery and operation.
 
 Source baseline checked 2026-10-07: stable T3 **0.0.45**. Newer V2 delegation and
@@ -129,8 +129,12 @@ A desktop app running on the host is also a client. If it runs as a different
 OS user, connect it to the existing execution service rather than importing the
 same repositories into that user's local environment. Use native pairing to its
 reachable endpoint; on the same host this can be the service's loopback address.
-The Mac can use its saved SSH environment. Verify both show the same project and
-thread history, not two independent copies.
+For a saved SSH environment, verify that it attaches to this independent service
+instead of starting a desktop-managed server. Check service ownership and process
+identity, then prove a bounded task survives closing the client and is readable
+after reconnect. If service reuse is not established, use Connect or supported
+direct/private-network pairing to the existing service. Verify both clients show
+the same project and thread history, not two independent copies.
 
 **Local environment** controls the extra backend managed by that desktop client.
 For a client used only to access the execution service, turn it off under

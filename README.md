@@ -22,7 +22,7 @@ permissions, background execution or isolation.
 ## Start
 
 Follow the [host and client setup](foundation/factory-foundation/references/setup.md).
-It covers a Linux execution host such as Z13, a Mac as the operator client,
+It covers a Linux laptop, workstation or VPS, a Mac as the operator client,
 native accounts and project-scoped skills. Then prepare the repository with
 the [GitHub guide](foundation/factory-foundation/references/github.md).
 
