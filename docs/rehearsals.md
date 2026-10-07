@@ -1,4 +1,6 @@
-# Initial behavioral evidence
+# Behavioral evidence
+
+## Initial method release
 
 Date: 2026-10-07. A fresh Claude Opus 5.5 context received the Agent Ops skill,
 operating policy, T3 operation notes, triage skill and nine concrete scenarios. Tools, network,
@@ -47,3 +49,40 @@ The final candidate still requires independent review before release. Its verdic
 and exact Git revision belong in the release evidence. These rehearsals do not
 qualify installed discovery, native orchestration, phone decisions or unattended
 operation; those require the live trials in the GitHub backlog.
+
+## Operator workspace update (v0.1.1)
+
+Four fresh Claude Code 2.1.289 / Opus 5.5 medium contexts received the affected
+Foundation and Agent Ops sources on 2026-10-07. Each had no tools, an empty MCP
+configuration and no persistent session. The supplied situations covered a
+misleading remote-environment label with a locked client and unfinished local
+work, and a harness change with a concurrent writer, missing native discovery,
+missing GitHub authentication and untrusted release instructions.
+
+The responses retained the existing project, identified the actual remote host,
+distinguished path loading from native discovery, preserved parked work and the
+owner's merge decision, and avoided a second writer in the main checkout. The
+first setup response nevertheless ended by implying checks and a record write
+had occurred. None had: this failed the completion-reporting boundary.
+
+The workspace guide was amended to require execution/readback before reporting
+completion and to use available setup interfaces before handing routine steps to
+the owner. A fresh recheck left unavailable checks and changes pending. It still
+asked avoidable optional setup questions; efficient autonomous setup is not
+qualified by these responses. The separate harness scenario proposed manual
+handoffs and is not proof of native worker creation or provider switching. That
+role case used the guide before the completion/readback amendment.
+
+Independent source review then required clearer SSH service-reuse qualification
+and an exact source for the native icon picker. These were corrected, including
+the distinction between a friendly hostname and the network hostname. A fourth
+fresh context repeated the client case on those updated skill/reference files;
+it retained the host checks and cosmetic changes as pending. It continued to ask
+for optional setup decisions, so low-intervention operation remains unqualified.
+
+The [workspace evidence](https://github.com/arcitai/factory/releases/download/v0.1.1/workspace-rehearsal-evidence.json)
+retains all four inputs, actual outputs, source hashes and these limits. Earlier
+outputs bind their recorded earlier source hashes, not the final amendments. No
+rehearsal connected a client, installed skills, changed settings or delivered an
+application. Live installation evidence remains in private adoption records and
+the open qualification issues.
