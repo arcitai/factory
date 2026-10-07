@@ -22,9 +22,11 @@ Keep deployment/admin credentials outside implementation workers unless a task
 explicitly needs them. A second T3 project or provider config directory under the
 same OS user is not a filesystem sandbox.
 
-Give the lead a dedicated project/workspace and provider profile, with only the
-context and connections it needs. Workers receive the target project's context
-and skills. Separate T3 environments/OS identities or VMs are appropriate when
+Use one persistent Ops thread in the owner's existing project when it has the
+right context and access. A separate lead project is optional, not a requirement.
+Activate the lead role in that thread; preserve the project's shared instructions.
+Workers receive the target project's context and skills. Separate provider profiles,
+T3 environments/OS identities or VMs are appropriate when
 the lead, workers or projects require different filesystem/network trust.
 Do not copy a personal AIOS installation or personal provider home into this setup.
 
@@ -116,12 +118,34 @@ and selected userdata; a binary downgrade alone may not undo a database migratio
 [Service behavior](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/background-service.md),
 [V2 migration and backup](https://github.com/pingdotgg/t3code/blob/fd1c3386c4d60f3477ab3f13c87537848de099f5/docs/user/thread-migration.md).
 
-## 4. Connect from Mac and phone
+## 4. Connect the operator clients
 
 Install the matching T3 desktop release on the Mac. Use **Settings → Connections**
 to connect to the host and verify the displayed execution environment before
 starting work. Provider logins, tools, repos and worktrees for remote tasks belong
 on the host. The Mac does not need another set of worker credentials for those tasks.
+
+A desktop app running on the host is also a client. If it runs as a different
+OS user, connect it to the existing execution service rather than importing the
+same repositories into that user's local environment. Use native pairing to its
+reachable endpoint; on the same host this can be the service's loopback address.
+The Mac can use its saved SSH environment. Verify both show the same project and
+thread history, not two independent copies.
+
+**Local environment** controls the extra backend managed by that desktop client.
+For a client used only to access the execution service, turn it off under
+**Settings → Connections**, using T3's native restart confirmation. First reconcile
+any local work and confirm the saved service connection. This does not stop the
+independent systemd service, even when the client is on the host itself. Keep it
+on if local work is also intended. Local history and remote connections are retained.
+After restart, check the toggle, Connected status and the same thread; check that
+the execution service remained active. Avoid manually editing T3's database.
+
+Pairing links are credentials. Transfer them directly into the intended client,
+then verify readback and remove temporary copies. If typing a full link fails,
+use the dialog's separate Host and Pairing code fields. Reconcile an uncertain
+pairing before creating another. Do not import a personal browser profile to solve
+an execution-host login, or infer GitHub CLI access from a browser session.
 
 T3 Connect links environments through its native account flow, including headless
 hosts. Direct/Tailscale connections are alternatives for access. Background phone
@@ -150,13 +174,15 @@ Select scope deliberately:
 | Bundle | Destination |
 | --- | --- |
 | Foundation | The setup/operator context; not needed by every implementation worker |
-| Agent Ops | The lead project; alternatively a dedicated Claude config directory or separate Codex OS identity |
+| Agent Ops | The selected project, activated in its Ops thread; use a separate project/profile/identity when its access needs differ |
 | ADLC | The application project, or the native user/config scope described below |
 
 For Codex, use the native project location `.agents/skills/`. Its documented user
 location is `$HOME/.agents/skills`, shared across that OS user's projects; changing
-`CODEX_HOME` alone does not isolate that skill location. Keep lead-only skills in
-the lead project or a separate OS identity. See [native Codex discovery](https://learn.chatgpt.com/docs/build-skills).
+`CODEX_HOME` alone does not isolate that skill location. A project skill is discoverable
+by other threads in that project; discovery is not assignment of the lead role.
+Use a separate project or OS identity when discovery or access must be exclusive.
+See [native Codex discovery](https://learn.chatgpt.com/docs/build-skills).
 For Claude, T3 reads the project's `.claude/skills/`
 and the selected config directory's `skills/`; the config copy wins on a name clash.
 Prefer project scope. Copy a reviewed complete skill folder from the stage into
@@ -173,10 +199,11 @@ assume an untracked copy in one checkout exists in another worktree. Verify nati
 discovery in an actual new worktree before delegating to it.
 
 After reviewing the selected source and bundle, this example stages a fresh
-copy and adopts it into a new Codex lead project. Run it from the Factory checkout:
+copy and adopts it into the selected existing Codex project. Replace the example
+path with the inspected workspace and run it from the Factory source checkout:
 
 ```sh
-factory_lead_project="$HOME/Developer/factory-lead"
+factory_lead_project="$HOME/Developer/your-project"
 factory_lead_stage="$(mktemp -d)" &&
   python3 scripts/stage.py agent-ops --output "$factory_lead_stage/bundle" &&
   mkdir -p "$factory_lead_project/.agents/skills" &&
@@ -195,6 +222,11 @@ native session and verify the correct skills appear and can read their reference
 Ask it to assess a harmless example; copied files alone are not discovery proof.
 Do not replace the application's AGENTS/CLAUDE instructions. Add a short route only
 where the native harness requires one, preserving the canonical source.
+
+In the Factory method repository itself, the Ops thread can read the reviewed
+canonical skill files directly without copying them back into their own source
+tree. Record this as explicit source loading, not native skill discovery. Configure
+the persistent thread with [the operator workspace guide](workspace.md).
 
 ## 6. Prepare the repo and prove one delivery
 

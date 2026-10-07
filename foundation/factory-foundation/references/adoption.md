@@ -12,6 +12,10 @@ Record the choices relevant to the installation:
   provider profiles, model choices and billing/usage source.
 - Selected skills, Factory tag/revision, stage hashes, installed paths, preserved
   local changes and observed native discovery.
+- Ops thread identity, project/workspace binding, role/source paths, pin and
+  auto-settle choice; explicit source loading distinguished from native discovery.
+- Each client's saved service connection and Local environment choice; observed
+  execution host, OS/account and workspace, distinguished from the client device.
 - Effective filesystem/network/tool boundaries, allowed data destinations,
   deployment credentials and private security reporting route.
 - Work-status source and actual Project/field/label identifiers; priority and

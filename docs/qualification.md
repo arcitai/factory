@@ -11,6 +11,7 @@ been qualified by publishing these files.
 | Package validator | Fixture checks exercise a mismatched skill name, missing references and links escaping the skill folder |
 | Method decisions | Nine text-only Claude Opus 5.5 scenarios on the final method inputs matched their decision boundaries; see the [rehearsal record](rehearsals.md). Codex behavior remains unqualified. The final review verdict and revision are recorded with the release |
 | Upstream capabilities | Documentation/code baseline: T3 0.0.45 and separately identified 0.0.46 nightly, checked 2026-10-07 |
+| Operator workspace guidance | Two additional fresh-context Opus setup scenarios and one corrected recheck distinguish remote execution, source loading, role scope and pending actions; see [workspace rehearsals](rehearsals.md#operator-workspace-update-v011). This is text-only evidence, with a reporting failure and intervention limits retained |
 | T3 on an execution host | Not established by this package release; verify the selected host/account/service |
 | Native skill discovery | Must be observed in each installed provider/profile; a staged directory is insufficient |
 | Client disconnect and recovery | Requires the actual selected service and connection route |

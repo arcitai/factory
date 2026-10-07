@@ -17,6 +17,8 @@ what changes setup, authority or proof in the project's existing private record;
 the [adoption outline](references/adoption.md) is available if one is missing.
 
 For T3/Linux-host/Mac-client setup use [the setup guide](references/setup.md).
+For a pinned AgentOps thread, its skills and the host/client connection,
+use [the operator workspace guide](references/workspace.md).
 For GitHub Projects, labels, PR and CI use [repository preparation](references/github.md).
 Keep the method independent of a particular model and personal plugin.
 
@@ -24,8 +26,9 @@ Prepare only the chosen capabilities:
 
 - Confirm the native versions, selected provider account, effective tools and
   permissions. A discoverable binary or copied skill does not establish readiness.
-- Separate the lead's instructions and credentials from workers. A profile
-  separates configuration/history, not OS access. Qualify the actual filesystem
+- Scope the lead role to its chosen thread; an existing project is sufficient
+  when it has the intended access. Separate credentials/access where required.
+  A profile separates configuration/history, not OS access. Qualify the actual filesystem
   and network boundary; use a separate OS identity/environment where required.
 - Stage and review selected skills before native project/profile adoption.
   Keep one canonical copy, verify discovery in each chosen harness and preserve
