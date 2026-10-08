@@ -5,6 +5,21 @@ checks, labels, Projects and deployment rules. Preserve established conventions.
 Use GitHub's native CLI/API/UI; Factory has no label cache or workflow database.
 Check the authorized account and exact destination before changing them.
 
+## Qualify the connection
+
+GitHub authentication belongs to the OS account running the execution service.
+Check `gh auth status` there, then read the intended repository, a relevant issue
+or PR and its checks. Git fetch/push credentials and Project permissions are
+separate capabilities; test the read paths and qualify writes only as part of an
+authorized action. A browser login or successful Git clone does not establish all
+of them. Reuse adequate existing credentials and request only missing access.
+Never print tokens or copy a personal credential store into the execution account.
+
+For T3 0.0.45, use **Settings → Source Control → Rescan** after authenticating on
+the server, then confirm its account/status in that environment. This is native
+GitHub integration; there is no separate Factory login. See
+[T3 source control](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/source-control.md).
+
 ## One work-status source
 
 Choose the existing GitHub Project's **Status** field as the reference workflow.
@@ -69,6 +84,11 @@ Use the application's real test/build/lint checks. Keep workflow permissions
 minimal, dependencies/actions reviewed and pinned, execution bounded and secrets
 out of untrusted PRs. Do not carry Factory's method-validation workflow into an
 application as a substitute for meaningful application tests.
+Identify the relevant dependency-update and vulnerability-response route. Inspect
+effective workflow/token permissions, and native dependency alerts and secret
+scanning/push protection where available and appropriate. Distinguish configured,
+observed and unavailable controls; do not enable paid services or treat a scanner
+score as a security guarantee.
 
 Configure actual branch rules/required checks and applicable deployment protections
 in GitHub. Read them back. A workflow file alone does not enable those controls.
@@ -81,6 +101,10 @@ Before delivery, identify the exact reviewed candidate, check results, owner or
 delegated acceptance, destination and recovery. Refresh affected proof after
 changes/rebase. Read back the merge/release and, when in scope, verify actual
 installed behavior. Published, installed and validated are different states.
+Update affected delivery documentation to match the observed revision/environment.
+An untested deployment, rollback or restore remains unverified; publishing a release
+does not advance those verification dates. Retain private evidence at its approved
+location and link only a safe summary from public documentation.
 
 Sources: [Projects API](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects),
 [built-in workflows](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations),

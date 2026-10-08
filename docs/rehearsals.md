@@ -86,3 +86,79 @@ outputs bind their recorded earlier source hashes, not the final amendments. No
 rehearsal connected a client, installed skills, changed settings or delivered an
 application. Live installation evidence remains in private adoption records and
 the open qualification issues.
+
+## Project context and operation (issue #10)
+
+On 2026-10-08, four separate fresh Claude Code 2.1.289 / Opus 5.5 medium contexts
+received selected candidate skill sources and synthetic project observations.
+Each had no task tools, MCP servers, customizations or persistent session. These
+are decision/artifact exercises, not tests of an installed application.
+
+| Case | Observed behavior |
+| --- | --- |
+| Static site with useful existing docs but no standard docs tree | Reused the sources and declined unnecessary files, SLOs and infrastructure; held only the capabilities needing missing evidence |
+| Official connector connected but selected-document read denied | Kept local features available; separated authentication, resource/tool access and panel/agent paths; rejected a duplicate server and unrequested write access |
+| Accepted migration on an already selected Compose host | Preserved platform and merge boundary; identified schema compatibility, retry/idempotence and recovery checks. The first draft nevertheless described an unrun restore as exercised with a blank date |
+| Review of credential-bearing logs and unsupported operational claims | Requested changes for leaking headers/payloads, inadequate log tests, unsupported verification and misuse of the agent host journal as application evidence |
+
+The draft failure led to explicit guidance to keep pending checks pending even in
+example procedures. Three fresh contexts repeated the affected cases. The migration
+recheck labeled the new restore and rollback checks as unverified, preserving the
+older restore observation. The connector recheck still supplied today's date for
+undated input observations, and the static-site response used a verification
+template with pending fields. A final clarification makes missing dates explicitly
+unknown and distinguishes an empty result alone from a verified successful read.
+These residual reporting limits remain visible; they are not an all-pass verdict.
+A later source-only refinement makes task relevance, setup/upkeep cost and actual
+context use explicit. It has not been behaviorally rerun.
+
+The PR evidence retains the sanitized requests, actual responses and SHA-256 hashes
+of supplied method files, including the earlier failures. The last clarifications
+are assessed in independent source review; the earlier responses are evidence for
+their hashed inputs, not changed bytes. No percentage of reliability is inferred
+from this small set. The cases supply the environment facts and task authority;
+they do not demonstrate independent discovery, enforcement, live connector access,
+deployment, alert delivery or restore. Independent review of real candidates and
+actual checks remain necessary. The existing default human delivery decision is
+unchanged. Native Opus High research informed this change but is separate from
+these fresh-context exercises.
+
+## Human review handoff (#12 candidate)
+
+On 2026-10-08, four fresh Claude Code 2.1.289 / Opus 5.5 medium contexts
+exercised the Factory and AIOS handoff instructions without task tools, MCP or
+persistent sessions. Factory's method-PR case retained earlier reporting failures,
+used a source comparison and left delivery with the owner. Its UI-review case
+rejected stale checks, an unfair screenshot pair, unsupported interaction claims,
+hidden test failure and credential-bearing media. It also conflated “ready to
+merge” with permission; the method now separates recommendation from authority.
+
+Several outputs were unnecessarily long. After clearer brevity guidance, three
+fresh contexts repeated the method-PR and AIOS handoff cases. The small CLI handoff
+became two short paragraphs; the method PR retained its evidence limits. The AIOS
+publication case proposed fixing inaccessible/mislabelled media and old checks in
+place without broader access, but still repeated status and scope details. These
+responses also labelled the removed excerpt “Before (d7)” without a verified
+baseline: the request named d7 only as the stale test revision. Independent review
+caught this unsupported provenance. Use “removed text from the d9 diff” until its
+baseline is verified. These are bounded examples, not an all-pass, conciseness or
+reliability guarantee.
+
+The PR records retain all seven requests, actual outputs and input hashes; initial
+responses apply to their earlier sources. Facts and access results were supplied,
+not discovered. There was no paired pre-change behavior run, actual screenshot
+inspection, GitHub publication or application test in these exercises. Real PR
+rendering, source checks and independent review are recorded separately. Neither
+package has been released or installed by this candidate work.
+
+The owner then found the role-only PR diagrams unhelpful. A focused revision
+selects formats by the actual question and makes usefulness part of review.
+Two fresh tool-free Opus 5.5 medium contexts (one per package) received four
+supplied cases each: they chose a pending-save action/result explanation, a plain
+README excerpt and a changed credential-boundary diagram, and omitted the
+unchanged phase chart. No screenshots, interactions or security checks occurred.
+The Factory response also claimed a docs-only correction had “no runtime risk”;
+that unsupported generalization is a residual failure, not an accepted guarantee.
+The exact input hashes remain with the PR evidence. A subsequent wording-only
+clarification says a read-only reviewer flags redundant visuals rather than
+editing them; the earlier outputs do not exercise that final role wording.

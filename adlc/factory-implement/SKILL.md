@@ -18,6 +18,12 @@ interaction for changed UI behavior. Mock checks alone do not prove integration.
 
 Keep the implementation cohesive and appropriate to the codebase. Add abstractions
 only for a real responsibility. Update affected docs and checks with the change.
+Preserve authoritative configuration and the project's documentation structure;
+update affected dependency contracts, data/access boundaries and operating guidance.
+Advance a verification claim only with the actual check, revision/environment and
+date. Changed but untested deployment, recovery or telemetry stays unverified.
+In draft procedures, label pending checks explicitly rather than writing successful
+outcomes with date placeholders. Retain the date/source of prior observations.
 Use executable checks for mechanical rules; do not weaken acceptance criteria or
 alter independent verifier evidence to make a result pass.
 
@@ -28,6 +34,10 @@ reversible fix does not require repeating an already resolved approval.
 Keep private logs and sensitive evidence in the project's approved location.
 Return the actual revision or identified uncommitted change, commands/results,
 relevant artifacts and limitations. Unknown cost stays unknown.
+
+When preparing a PR or substantive human handoff, use the
+[review handoff](references/review-handoff.md): show the concrete change and
+useful proof before the detailed record. Keep it current with the candidate.
 
 Hand the actual candidate to a separate review context. A completed turn does not
 mean the result is accepted or installed. Branch publication, merge and release

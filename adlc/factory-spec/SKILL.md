@@ -14,6 +14,9 @@ Define intended behavior, allowed changes, exclusions, dependencies, needed tool
 observable proof and delivery boundary. Separate facts, assumptions and open
 decisions. Include data/access constraints and recovery where consequences justify
 them. Preserve explicit admission and delivery delegation; do not add phase gates.
+Identify the affected architecture, dependencies, trust/data boundaries and
+operational signals, with routes to their existing sources. Include needed context
+updates and verification in the same scope; a small fix needs no new docs framework.
 
 For a material unresolved design choice, compare concrete alternatives against
 the project and select the least maintenance that meets the need. A small local

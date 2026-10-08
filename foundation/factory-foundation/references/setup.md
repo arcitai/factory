@@ -5,7 +5,8 @@ optionally a phone as clients. The host can be a laptop, workstation or VPS.
 The method itself also works without T3 after qualifying
 the chosen harness's discovery and operation.
 
-Source baseline checked 2026-10-07: stable T3 **0.0.45**. Newer V2 delegation and
+Verified: upstream setup guidance; stable T3 **0.0.45**; 2026-10-07;
+source inspection, not live installation proof. Newer V2 delegation and
 automation are an additional qualification, not a prerequisite for the first
 manually coordinated task. Keep the chosen client/server/provider versions in
 the installation record. See [upstream installation](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/install.md).
@@ -39,7 +40,9 @@ services as root. Keep the host powered, awake and network-accessible.
 Install Git, the GitHub CLI and the native provider CLIs using their supported
 instructions. Inspect versions and authenticate the intended execution account.
 Repository and Project operations need appropriate GitHub access; deployment
-credentials are a separate decision.
+credentials are a separate decision. Follow the
+[GitHub connection checks](github.md#qualify-the-connection) for CLI, Git and
+Project access on that same account and the native T3 readback.
 
 Install a selected T3 release using its official installer. For the documented
 baseline, download and inspect the script before executing it:

@@ -15,6 +15,15 @@ Assess whether the behavior meets the task and whether it follows the project's
 documented standards. Exercise representative acceptance and regression paths.
 Bind findings to the inspected candidate and concrete requirements; distinguish
 defects from optional preferences. A placeholder check or generic score is not proof.
+Compare affected context and dependency/operating guidance with the actual candidate
+and evidence. Check changed access, failure signals and recovery claims where relevant;
+an edited date, a configured control or a green unrelated test is not proof they work.
+Inspect the human handoff as part of this review: its concrete comparison, check
+claims and pending decision must match the candidate. Check useful media and links
+in the rendered result; reject invented baselines, exposed sensitive data or hidden
+material failures. Check whether the format explains the actual change and the
+reader's question; flag decorative or redundant visuals. Clearly distinguish
+explanatory diagrams from observed behavior.
 
 Consider consequences and affected trust/data boundaries, not just diff size.
 Use a scoped security review when needed. Compare before/after evidence for claims

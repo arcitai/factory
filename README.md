@@ -2,33 +2,39 @@
 
 A practical method for building and improving applications with coding agents.
 
-Factory prepares a project, gives its lead a way to turn ideas into decisions,
-and carries accepted work through implementation, independent review and delivery.
-T3 Code provides the working environment; native harnesses run the agents;
-GitHub holds the work and its delivery evidence.
+Use Factory when you want to give an agent an idea, a bug, a feature or an accepted
+backlog and get back a useful decision or a verified change. It gives owners and
+small teams a repeatable way to prepare a project, direct the work and review its
+delivery. T3 Code provides the workspace, native harnesses run the agents, and
+GitHub holds issues, pull requests and checks.
 
 | Part | Use it for |
 | --- | --- |
-| [Foundation](foundation/factory-foundation/SKILL.md) | Prepare the host, repository, accounts, skills, GitHub Project and delivery checks |
+| [Foundation](foundation/factory-foundation/SKILL.md) | Prepare the project context, dependencies, execution host, access and delivery checks |
 | [Agent Ops](agent-ops/factory-agent-ops/SKILL.md) | Research an idea, challenge a proposal, coordinate a task or work through an accepted backlog |
 | [ADLC](adlc/README.md) | Triage, specify, implement, independently review, investigate security and evaluate results |
 
-These are ordinary Agent Skills. They do not require AIOS, a Factory server,
-a model router or a dashboard. T3 Code is the reference setup; the method can
-also be used in another capable harness after checking its supported discovery
-and execution behavior. A skill describes behavior; it does not create tools,
-permissions, background execution or isolation.
+ADLC means **Agentic Development Lifecycle**. The skills work with your
+application's existing standards, tools and hosting choices.
 
 ## Start
 
-Follow the [host and client setup](foundation/factory-foundation/references/setup.md).
-It covers a Linux laptop, workstation or VPS, a Mac as the operator client,
-native accounts and project-scoped skills. Then prepare the repository with
-the [GitHub guide](foundation/factory-foundation/references/github.md).
+You need a repository, an execution machine, access to the selected coding
+provider and permission to work with the repository on GitHub. T3 Code is the
+reference workspace; another capable harness can use the skills after its
+loading, access and execution behavior have been checked.
 
-Keep one pinned **AgentOps** thread in your existing project. The
-[operator workspace guide](foundation/factory-foundation/references/workspace.md)
-shows where work runs, how clients connect and how the thread loads its role and skills.
+1. Follow the [setup guide](foundation/factory-foundation/references/setup.md)
+   to connect the chosen host and clients, authenticate the tools and adopt the
+   skills from a reviewed Factory release. Its worked example uses a Linux host
+   and a Mac client.
+2. Ask Foundation to assess and prepare your project. Reuse existing instructions,
+   configuration and documentation; establish the missing context and real checks
+   needed for the intended work. The [GitHub guide](foundation/factory-foundation/references/github.md)
+   covers repository access, work tracking and delivery protections.
+3. Keep a pinned **AgentOps** thread in your project. Use the
+   [workspace guide](foundation/factory-foundation/references/workspace.md) to
+   activate its role, then give it one bounded task and verify the result.
 
 Give the lead an idea, a specific task or an accepted backlog. Examples:
 
@@ -45,43 +51,17 @@ either decision for an explicit scope. Retain that delegation throughout the
 task. Tests and independent review still apply, and material new risk can require
 the owner to reconsider. See [the operating policy](agent-ops/factory-agent-ops/references/policy.md).
 
-## Adopt the skills
+## How much is verified?
 
-Clone a reviewed release of this repository. The small staging helper copies a
-selected bundle into a **new** directory, including licenses and a hash manifest:
+A published method release is not an installed or qualified system. Verify your
+selected host, tools and a real task before relying on unattended operation.
+The [qualification record](docs/qualification.md) separates package checks,
+behavioral exercises and live proof. Skills guide work; the native tools and
+infrastructure enforce access and run it.
 
-```sh
-factory_stage_root="$(mktemp -d)" &&
-  python3 scripts/stage.py foundation --output "$factory_stage_root/foundation" &&
-  python3 scripts/stage.py agent-ops --output "$factory_stage_root/agent-ops" &&
-  python3 scripts/stage.py adlc --output "$factory_stage_root/adlc"
-```
-
-Inspect the staged files, then use the guide to install only the appropriate
-skills in the selected project/profile. The helper does not install tools,
-change a repository, create GitHub resources, log in or start an agent.
-Use a fresh staging directory on updates and review differences before adoption.
-In a Git checkout, only tracked files are staged; add intended new resources to
-Git first. A source archive has version/hashes but no Git revision claim. Keep
-the manifest with the persistent private adoption record before removing the stage.
-
-## Evidence and development
-
-This initial method package is not a claim that unattended T3 operation has been
-qualified on your host. The [qualification record](docs/qualification.md)
-separates package checks, behavioral rehearsals and live installation evidence.
-The [architecture](docs/architecture.md) defines responsibility and trust boundaries.
-The [research decision](docs/decision.md) explains the choice of native tools and
-the remaining operational proof.
-
-Run `python3 scripts/check.py` and `python3 -m unittest discover -s tests` to
-check the package. Consumers do not need Python to read or use the skills.
-The [contributor guide](CONTRIBUTING.md) explains changes and releases.
-
-This is the method-focused successor to
-[factory-software-defence](https://github.com/arcitai/factory-software-defence).
-The [transition record](docs/transition.md) explains what was retained and retired.
-The prior repository, releases and private runtime history are preserved.
+See the [architecture](docs/architecture.md) for responsibilities,
+[contributor guide](CONTRIBUTING.md) for package checks and releases, and
+[transition record](docs/transition.md) for the move from the earlier Factory system.
 
 MIT licensed. Existing application licenses, third-party tools and provider
 subscriptions retain their own terms.
