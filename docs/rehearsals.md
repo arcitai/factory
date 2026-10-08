@@ -150,3 +150,15 @@ not discovered. There was no paired pre-change behavior run, actual screenshot
 inspection, GitHub publication or application test in these exercises. Real PR
 rendering, source checks and independent review are recorded separately. Neither
 package has been released or installed by this candidate work.
+
+The owner then found the role-only PR diagrams unhelpful. A focused revision
+selects formats by the actual question and makes usefulness part of review.
+Two fresh tool-free Opus 5.5 medium contexts (one per package) received four
+supplied cases each: they chose a pending-save action/result explanation, a plain
+README excerpt and a changed credential-boundary diagram, and omitted the
+unchanged phase chart. No screenshots, interactions or security checks occurred.
+The Factory response also claimed a docs-only correction had “no runtime risk”;
+that unsupported generalization is a residual failure, not an accepted guarantee.
+The exact input hashes remain with the PR evidence. A subsequent wording-only
+clarification says a read-only reviewer flags redundant visuals rather than
+editing them; the earlier outputs do not exercise that final role wording.

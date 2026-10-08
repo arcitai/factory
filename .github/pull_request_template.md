@@ -4,7 +4,8 @@
 
 <!-- Concrete problem → resulting behavior, with the accepted issue/scope.
 Show a useful before/after: real UI captures, a small output pair, or labelled
-explanatory excerpts/diagram. Do not invent a baseline or measured benefit. -->
+explanatory excerpts/diagram. Choose for the reviewer's question; omit visuals
+that add no understanding. Do not invent a baseline or measured benefit. -->
 
 ## Review
 

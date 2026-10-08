@@ -21,7 +21,9 @@ an edited date, a configured control or a green unrelated test is not proof they
 Inspect the human handoff as part of this review: its concrete comparison, check
 claims and pending decision must match the candidate. Check useful media and links
 in the rendered result; reject invented baselines, exposed sensitive data or hidden
-material failures. Clearly distinguish explanatory diagrams from observed behavior.
+material failures. Check whether the format explains the actual change and the
+reader's question; flag decorative or redundant visuals. Clearly distinguish
+explanatory diagrams from observed behavior.
 
 Consider consequences and affected trust/data boundaries, not just diff size.
 Use a scoped security review when needed. Compare before/after evidence for claims

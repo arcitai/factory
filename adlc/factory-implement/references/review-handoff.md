@@ -19,11 +19,22 @@ separate heading for every fact or repeat the same limitation in several places.
 
 ## Choose evidence that explains this change
 
+Start with what the reviewer needs to understand about this specific change.
+Choose the format for that question, not to fill a visual slot. The options below
+are examples, not requirements for every PR. Plain text can be the best answer.
+
 | Change | Useful comparison |
 | --- | --- |
 | Visible UI | Real captures of the affected view before and after; a short action/result sequence when interaction matters |
 | CLI, API or data behavior | A small real input/output pair, response, failure/recovery example or measured result |
 | Method, documentation or architecture | Exact changed excerpts or a clearly labelled explanatory table/diagram; a recorded behavior trial when making a behavior claim |
+
+Use a diagram when its relationships explain an important mechanism, boundary,
+decision or tradeoff. Show the concrete inputs, changed path or consequence that
+answers the reader's question. A flowchart of phase names adds little unless
+those phases or their relationships are the actual change. Review the meaning as
+well as rendering: if removing the visual loses no useful understanding, omit it.
+Do not replace a redundant chart with a redundant table or mandatory screenshot.
 
 Capture a relevant baseline during investigation when practical. Reuse an
 identified prior artifact or safe isolated preview; preserve other work. Bind
