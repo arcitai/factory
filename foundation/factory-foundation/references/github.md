@@ -15,6 +15,14 @@ authorized action. A browser login or successful Git clone does not establish al
 of them. Reuse adequate existing credentials and request only missing access.
 Never print tokens or copy a personal credential store into the execution account.
 
+Before the first commit, check `git var GIT_AUTHOR_IDENT` and
+`git var GIT_COMMITTER_IDENT` in the intended checkout. GitHub login does not
+configure commit attribution. If missing or wrong, use the approved identity at
+the selected repository or execution-account scope; preserve existing overrides.
+Use the account's [GitHub-provided noreply address](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)
+when privacy is needed. Never invent an author. Read back the identity on the
+first authorized commit; no extra test commit or credential change is required.
+
 For T3 0.0.45, use **Settings → Source Control → Rescan** after authenticating on
 the server, then confirm its account/status in that environment. This is native
 GitHub integration; there is no separate Factory login. See
