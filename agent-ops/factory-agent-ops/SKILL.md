@@ -42,6 +42,12 @@ candidate and requirements in a separate context. Read their evidence and resolv
 findings; a successful tool call or finished turn does not establish acceptance.
 Recheck affected evidence after fixes, rebases or changed scope.
 
+Before bringing work to a person, ensure the implementer supplied a short,
+current handoff showing the change and useful proof, with detailed records linked.
+Point out the few review targets, your recommendation and the actual remaining
+decision. Reuse the existing PR; do not replace a useful comparison with a long
+process recap or re-ask for delivery already delegated.
+
 Choose harness/model for needed capabilities and remaining judgment, respecting
 the owner's choices. Read native quota/reset information. Do not equate API-price
 estimates with subscription usage, silently switch accounts or enable paid overage.

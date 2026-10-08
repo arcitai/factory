@@ -35,6 +35,10 @@ Keep private logs and sensitive evidence in the project's approved location.
 Return the actual revision or identified uncommitted change, commands/results,
 relevant artifacts and limitations. Unknown cost stays unknown.
 
+When preparing a PR or substantive human handoff, use the
+[review handoff](references/review-handoff.md): show the concrete change and
+useful proof before the detailed record. Keep it current with the candidate.
+
 Hand the actual candidate to a separate review context. A completed turn does not
 mean the result is accepted or installed. Branch publication, merge and release
 follow the owner's existing scope/delegation and repository rules. Read back an

@@ -122,3 +122,31 @@ deployment, alert delivery or restore. Independent review of real candidates and
 actual checks remain necessary. The existing default human delivery decision is
 unchanged. Native Opus High research informed this change but is separate from
 these fresh-context exercises.
+
+## Human review handoff (#12 candidate)
+
+On 2026-10-08, four fresh Claude Code 2.1.289 / Opus 5.5 medium contexts
+exercised the Factory and AIOS handoff instructions without task tools, MCP or
+persistent sessions. Factory's method-PR case retained earlier reporting failures,
+used a source comparison and left delivery with the owner. Its UI-review case
+rejected stale checks, an unfair screenshot pair, unsupported interaction claims,
+hidden test failure and credential-bearing media. It also conflated “ready to
+merge” with permission; the method now separates recommendation from authority.
+
+Several outputs were unnecessarily long. After clearer brevity guidance, three
+fresh contexts repeated the method-PR and AIOS handoff cases. The small CLI handoff
+became two short paragraphs; the method PR retained its evidence limits. The AIOS
+publication case proposed fixing inaccessible/mislabelled media and old checks in
+place without broader access, but still repeated status and scope details. These
+responses also labelled the removed excerpt “Before (d7)” without a verified
+baseline: the request named d7 only as the stale test revision. Independent review
+caught this unsupported provenance. Use “removed text from the d9 diff” until its
+baseline is verified. These are bounded examples, not an all-pass, conciseness or
+reliability guarantee.
+
+The PR records retain all seven requests, actual outputs and input hashes; initial
+responses apply to their earlier sources. Facts and access results were supplied,
+not discovered. There was no paired pre-change behavior run, actual screenshot
+inspection, GitHub publication or application test in these exercises. Real PR
+rendering, source checks and independent review are recorded separately. Neither
+package has been released or installed by this candidate work.

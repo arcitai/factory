@@ -18,6 +18,10 @@ defects from optional preferences. A placeholder check or generic score is not p
 Compare affected context and dependency/operating guidance with the actual candidate
 and evidence. Check changed access, failure signals and recovery claims where relevant;
 an edited date, a configured control or a green unrelated test is not proof they work.
+Inspect the human handoff as part of this review: its concrete comparison, check
+claims and pending decision must match the candidate. Check useful media and links
+in the rendered result; reject invented baselines, exposed sensitive data or hidden
+material failures. Clearly distinguish explanatory diagrams from observed behavior.
 
 Consider consequences and affected trust/data boundaries, not just diff size.
 Use a scoped security review when needed. Compare before/after evidence for claims
