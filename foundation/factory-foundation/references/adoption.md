@@ -8,6 +8,8 @@ Do not record credentials. Unknown is a visible gap, not a made-up default.
 Record the choices relevant to the installation:
 
 - Project, owner, approved vision, canonical instructions and actual repo/branch.
+- Routes to relevant architecture, checks, dependency/configuration sources and
+  operational guidance. Preserve the project's existing names and records.
 - Execution host and OS identity, client route, service owner, native versions,
   provider profiles, model choices and billing/usage source.
 - Selected skills, Factory tag/revision, stage hashes, installed paths, preserved
@@ -24,6 +26,14 @@ Record the choices relevant to the installation:
   delegation and conditions. State any pause/risk conditions that change them.
 - Real checks, required GitHub rules, review context, release/deployment policy
   and recovery route.
+- Application environments separately from the execution host: chosen platform,
+  artifact/deploy route, data/migrations, allowed agent access, rollback and the
+  last observed restore where recovery of state matters.
+- External services/connectors and their dependent features: configuration owner,
+  required access, actual operation checked and remaining gaps. Installed,
+  authenticated, resource-accessible and usable are separate observations.
+- Operational signals, their locations, access/redaction/retention, response owner
+  and runbook. Retain the result of relevant health, alert and failure-path checks.
 
 For each claimed capability retain the tested revision/version, action, outcome,
 date and evidence. Relevant proof includes:

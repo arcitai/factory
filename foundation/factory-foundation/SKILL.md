@@ -20,10 +20,17 @@ For T3 host/client setup use [the setup guide](references/setup.md).
 For a pinned AgentOps thread, its skills and the host/client connection,
 use [the operator workspace guide](references/workspace.md).
 For GitHub Projects, labels, PR and CI use [repository preparation](references/github.md).
+For application context, dependencies, operation and living documentation,
+use [project context](references/context.md).
 Keep the method independent of a particular model and personal plugin.
 
 Prepare only the chosen capabilities:
 
+- Find the authoritative project sources and concrete gaps for the intended work.
+  Reuse existing docs, code/configuration and checks; establish missing context
+  according to the product's purpose and actual risks. Weigh setup and upkeep
+  against the benefit; the task does not require perfecting the whole repo.
+  Keep the agent host distinct from application operation.
 - Confirm the native versions, selected provider account, effective tools and
   permissions. A discoverable binary or copied skill does not establish readiness.
 - Scope the lead role to its chosen thread; an existing project is sufficient

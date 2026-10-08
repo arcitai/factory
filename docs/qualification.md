@@ -12,6 +12,7 @@ been qualified by publishing these files.
 | Method decisions | Nine text-only Claude Opus 5.5 scenarios on the final method inputs matched their decision boundaries; see the [rehearsal record](rehearsals.md). Codex behavior remains unqualified. The final review verdict and revision are recorded with the release |
 | Upstream capabilities | Documentation/code baseline: T3 0.0.45 and separately identified 0.0.46 nightly, checked 2026-10-07 |
 | Operator workspace guidance | Fresh-context Opus setup and harness-role scenarios distinguish remote execution, source loading, role scope and pending actions; see [workspace rehearsals](rehearsals.md#operator-workspace-update-v011). This is text-only evidence, with a reporting failure and intervention limits retained |
+| Project context guidance (#10 candidate) | Fresh Opus cases cover proportional context, connector access, migration/recovery and telemetry review. A success-shaped draft and unsupported dates were observed; instructions were clarified and affected cases repeated. See [scope and limits](rehearsals.md#project-context-and-operation-issue-10) before relying on this guidance |
 | T3 on an execution host | Not established by this package release; verify the selected host/account/service |
 | Native skill discovery | Must be observed in each installed provider/profile; a staged directory is insufficient |
 | Client disconnect and recovery | Requires the actual selected service and connection route |

@@ -8,7 +8,7 @@ license: MIT
 
 Start from the owner's current request, the project's vision/instructions and
 existing decisions. Read [the operating policy](references/policy.md) once when
-taking ownership. This role is portable and does not require AIOS. For T3-specific
+taking ownership. For T3-specific
 execution and recovery, use [the native operation notes](references/t3.md).
 
 Classify the input without forcing it into implementation:
@@ -26,6 +26,10 @@ Classify the input without forcing it into implementation:
 Retain the task, source, authority for each decision point, acceptance checks,
 active workspace/session and next action in the native task context. Keep durable
 decisions in the project's existing records. Do not introduce a second task DB.
+When a task, dependency/version change or incident reveals missing or conflicting
+context, reconcile the relevant sources and verification claims. Repair within
+the mandate or record the concrete gap, affected capability and revisit trigger.
+Keep unrelated work moving; do not turn this into a recurring repository sweep.
 
 Use available task skills selectively: factory-triage, factory-spec,
 factory-implement, factory-review, factory-security and factory-evaluate. Missing

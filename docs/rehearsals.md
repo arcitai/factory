@@ -86,3 +86,39 @@ outputs bind their recorded earlier source hashes, not the final amendments. No
 rehearsal connected a client, installed skills, changed settings or delivered an
 application. Live installation evidence remains in private adoption records and
 the open qualification issues.
+
+## Project context and operation (issue #10)
+
+On 2026-10-08, four separate fresh Claude Code 2.1.289 / Opus 5.5 medium contexts
+received selected candidate skill sources and synthetic project observations.
+Each had no task tools, MCP servers, customizations or persistent session. These
+are decision/artifact exercises, not tests of an installed application.
+
+| Case | Observed behavior |
+| --- | --- |
+| Static site with useful existing docs but no standard docs tree | Reused the sources and declined unnecessary files, SLOs and infrastructure; held only the capabilities needing missing evidence |
+| Official connector connected but selected-document read denied | Kept local features available; separated authentication, resource/tool access and panel/agent paths; rejected a duplicate server and unrequested write access |
+| Accepted migration on an already selected Compose host | Preserved platform and merge boundary; identified schema compatibility, retry/idempotence and recovery checks. The first draft nevertheless described an unrun restore as exercised with a blank date |
+| Review of credential-bearing logs and unsupported operational claims | Requested changes for leaking headers/payloads, inadequate log tests, unsupported verification and misuse of the agent host journal as application evidence |
+
+The draft failure led to explicit guidance to keep pending checks pending even in
+example procedures. Three fresh contexts repeated the affected cases. The migration
+recheck labeled the new restore and rollback checks as unverified, preserving the
+older restore observation. The connector recheck still supplied today's date for
+undated input observations, and the static-site response used a verification
+template with pending fields. A final clarification makes missing dates explicitly
+unknown and distinguishes an empty result alone from a verified successful read.
+These residual reporting limits remain visible; they are not an all-pass verdict.
+A later source-only refinement makes task relevance, setup/upkeep cost and actual
+context use explicit. It has not been behaviorally rerun.
+
+The PR evidence retains the sanitized requests, actual responses and SHA-256 hashes
+of supplied method files, including the earlier failures. The last clarifications
+are assessed in independent source review; the earlier responses are evidence for
+their hashed inputs, not changed bytes. No percentage of reliability is inferred
+from this small set. The cases supply the environment facts and task authority;
+they do not demonstrate independent discovery, enforcement, live connector access,
+deployment, alert delivery or restore. Independent review of real candidates and
+actual checks remain necessary. The existing default human delivery decision is
+unchanged. Native Opus High research informed this change but is separate from
+these fresh-context exercises.

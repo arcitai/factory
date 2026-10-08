@@ -10,6 +10,9 @@ Identify the authorized target, revision/environment, question, allowed actions,
 data boundary and evidence destination. Application development does not authorize
 testing unrelated hosts or production. A missing boundary holds the affected
 probe; continue permitted source analysis where useful.
+Use the project's current threat, dependency and operational context. When the
+question changes a trust boundary, connector or data class, identify the affected
+threats, controls and context updates for the authorized remediation work.
 
 Trace relevant input, trust boundaries and consequences. Use safe isolated
 reproductions for credible findings. Record prerequisites, attacker-controlled

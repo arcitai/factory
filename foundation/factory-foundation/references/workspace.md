@@ -98,7 +98,8 @@ uses UI labels. A locked desktop or missing privilege can hold that particular
 step. Report it as pending, continue independent checks and never describe a
 proposed command or record update as completed without execution and readback.
 
-Checked against T3 0.0.45:
+Verified: upstream workspace guidance; T3 0.0.45; 2026-10-07;
+source inspection of the following references, not live client proof:
 [thread pin and settlement](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/thread-sidebar.md),
 [client connections](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/remote-access.md),
 [environment labels](https://github.com/pingdotgg/t3code/blob/v0.0.45/apps/server/src/environment/ServerEnvironmentLabel.ts),

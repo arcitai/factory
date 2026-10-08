@@ -18,6 +18,12 @@ interaction for changed UI behavior. Mock checks alone do not prove integration.
 
 Keep the implementation cohesive and appropriate to the codebase. Add abstractions
 only for a real responsibility. Update affected docs and checks with the change.
+Preserve authoritative configuration and the project's documentation structure;
+update affected dependency contracts, data/access boundaries and operating guidance.
+Advance a verification claim only with the actual check, revision/environment and
+date. Changed but untested deployment, recovery or telemetry stays unverified.
+In draft procedures, label pending checks explicitly rather than writing successful
+outcomes with date placeholders. Retain the date/source of prior observations.
 Use executable checks for mechanical rules; do not weaken acceptance criteria or
 alter independent verifier evidence to make a result pass.
 
