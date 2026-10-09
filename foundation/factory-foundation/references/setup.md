@@ -178,7 +178,26 @@ pairing before creating another. Do not import a personal browser profile to sol
 an execution-host login, or infer GitHub CLI access from a browser session.
 
 T3 Connect links environments through its native account flow, including headless
-hosts. Direct/Tailscale connections are alternatives for access. Background phone
+hosts. When Connect and mobile notifications are selected, a headless host with
+an existing service can use the following as its execution account. Reconcile
+active runs and known background work before the restart:
+
+```sh
+t3 connect link --headless
+t3 connect publish
+t3 service restart
+t3 connect status
+```
+
+Complete the account login and native relay-client installation prompts. Linking
+finishes asynchronously after the service starts; saved authorization alone is
+not reachability. Reuse that service rather than starting another server. Sign
+in to the same T3 account on each client. Add Connect as a route to the existing
+environment and inspect the route actually in use; retained SSH/direct routes
+can provide fallback. If a newly linked environment is absent from a client that
+was already open, refresh its view before trying to pair again.
+
+Direct/Tailscale connections are alternatives for access. Background phone
 push requires T3 Connect; the phone app is T3 Code, not the existing Codex/ChatGPT
 conversation. Test a real question/approval from the phone before relying on it.
 Select notification preferences deliberately. Keep external integrations for a
