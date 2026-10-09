@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.7 · Updated: 2026-10-09
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -49,16 +49,20 @@ access where available; native tool approval does not shrink a token's permissio
 | Control | Configure and prove | Limit |
 | --- | --- | --- |
 | Host account | Unprivileged account; personal home, admin credentials and host sockets inaccessible; prove an allowed operation and a refused one | Same-account processes and projects still share accessible resources |
-| T3 mode | Begin with supervised for read-only assessment, or Auto for accepted editing; inspect the selected provider's effective policy | Auto is an approval policy, not one universal sandbox across providers |
-| Codex | In this T3 baseline, Auto maps to workspace-write with on-request approval and native auto-review; supervised maps to read-only | T3 supplies the runtime policy; a CLI configuration default alone does not prove the T3 turn uses it |
-| Claude | Enable native Bash sandboxing in the selected profile; disable unsandboxed retries and fail if sandboxing is unavailable; prove it in an actual T3-launched turn | Bash sandboxing does not enclose file tools, MCP servers or hooks; configure their permissions separately |
+| T3 mode | Begin with supervised for read-only assessment; for accepted editing, choose and read back the mode per provider and task | Each mode maps to a different provider policy; Auto is an approval policy, not one universal sandbox |
+| Codex | In this T3 baseline, Auto maps to workspace-write with on-request approval and native auto-review; supervised maps to read-only | T3 supplies the runtime policy; a CLI configuration default alone does not prove the T3 turn uses it. Measure its boundary separately from Claude's |
+| Claude | Enable native Bash sandboxing and the outside-read block in the selected profile; disable unsandboxed retries and fail if sandboxing is unavailable; qualify Auto-accept edits where outside file edits must wait for approval; prove each in an actual T3-launched turn | Bash sandboxing does not enclose file tools, MCP servers or hooks. The read block does not stop writes, and in Auto outside native edits were not held |
 | GitHub / delivery | Read effective repository, Projects and workflow permissions; use narrower credentials or a separate delivery identity where needed | A shared login remains shared access, even when commits credit several agents |
 
-For a selected Claude profile on a supported host, this is a minimal sandbox
-configuration to merge deliberately into its existing settings, not overwrite them:
+For a selected Claude profile on a supported host, this is a minimal configuration
+to merge deliberately into its existing settings, not overwrite them. The read
+block requires Claude Code 2.1.257 or later:
 
 ```json
 {
+  "permissions": {
+    "blockReadsOutsideWorkingDirectories": true
+  },
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
@@ -67,12 +71,24 @@ configuration to merge deliberately into its existing settings, not overwrite th
 }
 ```
 
-Install the native dependencies first. Check that the T3/SDK launch actually loads
-that profile's settings; CLI and SDK setting-source defaults can differ. Test a
-permitted workspace write and a denied write to a disposable path outside it,
-without retrying outside the sandbox. Also qualify required network destinations,
-file tools and MCP operations. A passing terminal probe alone is not a passing
-T3 integration test. Keep configured and demonstrated controls separate.
+Install the native dependencies first. Check which setting sources and working
+directories the T3/SDK launch actually uses; CLI and SDK defaults can differ, and
+a launch that loads only user settings ignores a project-local file. Start a new
+session after a change. Test a permitted workspace write and a denied write to a
+disposable path outside it, without retrying outside the sandbox. Then test native
+Read, Edit and Write inside and outside the workspace, plus required network
+destinations and MCP operations. A terminal probe or a present settings file is
+not a passing T3 integration test. Keep configured and demonstrated controls separate.
+
+In this T3 baseline, Auto maps to Claude's `auto` mode and Auto-accept edits to
+`acceptEdits` with T3's approval callback. In a qualified launch with the read
+block, Auto still let native Edit and Write change files outside the workspace.
+When outside file edits must wait for a person, qualify Auto-accept edits for that
+Claude worker: workspace edits proceed, while outside edits, many shell commands
+and explicit reads of installed skills can each ask for approval. Budget that
+attention; keep a declined operation declined rather than retrying it through
+another tool. This is assisted operation with user-editable guardrails, not
+unattended throughput, an unbypassable policy or role/process isolation.
 
 Native sandbox defaults may allow broad reads. Keep credentials outside the
 agent's accessible environment where possible, and use native read-deny/credential
@@ -90,7 +106,10 @@ access to resolve one denied build command. If AgentOps needs access that worker
 must not possess, use separate identities/environments; a title is not an ACL.
 
 Sources: [T3 permission modes](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/permission-modes.md),
+[T3 Claude mode mapping](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts#L1511-L1603),
 [Codex permissions](https://learn.chatgpt.com/docs/permissions),
+[Claude permission modes](https://code.claude.com/docs/en/permissions),
+[Claude read restriction](https://code.claude.com/docs/en/settings-reference#permissions-blockreadsoutsideworkingdirectories),
 [Claude sandbox scope and enforcement](https://code.claude.com/docs/en/sandboxing).
 
 ## 2. Install and authenticate on the execution host
