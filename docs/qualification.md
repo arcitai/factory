@@ -69,3 +69,38 @@ It does not prove unattended operation, restart during delegated work, independe
 review of arbitrary application code, physical reboot/network recovery or phone
 delivery. Nightly V2 needs the beta phone app. Native transcripts, task identities,
 host details and backup locations remain in the private installation record.
+
+## Agent Ops native probes — 2026-10-09
+
+**Source analysis only.** Idea research for #6 compared no change, native T3
+schedule/webhook configuration and new Factory code, using pinned upstream
+source (`3b6af0bd`) and live capability discovery (scheduled tasks available,
+none configured). Decision: defer automated intake; reject a Factory queue or
+scheduler. No schedule or webhook was enabled or tested live.
+
+**Live: two writers.** The Opus 5.5/High operator launched two Opus 5.5/High
+`auto` threads with T3's explicit new-worktree launch from the 0.1.2 release
+commit. Each reported its launch-bound working directory, Git root, branch and
+HEAD before writing and created only one untracked probe file. Native run
+timestamps overlapped by about ten seconds; no human approvals were requested.
+The operator verified each worktree contained only its own file, no tracked diff
+and an unchanged main checkout, then removed the files and archived both
+threads. Worktrees and history were retained.
+
+**Live: deferred completion.** The Claude harness blocked a foreground sleep, so
+each worker moved its pause to a background command; its first run completed
+before its readback. The background completion notification started a second
+run in each thread, and those runs also overlapped. The operator waited for them
+before cleanup. This motivated the background-continuation note in the T3 guide.
+
+**Partly live: Connect.** The service was restarted after all recorded runs were
+terminal. Persisted server state read on the host shows Connect exposure enabled,
+the environment link provisioned, agent-activity publishing enabled and the
+managed relay client available; the service is active and still bound to
+loopback. Persisted state is configuration, not reachability. *Owner-reported:*
+the Mac client used the Connect route, with the saved SSH route second.
+
+**Not proved.** OS/filesystem isolation between worktrees (they share the
+account), recovery from an uncertain or lost launch, permission denial, failed
+writes, phone notification/question/response and physical reboot, lid or
+network recovery. These probes do not qualify the installation.
