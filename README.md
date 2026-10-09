@@ -1,6 +1,6 @@
 # Factory
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.5 · Updated: 2026-10-09
 
 A practical method for building and improving applications with coding agents.
 
@@ -20,6 +20,37 @@ ADLC means **Agentic Development Lifecycle**. The skills work with your
 application's existing standards, tools and hosting choices.
 AgentOps coordinates ADLC and calls on Foundation when setup needs repair.
 These are responsibilities, not three servers or mandatory separate projects.
+
+## Three access levels: owner, AgentOps and ADLC
+
+Factory's access architecture starts with the human owner and gives each agent
+only the access needed for its work:
+
+- **You, the owner**, set the goals, approve or delegate decisions, and control
+  which accounts, systems and permissions the agents may use. Personal and
+  administrative access stays outside agent environments unless specifically granted.
+- **AgentOps** directs the work within that mandate, assigns bounded tasks and
+  brings back decisions. Any extra coordination or delivery access has a named
+  purpose and scope; being the lead does not grant administrator rights.
+- **ADLC agents** perform specific tasks in their assigned workspaces, using the
+  tools and access needed to implement, test or independently review the change.
+  They do not gain every permission held by the owner or lead simply by being delegated work.
+
+Foundation prepares and checks these boundaries through the selected OS accounts,
+environments, native harness sandboxes and service permissions. It tests both an
+operation that should work and one that should be refused, and records the limits.
+Least privilege applies at all three levels; additional access can be configured
+for a concrete need and removed afterward.
+
+Three access levels describe the intended responsibility and permission model.
+Claiming **three isolated environments** also requires technical separation. In a
+shared-account setup, AgentOps and workers can still reach the account's shared
+resources; separate threads, skills and worktrees do not change that. Use separately
+qualified identities/environments when workers must be unable to use the lead's
+resources. The [architecture](docs/architecture.md#three-level-access-architecture)
+and [setup guide](foundation/factory-foundation/references/setup.md#least-privilege-in-practice)
+explain the controls; the [qualification record](docs/qualification.md) states what
+has actually been demonstrated.
 
 ## Start
 
