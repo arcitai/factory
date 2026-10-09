@@ -1,11 +1,11 @@
 # Responsibility and access
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.5 · Updated: 2026-10-09
 
 Factory has three responsibilities around existing tools. It has no server,
 provider adapter, task database or application runtime of its own.
 
-| Layer | Owns | Does not establish |
+| Responsibility | Owns | Does not establish |
 | --- | --- | --- |
 | Foundation | Project context, native setup, access choices and readiness checks; repair when these change | Product scope, continuous execution or readiness merely because files were installed |
 | AgentOps | Research, priorities, assignments, exceptions and acceptance within delegated authority | Administrator access or permission to bypass review |
@@ -18,6 +18,32 @@ AgentOps remains responsible while ADLC works. Foundation is used when a setup
 or context gap affects the task; it is not a stage repeated before every edit.
 The owner decides admission and delivery by default, or delegates either for a
 specific scope. A completed run is not acceptance; published is not installed.
+
+## Three-level access architecture
+
+The three access levels are **human owner → AgentOps → ADLC workers**. The arrows
+mean scoped authority and assignments, not inherited credentials. Foundation
+prepares and verifies the environments and controls for these levels; it is not
+a fourth privileged agent tier.
+
+| Level | Normal responsibility and access | Example of a separate grant |
+| --- | --- | --- |
+| Human owner | Sets the mandate and controls personal, administrative and account access | Authorizes a specific staging deployment without sharing a personal admin session |
+| AgentOps | Reads the relevant project state, coordinates accepted work and reviews outcomes | A staging-only deployment identity for the authorized delivery step, kept outside implementation workers |
+| ADLC worker | Uses its assigned checkout, build/test tools and task-specific services; reviewers get the candidate and evidence | Access to the specific test service needed to verify the change, with a removal condition |
+
+Each level gets the least access needed. AgentOps can coordinate more while using
+the same restricted baseline as a worker; broader access is an explicit exception.
+For example, assigning a bug fix need not expose deployment credentials to the
+implementer. Deliver through the selected, authorized identity after review.
+
+Whether that separation is enforced depends on the actual setup. If the lead and
+worker share an OS account and accessible credentials, the table describes their
+responsibilities but does not prevent a worker from using the lead's access.
+Use separately qualified OS identities/environments or an isolated runtime when
+that prevention is required. Native sandboxes must be tested for the specific
+tools, paths and services in use. Record the demonstrated boundary rather than
+calling three role names three isolated environments.
 
 ## Where the work and authority live
 
