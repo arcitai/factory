@@ -1,112 +1,68 @@
 # Qualification
 
-The initial release packages a method. It does not claim that a T3 installation,
-autonomous backlog, mobile decision route or defensive environment has already
-been qualified by publishing these files.
+Revision: 0.1.4 · Updated: 2026-10-09
 
-| Boundary | Evidence / status |
-| --- | --- |
-| Package structure | Eight skills across Foundation, Agent Ops and ADLC; local metadata and self-contained link validation |
-| Staging helper | Disposable tests cover each bundle, manifest hashes/licenses, refusal to overwrite, symlink resources/destinations, ignored files in Git checkout mode and unrelated Git provenance; archives stage their reviewed contents without Git provenance |
-| Package validator | Fixture checks exercise a mismatched skill name, missing references and links escaping the skill folder |
-| Method decisions | Nine text-only Claude Opus 5.5 scenarios on the initial method inputs matched their decision boundaries; see the [rehearsal record](rehearsals.md). Codex was not part of that rehearsal; the narrower native Nightly sample is recorded below. Final review verdicts and revisions belong with the release |
-| Upstream capabilities | Reference setup now targets T3 0.0.46-nightly.20261009.2861, checked 2026-10-09 against pinned upstream source and the bounded pilot below; other builds require their own checks |
-| Operator workspace guidance | Fresh-context Opus setup and harness-role scenarios distinguish remote execution, source loading, role scope and pending actions; see [workspace rehearsals](rehearsals.md#operator-workspace-update-v011). This is text-only evidence, with a reporting failure and intervention limits retained |
-| Project context guidance (#10 candidate) | Fresh Opus cases cover proportional context, connector access, migration/recovery and telemetry review. A success-shaped draft and unsupported dates were observed; instructions were clarified and affected cases repeated. See [scope and limits](rehearsals.md#project-context-and-operation-issue-10) before relying on this guidance |
-| Human review handoff (#12 candidate) | Factory/AIOS text-only cases cover comparisons, media, delegation and choosing a useful format. Residual failures include invented provenance and a docs-only “no runtime risk” claim. See [observations and limits](rehearsals.md#human-review-handoff-12-candidate); rendering and installation require separate proof |
-| T3 on an execution host | One Nightly pilot observed below; publishing the package does not qualify another host/account/service |
-| Native skill discovery | Must be observed in each installed provider/profile; a staged directory is insufficient |
-| Client disconnect and recovery | Requires the actual selected service and connection route |
-| Phone decisions | Requires a real T3 mobile notification/response observation |
-| Application delivery | Requires a selected application and verified accepted task |
-| Defence | Requires a bounded authorized target and isolated test |
+This record distinguishes source review, disposable exercises and observed native
+operation. A package release does not qualify another host, every future update
+or an application deployment. Detailed private transcripts, identities and state
+remain with the installation; public issues track the remaining acceptance work.
 
-Run package checks locally:
+| Boundary | Observed evidence | Limit / next check |
+| --- | --- | --- |
+| Package | Eight portable skills, metadata/link checks and staging tests | Mechanical checks do not establish agent decisions |
+| Earlier method cases | Opus cases exercised admission, delegated delivery, proportional context and review handoffs | Text-only cases had failures, including invented provenance; preserved in the [v0.1.3 rehearsal record](https://github.com/arcitai/factory/blob/v0.1.3/docs/rehearsals.md) |
+| Native delegation | Nightly 2861: Opus 5.5/High delegated separate Codex review; a fresh review found and led to fixes | One assisted path, not arbitrary application quality or unattended acceptance |
+| Concurrent writers | Nightly 2861: two Opus workers ran in distinct native-bound worktrees with overlapping run times; main stayed unchanged | Same account; worktrees are not OS isolation |
+| Deferred completion | Worker background completion started further runs; the lead waited before cleanup | First-run completion alone did not mean work was finished |
+| Mac independence | A Connect-launched task continued and delegated after the Mac app quit; reopening recovered the same thread | Host power/network still required |
+| Phone | Owner confirmed Factory and pinned AgentOps visible in the iPhone beta | Background notification and a real question/response remain unproved |
+| Service interruption | A bounded worker wrote its marker once; restart cancelled the run; one deliberate follow-up inspected state | No duplicate write observed; this was not automatic completion of the interrupted task |
+| Physical host reboot | 2026-10-09: boot identity changed, service returned after the owner unlocked the disk; message contents and adopted skills were preserved; an Opus readback completed | Mac initially used saved SSH fallback; returning to Connect required a manual reconnect. Network-loss/lid behavior still open |
+| Project cleanup | Nightly 2873: native removal deleted two obsolete project registrations and their four archived chats from the picker; active Factory stayed | Source folders remained; the specifically identified recent backup was deleted at owner request, not every historical copy |
+| Native update paths | T3 server updated to 2873 and preserved 216 message texts; Codex 0.162.0 and Claude 2.1.295 installed under the execution user | Root-owned copied launchers had broken updater detection. New native launchers repaired that path; future automatic installation is not established for every tool |
+| Claude automatic updates | `claude doctor`: native installation, latest channel, auto-updates enabled, no installation issues; subscription authentication retained | New versions apply to later processes; this is not a future compatibility guarantee |
+| Access | Unprivileged host account could not access the personal home or Docker socket; no effective worker sudo | AgentOps and ADLC still share the account and its GitHub identity |
+| Codex workspace sandbox | 0.162.0 native `:workspace` probe: workspace write succeeded and the outside write failed with read-only filesystem | This tests the installed native sandbox, not a new T3-launched turn |
+| Claude Bash sandbox | 2.1.295 terminal probes: workspace write succeeded, outside write failed with read-only filesystem; explicit user settings loaded | T3 launch configuration is set to load that user policy; an actual T3-launched sandbox probe is still required. File tools/MCP/hooks are separate boundaries |
+| System maintenance | Omarchy 4.0.4-1 source/config inspection found native update checks and an interactive system-update path | No unattended OS installation enabled; prompts, administrator access, snapshot coverage and encrypted boot remain relevant |
 
-```sh
-python3 scripts/check.py
-python3 -m unittest discover -s tests -v
-```
+The older [Nightly 2861 record](https://github.com/arcitai/factory/blob/v0.1.3/docs/qualification.md)
+retains the original migration counts, approval friction and limitations. Updating
+this document does not change those observations to the newer build.
 
-Package checks are not tests of provider behavior. Keep private installation
-records and native evidence out of this repository. Record precise versions,
-revision, actions, result and limits using the Foundation adoption outline.
+## Current setup baseline
 
-For a material skill change, use a fresh context with the skill and a realistic
-request. Inspect the resulting decision/artifact, not just whether keywords are
-present. Include missing delegation, explicit delegation, new risk and untrusted
-input where the change affects those boundaries. Do not spend a subscription down
-to its limit just to demonstrate a quota condition.
+The setup guide references T3 `0.0.46-nightly.20261009.2873`, upstream
+`ec80933ac8cd02fec5c97b342462ccc9567cdb1e`, inspected 2026-10-09. The server and
+operator desktop version matched after the update. Subsequent provider and sandbox
+changes need their own native T3 readback; the operator desktop was locked during
+that part of qualification. Do not report the pending UI/turn check as passed.
 
-The roadmap is maintained in GitHub issues, not a second local task list.
+Codex native Auto policy and Claude approval mode were inspected in T3's adapters.
+The two providers do not implement an identical boundary. Claude's user-editable
+sandbox settings are configured protection, not a managed per-role policy. No
+blanket administrator access or cross-role credential isolation is claimed.
 
-## Nightly pilot — 2026-10-09
+Native scheduled intake was researched against Nightly 2861 and deliberately
+deferred; no Factory queue or scheduler was built. That decision is distinct from
+using native provider update facilities. No OS/server auto-install schedule has
+been qualified or enabled by this release.
 
-T3 `0.0.46-nightly.20261009.2861` ran on an unprivileged Linux execution account,
-with matching Linux and Mac desktop clients. Private backups preceded the native
-update. All nine thread shells and all 98 user/assistant messages migrated;
-message text, three operator pins and four archived trial threads were checked.
-V1 and V2 databases passed integrity checks. V1 tool/reasoning history remains in
-the retained V1 data, not the V2 timeline. The service retained its private
-loopback binding and host restrictions.
+## How to qualify a change
 
-The existing Opus 5.5/High operator reloaded its role, called native capability
-discovery and delegated one read-only review to Codex GPT-6.1-Sol/High. The child
-ran in `approval-required` mode and needed **six individual command approvals**.
-Its terminal result returned to the parent with a durable task identity. It found
-two real documentation defects: an obsolete full-access launch requirement and
-the missing fresh-review-round rule. Its three textual cases correctly required
-bound worktrees, rejected authority from external issue text and required a new
-reviewer task. These cases were decisions about supplied evidence, not executions
-of parallel writers, hostile input or failed writes.
+Run `python3 scripts/check.py` and `python3 -m unittest discover -s tests -v`.
+For changed instructions, use a fresh context with realistic requests. Inspect
+resulting actions/artifacts, not keyword presence. Include missing and explicit
+delegation, new risk and untrusted input when those boundaries change. Independent
+review must inspect the actual final candidate; record findings and repairs in
+its PR. Do not consume quota merely to manufacture a limit condition.
 
-A subsequent candidate review inherited the caller's existing `auto` mode and
-needed no command approvals. It returned a missing per-round retry-key and
-review-brief rule; the candidate was amended for a fresh review round.
+For host changes, retain exact versions, command/result, date and limits in the
+private adoption record. Exercise allowed and denied operations. A native CLI
+probe does not by itself prove the same configuration in a T3-launched session.
+Read back publication separately from installed files and loaded skills.
 
-This proves assisted native delegation and result retrieval on that installation.
-It does not prove unattended operation, restart during delegated work, independent
-review of arbitrary application code, physical reboot/network recovery or phone
-delivery. Nightly V2 needs the beta phone app. Native transcripts, task identities,
-host details and backup locations remain in the private installation record.
-
-## Agent Ops native probes — 2026-10-09
-
-**Source analysis only.** Idea research for #6 compared no change, native T3
-schedule/webhook configuration and new Factory code, using pinned upstream
-source (`3b6af0bd`) and live capability discovery (scheduled tasks available,
-none configured). Decision: defer automated intake; reject a Factory queue or
-scheduler. No schedule or webhook was enabled or tested live.
-
-**Live: two writers.** The Opus 5.5/High operator launched two Opus 5.5/High
-`auto` threads with T3's explicit new-worktree launch from the 0.1.2 release
-commit. Each reported its launch-bound working directory, Git root, branch and
-HEAD before writing and created only one untracked probe file. Native run
-timestamps overlapped by about ten seconds; no human approvals were requested.
-The operator verified each worktree contained only its own file, no tracked diff
-and an unchanged main checkout, then removed the files and archived both
-threads. Worktrees and history were retained.
-
-**Live: deferred completion.** The Claude harness blocked a foreground sleep, so
-each worker moved its pause to a background command; its first run completed
-before its readback. The background completion notification started a second
-run in each thread, and those runs also overlapped. The operator waited for them
-before cleanup. This motivated the background-continuation note in the T3 guide.
-See the [rehearsal](rehearsals.md#background-continuation-8-candidate).
-
-**Live: Connect and Mac recovery.** The service was restarted after all recorded
-runs and known background commands were terminal. Server readback showed the
-environment linked, agent-activity publishing enabled and the managed relay
-client available, with the service still bound to loopback. The coordinator
-observed the Mac client's Connect route as Connected and In use, with SSH second,
-and sent a new task through it to the existing AgentOps. With the Mac app fully
-quit, that same run continued and launched its implementation worker; the host
-service PID was unchanged. Reopening the Mac app restored the existing project
-and working AgentOps. The owner also confirmed the project and pinned thread
-were visible on the iPhone. Visibility does not prove phone notifications or
-question/response; those remain open.
-
-**Not proved.** OS/filesystem isolation between worktrees (they share the
-account), recovery from an uncertain or lost launch, permission denial, failed
-writes, phone notification/question/response and physical reboot, lid or
-network recovery. These probes do not qualify the installation.
+Open acceptance work lives in [Factory issues](https://github.com/arcitai/factory/issues):
+actual phone decisions and remaining recovery cases, end-to-end application
+adoption, and a separately authorized Defence case. These do not become complete
+because the method package passes its checks. Kastanje product work remains parked.

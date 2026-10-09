@@ -1,16 +1,18 @@
 # Set up the host and operator client
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
 The method itself also works without T3 after qualifying
 the chosen harness's discovery and operation.
 
-Reference version: T3 **0.0.46-nightly.20261009.2861**; upstream setup guidance
+Reference version: T3 **0.0.46-nightly.20261009.2873**; upstream setup guidance
 checked 2026-10-09. This is a prerelease qualification baseline, not a guarantee
 for every host or future Nightly. Keep the selected client/server/provider versions
 and observed proof in the installation record. Native delegation and automation
 need their own qualification; installing them does not authorize their use.
-See [upstream installation](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/install.md).
+See [upstream installation](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/install.md).
 
 ## 1. Choose the boundary
 
@@ -24,7 +26,7 @@ Keep deployment/admin credentials outside implementation workers unless a task
 explicitly needs them. A second T3 project or provider config directory under the
 same OS user is not a filesystem sandbox.
 
-Use one persistent Ops thread in the owner's existing project when it has the
+Use one persistent AgentOps thread in the owner's existing project when it has the
 right context and access. A separate lead project is optional, not a requirement.
 Activate the lead role in that thread; preserve the project's shared instructions.
 Workers receive the target project's context and skills. Separate provider profiles,
@@ -36,10 +38,68 @@ Preserve any old Factory runtime and private history while qualifying this setup
 Avoid pointing two active agent writers at the same checkout. Do not run native
 services as root. Keep the host powered, awake and network-accessible.
 
+## Least privilege in practice
+
+Start AgentOps and ADLC workers on the same restricted baseline when that meets
+the intended trust boundary. AgentOps has more coordination responsibility, not
+blanket root, unrestricted network or deployment access. Keep the service account
+out of sudo/admin and host-control groups. Use task-specific GitHub/deployment
+access where available; native tool approval does not shrink a token's permissions.
+
+| Control | Configure and prove | Limit |
+| --- | --- | --- |
+| Host account | Unprivileged account; personal home, admin credentials and host sockets inaccessible; prove an allowed operation and a refused one | Same-account processes and projects still share accessible resources |
+| T3 mode | Begin with supervised for read-only assessment, or Auto for accepted editing; inspect the selected provider's effective policy | Auto is an approval policy, not one universal sandbox across providers |
+| Codex | In this T3 baseline, Auto maps to workspace-write with on-request approval and native auto-review; supervised maps to read-only | T3 supplies the runtime policy; a CLI configuration default alone does not prove the T3 turn uses it |
+| Claude | Enable native Bash sandboxing in the selected profile; disable unsandboxed retries and fail if sandboxing is unavailable; prove it in an actual T3-launched turn | Bash sandboxing does not enclose file tools, MCP servers or hooks; configure their permissions separately |
+| GitHub / delivery | Read effective repository, Projects and workflow permissions; use narrower credentials or a separate delivery identity where needed | A shared login remains shared access, even when commits credit several agents |
+
+For a selected Claude profile on a supported host, this is a minimal sandbox
+configuration to merge deliberately into its existing settings, not overwrite them:
+
+```json
+{
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false
+  }
+}
+```
+
+Install the native dependencies first. Check that the T3/SDK launch actually loads
+that profile's settings; CLI and SDK setting-source defaults can differ. Test a
+permitted workspace write and a denied write to a disposable path outside it,
+without retrying outside the sandbox. Also qualify required network destinations,
+file tools and MCP operations. A passing terminal probe alone is not a passing
+T3 integration test. Keep configured and demonstrated controls separate.
+
+Native sandbox defaults may allow broad reads. Keep credentials outside the
+agent's accessible environment where possible, and use native read-deny/credential
+controls for selected secrets. User-editable settings are a guardrail, not an
+administrator-enforced policy. For non-bypassable restrictions, use managed native
+policy controlled outside the agent's identity, plus OS/remote-service enforcement.
+Do not install a machine-wide policy blindly on a shared personal host.
+
+**To add access:** name the operation and target, choose the smallest native grant
+(path, domain, tool, repository or deployment environment), identify who authorizes
+it, and set its duration or removal condition. Apply at the appropriate control,
+read it back, and prove the required operation while an unrelated operation still
+fails. Remove temporary grants afterward. Avoid changing every thread to Full
+access to resolve one denied build command. If AgentOps needs access that workers
+must not possess, use separate identities/environments; a title is not an ACL.
+
+Sources: [T3 permission modes](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/permission-modes.md),
+[Codex permissions](https://learn.chatgpt.com/docs/permissions),
+[Claude sandbox scope and enforcement](https://code.claude.com/docs/en/sandboxing).
+
 ## 2. Install and authenticate on the execution host
 
 Install Git, the GitHub CLI and the native provider CLIs using their supported
-instructions. Inspect versions and authenticate the intended execution account.
+instructions. Prefer a maintained native installation owned by the execution user
+for provider CLIs. Point T3 at its stable launcher, not a copied versioned binary
+under an administrator-owned directory; copied binaries can break native updater
+detection. Keep provider profiles and credentials unchanged when repairing paths. Inspect versions and authenticate the intended execution account.
 Repository and Project operations need appropriate GitHub access; deployment
 credentials are a separate decision. Follow the
 [GitHub connection checks](github.md#qualify-the-connection) for CLI, Git and
@@ -57,7 +117,7 @@ factory_install_dir="$(mktemp -d)" &&
 After reviewing that downloaded script, execute the same file:
 
 ```sh
-T3CODE_CHANNEL=nightly T3CODE_VERSION=0.0.46-nightly.20261009.2861 sh "${factory_install_dir:?Use the directory from the successful download and review above}/install.sh"
+T3CODE_CHANNEL=nightly T3CODE_VERSION=0.0.46-nightly.20261009.2873 sh "${factory_install_dir:?Use the directory from the successful download and review above}/install.sh"
 ```
 
 Use the installer-reported binary path if `~/.local/bin` is not on `PATH`.
@@ -93,9 +153,9 @@ from the actual provider catalog; use the owner's selection and measured results
 Extra providers and automatic model routing are optional. Usage belongs in T3;
 API-equivalent estimates are not subscription charges and missing limits are unknown.
 
-References: [Codex profiles](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/providers-codex.md),
-[Claude profiles and skills](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/providers-claude.md),
-[usage](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/usage.md).
+References: [Codex profiles](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/providers-codex.md),
+[Claude profiles and skills](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/providers-claude.md),
+[usage](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/usage.md).
 
 ## 3. Make the service independent of the client
 
@@ -125,7 +185,7 @@ the execution host. Restart the service after the consistent backup, then use th
 native update path, for example:
 
 ```sh
-t3 update 0.0.46-nightly.20261009.2861 --channel nightly
+t3 update 0.0.46-nightly.20261009.2873 --channel nightly
 ```
 
 The restart interrupts active turns. V2 copies `state.sqlite` to `statev2.sqlite`
@@ -138,8 +198,8 @@ inspect it read-only if needed. A binary downgrade alone is not a data rollback.
 Upgrade every operator client to a compatible V2 build, then verify the service,
 connection route, projects, pins, archives, transcripts and a harmless provider
 turn. Record missing history or changed behavior before restarting real work.
-[Updating](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/updating.md),
-[V2 migration and backup](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/thread-migration.md).
+[Updating](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/updating.md),
+[V2 migration and backup](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/thread-migration.md).
 
 ## 4. Connect the operator clients
 
@@ -207,8 +267,8 @@ Nightly V2 requires the **beta mobile app**; the stable store apps cannot connec
 to this baseline. Use the beta links in T3's **Settings → General → Mobile app**
 and prove the actual phone question/response route before relying on it.
 
-[Connections](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/remote-access.md),
-[mobile notifications](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/mobile-notifications.md).
+[Connections](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/remote-access.md),
+[mobile notifications](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/mobile-notifications.md).
 
 ## 5. Adopt selected skills
 
@@ -294,6 +354,47 @@ supported native capability and qualifying its sender, authority, duplicates and
 offline behavior. Native schedules are version-specific. A GitHub issue alone
 does not wake the stable baseline or grant implementation access.
 
+## Updates and host maintenance
+
+Use the installed tools' native update paths. Record the selected channel,
+responsible operator, interruption/recovery rules and last actual result in the
+private installation record. Checking for updates, installing them and proving
+compatibility are different actions.
+
+| Component | Native route | Boundary |
+| --- | --- | --- |
+| Desktop/mobile clients | Official application updater or store/beta channel | Match the host's protocol; an updated client does not update the server |
+| T3 background server | The named environment's Update server action or `t3 update <selected-version>` | Reconcile active turns and background commands first; it restarts the service |
+| Claude native installation | Native background updates; `claude doctor` reports installation, channel and updater state | New version takes effect on the next process; custom/copied launchers may prevent adoption |
+| Codex | Native installation/update support, or T3's detected provider update action | Inspect the actual installation; do not infer automatic installation merely from a version-check setting |
+| Linux/Omarchy | Distribution's maintained update command and notifications | Package changes, migrations, prompts and reboot are system administration; a check notification is not an unattended update |
+| Factory skills | Reviewed tag → staged diff → checks → deliberate adoption | Preserve local adaptations and verify discovery; do not auto-overwrite project instructions |
+
+Native update checks may stay enabled. Automatically applying updates requires a
+selected, supported and tested maintenance route: idle-work checks, bounded scope,
+recovery, readback and an actionable failure signal. Do not add a Factory updater
+or promise scheduling from a skill. An agent must not stop its own host mid-task
+and assume it can inspect the result. Hand off disruptive maintenance to the
+host's existing operator/maintenance facility and reconcile on return.
+
+For Omarchy, use the installed version's supported updater; inspect its prompts
+and restart behavior before unattended use. Encrypted boot may still require a
+person to unlock the disk. A system snapshot need not cover the separate home
+volume containing T3 history and provider profiles. Verify the actual coverage;
+keep private native state recoverable under the owner's retention choice. Never
+grant worker sudo, bypass package failures or weaken encryption to make updates
+appear automatic.
+
+After an update, check the service, connection route, selected CLI/authentication,
+loaded skills and one harmless native turn. Repeat relevant permission and recovery
+checks when those paths changed. Keep prior proof at its tested version. A saved
+SSH fallback may reconnect successfully without automatically returning to Connect.
+
+Sources: [T3 updating](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/updating.md),
+[Claude installation and updates](https://code.claude.com/docs/en/setup),
+[Codex installation](https://developers.openai.com/codex/cli/),
+[Omarchy update process](https://github.com/omacom/omarchy/blob/c668141e9c42b13c80c9ca4ea108e11708c5e8a5/bin/omarchy-update).
+
 ## Removal and recovery
 
 Stop new admissions and reconcile active work first. Keep native history and the
@@ -301,3 +402,12 @@ installed source manifest. Remove only the skill folders owned by this adoption;
 restore a prior reviewed copy if required. Stop/uninstall the T3 service through
 its native command only when it is the intended service. Preserve other projects,
 provider accounts and private state. Update the installation record from readback.
+
+To remove an obsolete T3 project in Nightly 2873: open **Settings**, change
+**Applying settings for** from **All projects** to that project, then open the
+**Project** section that appears in the settings menu. Under **Danger**, choose
+**Remove project**. Confirm the exact project and chat count. This removes its
+threads, including archived chats, from T3; the folder and Git repository remain
+on disk. Archiving a thread does not remove its project. Reconcile active work
+first and obtain the owner's explicit deletion decision. Use the native action,
+not manual database edits. Backup retention/deletion is a separate scoped choice.

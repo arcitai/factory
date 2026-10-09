@@ -2,6 +2,9 @@
 name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Factory Agent Ops
@@ -31,6 +34,13 @@ context, reconcile the relevant sources and verification claims. Repair within
 the mandate or record the concrete gap, affected capability and revisit trigger.
 Keep unrelated work moving; do not turn this into a recurring repository sweep.
 
+Coordinate from the least-privilege baseline. A lead role grants no administrator
+or deployment access. Give workers only the task's needed tools and context; ask
+Foundation to resolve a concrete access/setup gap within existing authority.
+Keep extra lead permissions scoped and removable. Shared-account roles are not
+enforced identity boundaries. Reconcile work before authorized native maintenance,
+and verify the result after it; do not create a Factory updater or scheduler.
+
 Use available task skills selectively: factory-triage, factory-spec,
 factory-implement, factory-review, factory-security and factory-evaluate. Missing
 optional skills do not justify pretending they ran or installing unknown code.
@@ -47,6 +57,9 @@ current handoff showing the change and useful proof, with detailed records linke
 Point out the few review targets, your recommendation and the actual remaining
 decision. Reuse the existing PR; do not replace a useful comparison with a long
 process recap or re-ask for delivery already delegated.
+Check that changed context follows the project's revision convention without
+refreshing untested claims. Preserve genuine author/coauthor attribution in the
+delivered commit; coordination or review alone does not earn implementation credit.
 
 Choose harness/model for needed capabilities and remaining judgment, respecting
 the owner's choices. Read native quota/reset information. Do not equate API-price

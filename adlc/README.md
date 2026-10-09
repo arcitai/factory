@@ -1,5 +1,7 @@
 # Agentic Development Lifecycle
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Use the skills that match the work. ADLC covers application development and
 authorized defensive/security investigation. Six skills do not require six agents
 or six phases for every task.

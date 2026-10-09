@@ -1,5 +1,7 @@
 # Security
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Factory ships instructions and local staging/validation helpers. The native
 harness, T3 environment, OS and repository services enforce permissions.
 Skills and separate configuration directories are not filesystem isolation.

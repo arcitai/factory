@@ -2,6 +2,9 @@
 name: factory-security
 description: Investigate an authorized security or defensive question and distinguish candidate findings, validation, remediation and recovery evidence.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Security and Defence

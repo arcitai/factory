@@ -2,6 +2,9 @@
 name: factory-implement
 description: Implement accepted application work in its designated workspace and produce a working candidate with evidence for independent review.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Implement
@@ -18,6 +21,8 @@ interaction for changed UI behavior. Mock checks alone do not prove integration.
 
 Keep the implementation cohesive and appropriate to the codebase. Add abstractions
 only for a real responsibility. Update affected docs and checks with the change.
+Follow the project's document/skill revision convention for affected sources;
+update the edit revision/date without changing the dates of earlier observations.
 Preserve authoritative configuration and the project's documentation structure;
 update affected dependency contracts, data/access boundaries and operating guidance.
 Advance a verification claim only with the actual check, revision/environment and
@@ -40,6 +45,9 @@ When preparing a PR or substantive human handoff, use the
 useful proof before the detailed record. Keep it current with the candidate.
 
 Hand the actual candidate to a separate review context. A completed turn does not
-mean the result is accepted or installed. Branch publication, merge and release
+mean the result is accepted or installed. Preserve the human author and actual
+contributors' native coauthor trailers, including through a squash merge. Keep
+review-only participation in the review record, not invented authorship.
+Branch publication, merge and release
 follow the owner's existing scope/delegation and repository rules. Read back an
 uncertain write before retry; do not publish solely because this skill was invoked.

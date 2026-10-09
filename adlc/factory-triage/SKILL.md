@@ -2,6 +2,9 @@
 name: factory-triage
 description: Investigate an idea, link or issue and recommend a bounded disposition before application or defensive work is admitted.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Triage

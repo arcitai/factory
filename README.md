@@ -1,5 +1,7 @@
 # Factory
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 A practical method for building and improving applications with coding agents.
 
 Use Factory when you want to give an agent an idea, a bug, a feature or an accepted
@@ -8,14 +10,16 @@ small teams a repeatable way to prepare a project, direct the work and review it
 delivery. T3 Code provides the workspace, native harnesses run the agents, and
 GitHub holds issues, pull requests and checks.
 
-| Part | Use it for |
-| --- | --- |
-| [Foundation](foundation/factory-foundation/SKILL.md) | Prepare the project context, dependencies, execution host, access and delivery checks |
-| [Agent Ops](agent-ops/factory-agent-ops/SKILL.md) | Research an idea, challenge a proposal, coordinate a task or work through an accepted backlog |
-| [ADLC](adlc/README.md) | Triage, specify, implement, independently review, investigate security and evaluate results |
+| Part | Responsibility | Example |
+| --- | --- | --- |
+| [Foundation](foundation/factory-foundation/SKILL.md) | Prepare and maintain the conditions for work | Connect the execution host; establish context, access and real delivery checks |
+| [AgentOps](agent-ops/factory-agent-ops/SKILL.md) | Direct work within the owner's mandate, before and during execution | Investigate an idea, select accepted work, coordinate workers and bring back a decision |
+| [ADLC](adlc/README.md) | Perform and verify a concrete task | Specify a feature, implement it, independently review it and deliver under the agreed rules |
 
 ADLC means **Agentic Development Lifecycle**. The skills work with your
 application's existing standards, tools and hosting choices.
+AgentOps coordinates ADLC and calls on Foundation when setup needs repair.
+These are responsibilities, not three servers or mandatory separate projects.
 
 ## Start
 
@@ -26,8 +30,8 @@ loading, access and execution behavior have been checked.
 
 1. Follow the [setup guide](foundation/factory-foundation/references/setup.md)
    to connect the chosen host and clients, authenticate the tools and adopt the
-   skills from a reviewed Factory release. Its worked example uses a Linux host
-   and a Mac client.
+   skills from a reviewed Factory release. It also covers least privilege,
+   updates and recovery. Its worked example uses a Linux host and a Mac client.
 2. Ask Foundation to assess and prepare your project. Reuse existing instructions,
    configuration and documentation; establish the missing context and real checks
    needed for the intended work. The [GitHub guide](foundation/factory-foundation/references/github.md)
@@ -59,9 +63,17 @@ The [qualification record](docs/qualification.md) separates package checks,
 behavioral exercises and live proof. Skills guide work; the native tools and
 infrastructure enforce access and run it.
 
-See the [architecture](docs/architecture.md) for responsibilities,
-[contributor guide](CONTRIBUTING.md) for package checks and releases, and
-[transition record](docs/transition.md) for the move from the earlier Factory system.
+Start both AgentOps and workers with only the access they need. AgentOps may
+coordinate more work without having administrator rights. A wider grant needs
+a concrete purpose and scope; a thread title or skill does not enforce it.
+The [access section](foundation/factory-foundation/references/setup.md#least-privilege-in-practice)
+explains the native controls, their limits and how to add access deliberately.
+
+See the [architecture](docs/architecture.md) for responsibility boundaries and
+[contributor guide](CONTRIBUTING.md) for versioning, checks and releases.
+The earlier [migration audit](https://github.com/arcitai/factory/blob/v0.1.3/docs/transition.md)
+and [research decision](https://github.com/arcitai/factory/blob/v0.1.3/docs/decision.md)
+remain in release history; they are not prerequisites for a new installation.
 
 MIT licensed. Existing application licenses, third-party tools and provider
 subscriptions retain their own terms.

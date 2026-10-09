@@ -1,5 +1,7 @@
 # AgentOps in your project
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Keep one pinned **AgentOps** thread in the existing project. Preserve another name
 if the owner has chosen one. The thread holds the lead role and current decisions;
 the repository keeps the instructions and skill sources.
