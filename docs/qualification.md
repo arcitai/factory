@@ -10,6 +10,7 @@ remain with the installation; public issues track the remaining acceptance work.
 | Boundary | Observed evidence | Limit / next check |
 | --- | --- | --- |
 | Package | Eight portable skills, metadata/link checks and staging tests | Mechanical checks do not establish agent decisions |
+| Revision/access guidance (0.1.4 candidate) | Four fresh-context Codex textual cases kept least privilege, edit dates versus restore proof, genuine attribution and bounded native maintenance | Text-only decisions; not an application delivery or live deployment |
 | Earlier method cases | Opus cases exercised admission, delegated delivery, proportional context and review handoffs | Text-only cases had failures, including invented provenance; preserved in the [v0.1.3 rehearsal record](https://github.com/arcitai/factory/blob/v0.1.3/docs/rehearsals.md) |
 | Native delegation | Nightly 2861: Opus 5.5/High delegated separate Codex review; a fresh review found and led to fixes | One assisted path, not arbitrary application quality or unattended acceptance |
 | Concurrent writers | Nightly 2861: two Opus workers ran in distinct native-bound worktrees with overlapping run times; main stayed unchanged | Same account; worktrees are not OS isolation |
@@ -22,8 +23,8 @@ remain with the installation; public issues track the remaining acceptance work.
 | Native update paths | T3 server updated to 2873 and preserved 216 message texts; Codex 0.162.0 and Claude 2.1.295 installed under the execution user | Root-owned copied launchers had broken updater detection. New native launchers repaired that path; future automatic installation is not established for every tool |
 | Claude automatic updates | `claude doctor`: native installation, latest channel, auto-updates enabled, no installation issues; subscription authentication retained | New versions apply to later processes; this is not a future compatibility guarantee |
 | Access | Unprivileged host account could not access the personal home or Docker socket; no effective worker sudo | AgentOps and ADLC still share the account and its GitHub identity |
-| Codex workspace sandbox | 0.162.0 native `:workspace` probe: workspace write succeeded and the outside write failed with read-only filesystem | This tests the installed native sandbox, not a new T3-launched turn |
-| Claude Bash sandbox | 2.1.295 terminal probes: workspace write succeeded, outside write failed with read-only filesystem; explicit user settings loaded | T3 launch configuration is set to load that user policy; an actual T3-launched sandbox probe is still required. File tools/MCP/hooks are separate boundaries |
+| Codex workspace sandbox | 0.162.0 native CLI and a fresh T3 2873 Auto turn: workspace write succeeded, outside write failed with an OS read-only-filesystem error; files removed and Git clean | One bounded write probe; no network, MCP or broad read-isolation claim. The CLI version check also warned that its PATH-alias directory was read-only |
+| Claude Bash sandbox | 2.1.295 terminal probes: workspace write succeeded, outside write failed with read-only filesystem; explicit user settings loaded | T3 is configured to load that user policy, but the attempted native turn reached Claude's five-hour quota limit before the probe. Native Resume at reset is selected; completion remains unproved. File tools/MCP/hooks are separate boundaries |
 | System maintenance | Omarchy 4.0.4-1 source/config inspection found native update checks and an interactive system-update path | No unattended OS installation enabled; prompts, administrator access, snapshot coverage and encrypted boot remain relevant |
 
 The older [Nightly 2861 record](https://github.com/arcitai/factory/blob/v0.1.3/docs/qualification.md)
@@ -34,9 +35,12 @@ this document does not change those observations to the newer build.
 
 The setup guide references T3 `0.0.46-nightly.20261009.2873`, upstream
 `ec80933ac8cd02fec5c97b342462ccc9567cdb1e`, inspected 2026-10-09. The server and
-operator desktop version matched after the update. Subsequent provider and sandbox
-changes need their own native T3 readback; the operator desktop was locked during
-that part of qualification. Do not report the pending UI/turn check as passed.
+operator desktop version matched after the update. The desktop later locked; a
+temporary native web client over the existing private SSH route allowed the Codex
+turn above. Claude's T3 probe remains pending at its
+observed subscription reset. The incomplete Opus review is not an acceptance
+verdict; a separate Codex context performs candidate review. No paid overage or
+permanent AgentOps model change was enabled.
 
 Codex native Auto policy and Claude approval mode were inspected in T3's adapters.
 The two providers do not implement an identical boundary. Claude's user-editable

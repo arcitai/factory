@@ -38,15 +38,16 @@ def check(root=ROOT):
     names = set()
     for path in skills:
         text = path.read_text(encoding="utf-8")
-        parts = text.split("---", 2)
-        if len(parts) != 3 or parts[0].strip():
+        lines = text.splitlines()
+        if not lines or lines[0] != "---" or "---" not in lines[1:]:
             errors.append(f"{path.relative_to(root)}: missing frontmatter")
             continue
+        end = lines.index("---", 1)
         fields = {}
         metadata = {}
         in_metadata = False
         # This is the package's constrained format, not a general YAML parser.
-        for line in parts[1].strip().splitlines():
+        for line in lines[1:end]:
             if line == "metadata:" and not in_metadata:
                 in_metadata = True
                 continue

@@ -42,7 +42,8 @@ class CheckTests(unittest.TestCase):
             folder = root / "adlc/example"
             folder.mkdir(parents=True)
             path = folder / "SKILL.md"
-            for source in (valid, valid.replace('"0.1.4"', '"0.1.3"')):
+            for source in (valid, valid.replace('"0.1.4"', '"0.1.3"'),
+                           valid.replace('A test skill.', 'A skill --- with punctuation.')):
                 path.write_text(source)
                 self.assertEqual(module.check(root), ([], 1))
             invalid = [
@@ -55,6 +56,7 @@ class CheckTests(unittest.TestCase):
                 valid.replace('  version:', '  version: "0.1.3"\n  version:'),
                 valid.replace('  updated:', '  arbitrary:'),
                 valid.replace('"2026-10-09"', '"2026-10-09\t"'),
+                valid.replace('\n---\n', '\n---not-a-delimiter\n'),
             ]
             for source in invalid:
                 with self.subTest(source=source):
