@@ -94,12 +94,17 @@ run in each thread, and those runs also overlapped. The operator waited for them
 before cleanup. This motivated the background-continuation note in the T3 guide.
 See the [rehearsal](rehearsals.md#background-continuation-8-candidate).
 
-**Partly live: Connect.** The service was restarted after all recorded runs were
-terminal. Persisted server state read on the host shows Connect exposure enabled,
-the environment link provisioned, agent-activity publishing enabled and the
-managed relay client available; the service is active and still bound to
-loopback. Persisted state is configuration, not reachability. *Owner-reported:*
-the Mac client used the Connect route, with the saved SSH route second.
+**Live: Connect and Mac recovery.** The service was restarted after all recorded
+runs and known background commands were terminal. Server readback showed the
+environment linked, agent-activity publishing enabled and the managed relay
+client available, with the service still bound to loopback. The coordinator
+observed the Mac client's Connect route as Connected and In use, with SSH second,
+and sent a new task through it to the existing AgentOps. With the Mac app fully
+quit, that same run continued and launched its implementation worker; the host
+service PID was unchanged. Reopening the Mac app restored the existing project
+and working AgentOps. The owner also confirmed the project and pinned thread
+were visible on the iPhone. Visibility does not prove phone notifications or
+question/response; those remain open.
 
 **Not proved.** OS/filesystem isolation between worktrees (they share the
 account), recovery from an uncertain or lost launch, permission denial, failed
