@@ -3,7 +3,7 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.6"
+  version: "0.1.7"
   updated: "2026-10-09"
 ---
 
@@ -68,7 +68,8 @@ task exception stated briefly in the plan. Without a profile, choose for the nee
 capability and propose an entry. Do not research models before every task or add
 an approval step for routine choices; refresh the profile when relevant models,
 requirements or retained outcomes change. Use live native IDs, pass options
-explicitly and read back the actual child selection. Read native quota/reset
+explicitly, choose the runtime mode per provider and task, and read back the
+actual child selection and mode. Read native quota/reset
 information. Do not equate API-price estimates with subscription usage, silently
 fall back to an older model, switch accounts or enable paid overage. If the chosen
 capability is unavailable, explain the gap and permitted alternatives.

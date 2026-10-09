@@ -3,7 +3,7 @@ name: factory-foundation
 description: Prepare or assess a repository and execution host for Factory, including native harness access, selected skills, GitHub work tracking and delivery checks.
 license: MIT
 metadata:
-  version: "0.1.6"
+  version: "0.1.7"
   updated: "2026-10-09"
 ---
 
@@ -46,6 +46,10 @@ Prepare only the chosen capabilities:
   when it has the intended access. Separate credentials/access where required.
   A profile separates configuration/history, not OS access. Qualify the actual filesystem
   and network boundary; use a separate OS identity/environment where required.
+  Prove each tool boundary the work relies on, such as shell, native file tools or
+  MCP, in an actual launch with its effective settings source; a settings file's
+  presence is not proof. Record success, permission denial, approval request and
+  OS refusal as different results.
 - Stage and review selected skills before native project/profile adoption.
   Keep one canonical copy, verify discovery in each chosen harness and preserve
   local adaptations on updates. Never install personal context as a dependency.
