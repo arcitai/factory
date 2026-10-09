@@ -1,7 +1,9 @@
 import importlib.util
+import os
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("check", ROOT / "scripts/check.py")
@@ -83,6 +85,30 @@ class CheckTests(unittest.TestCase):
                     errors = module.check(root)[0]
                     self.assertEqual(any("README.md" in e for e in errors), expected)
                     self.assertFalse(any("pull_request_template" in e for e in errors))
+
+    def test_harness_context_is_skipped_but_maintained_dot_sources_are_checked(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "VERSION").write_text("0.1.4\n")
+            # Sandboxes mask harness paths with unreadable non-files; a directory reproduces that.
+            (root / ".claude/loop.md").mkdir(parents=True)
+            (root / ".claude/notes.md").write_text("Private notes without a revision.\n")
+            template = root / ".github/pull_request_template.md"
+            template.parent.mkdir()
+            template.write_text("[Missing](absent.md)\n")
+            listed = []
+            scandir = os.scandir
+
+            def recording_scandir(path="."):
+                listed.append(Path(os.fsdecode(path)))
+                return scandir(path)
+
+            with mock.patch.object(os, "scandir", recording_scandir):
+                errors = module.check(root)[0]
+            self.assertTrue(listed)
+            self.assertFalse([p for p in listed if ".claude" in p.parts])
+            self.assertFalse(any(".claude" in e for e in errors))
+            self.assertTrue(any("pull_request_template.md: broken link" in e for e in errors))
 
     def test_package_version_is_required_and_numeric(self):
         with tempfile.TemporaryDirectory() as temporary:

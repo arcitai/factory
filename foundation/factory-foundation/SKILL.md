@@ -3,7 +3,7 @@ name: factory-foundation
 description: Prepare or assess a repository and execution host for Factory, including native harness access, selected skills, GitHub work tracking and delivery checks.
 license: MIT
 metadata:
-  version: "0.1.4"
+  version: "0.1.6"
   updated: "2026-10-09"
 ---
 
@@ -36,6 +36,7 @@ Prepare only the chosen capabilities:
   Keep the agent host distinct from application operation.
 - Confirm the native versions, selected provider account, effective tools and
   permissions. A discoverable binary or copied skill does not establish readiness.
+  Record the project's small model profile from live native IDs and owner choices.
 - Start AgentOps and workers with least privilege. Distinguish coordination
   authority from enforced OS/tool/credential access. For a wider grant, identify
   the required action, target, authorizer and removal condition; apply the smallest

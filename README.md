@@ -1,6 +1,6 @@
 # Factory
 
-Revision: 0.1.5 · Updated: 2026-10-09
+Revision: 0.1.6 · Updated: 2026-10-09
 
 A practical method for building and improving applications with coding agents.
 
@@ -65,7 +65,9 @@ loading, access and execution behavior have been checked.
    updates and recovery. Its worked example uses a Linux host and a Mac client.
 2. Ask Foundation to assess and prepare your project. Reuse existing instructions,
    configuration and documentation; establish the missing context and real checks
-   needed for the intended work. The [GitHub guide](foundation/factory-foundation/references/github.md)
+   needed for the intended work. Record a small default model choice for the lead,
+   implementation and review; AgentOps uses it unless you choose otherwise.
+   The [GitHub guide](foundation/factory-foundation/references/github.md)
    covers repository access, work tracking and delivery protections.
 3. Keep a pinned **AgentOps** thread in your project. Use the
    [workspace guide](foundation/factory-foundation/references/workspace.md) to

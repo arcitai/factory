@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.6 · Updated: 2026-10-09
 
 Use an existing project record when it already contains this information. Keep
 host identities, private paths, account references and sensitive proof in a private
@@ -13,7 +13,13 @@ Record the choices relevant to the installation:
 - Routes to relevant architecture, checks, dependency/configuration sources and
   operational guidance. Preserve the project's existing names and records.
 - Execution host and OS identity, client route, service owner, native versions,
-  provider profiles, model choices and billing/usage source.
+  provider profiles and billing/usage source.
+- Model profile: a small editable default per role or kind of work, such as lead
+  research, implementation, independent review and small mechanical work, with
+  any concrete exception and its reason. Use live native provider, model and option
+  IDs/values. Mark each entry as owner-selected or proposed, and keep it separate
+  from configured settings and observed child readback. Explicit owner choices
+  prevail. Refresh it when models, requirements or retained outcomes change.
 - Selected skills, Factory tag/revision, stage hashes, installed paths, preserved
   local changes and observed native discovery.
 - Ops thread identity, project/workspace binding, role/source paths, pin and
@@ -22,8 +28,10 @@ Record the choices relevant to the installation:
   execution host, OS/account and workspace, distinguished from the client device.
 - Selected update channels and native installer/updater ownership; checks versus
   automatic installs, idle/interruption rules, recovery and last observed result.
-- Extra AgentOps grants separately from the worker baseline: purpose, target,
-  authorizer and expiry/removal condition; user-editable versus managed controls.
+- AgentOps scope (Factory and the adopted repository) and the narrower ADLC task
+  workspaces. Record each extra grant separately from that baseline: who or which
+  role, target, environment, purpose, date, authorizer, expiry/removal condition
+  and readback, without secrets; user-editable versus managed controls.
 - Effective filesystem/network/tool boundaries, allowed data destinations,
   deployment credentials and private security reporting route.
 - Work-status source and actual Project/field/label identifiers; priority and

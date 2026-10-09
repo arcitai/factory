@@ -1,6 +1,6 @@
 # Decisions and delegation
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.6 · Updated: 2026-10-09
 
 There are two default human decisions:
 
@@ -44,12 +44,37 @@ owner instructions separate from quoted pages, issues and webhook payloads.
 
 ## Role and access
 
-AgentOps directs work and owns the coordination outcome. ADLC workers carry out
-bounded tasks. Both start with the access needed for that task; the lead's higher
-responsibility does not grant blanket administration. Record any additional lead
-access with its target, purpose and removal condition. Enforce required separation
-through native permissions, OS identities and service credentials, not a role name.
-When roles share an account, do not claim workers are unable to use its credentials.
+AgentOps directs work and owns the coordination outcome across Factory and the
+adopted repository within the owner's mandate. ADLC workers carry out bounded
+tasks in narrower task workspaces with task-specific access. Both start with the
+access needed for that task; the lead's higher responsibility does not grant
+blanket host administration.
+
+Record each additional grant in the project's private installation record: who
+or which role receives it, target, environment, purpose, when it was granted,
+authorizer, expiry or removal condition and the readback that proved it. Never
+record the secret itself. Enforce required separation through native permissions,
+OS identities and service credentials, not a role name. A shared OS account,
+worktree or role instruction is not an isolated identity; when roles share an
+account, do not claim workers are unable to use its credentials.
+
+## Improving skills and context
+
+Improve the method from observed friction, corrections, rework and concrete reuse
+value. First repair, merge or prune an existing AgentOps/ADLC skill, project
+instruction or document. Propose a new skill only for a recurring, non-obvious
+procedure with a clear trigger and no adequate existing home. An ordinary task
+needs its correction and proof, not a new wiki page, skill or issue.
+
+Keep application facts in that application's existing repository docs or source.
+Put transferable Factory method in the canonical portable skill bundle, with any
+required resource inside its own skill folder. A method adapted in one repository
+does not automatically become a global Factory skill.
+
+Make the change as ordinary scoped work with independent review. Changes to
+installation or discovery also go through Foundation adoption; ordinary docs
+edits do not. A proposed skill cannot authorize its own installation, broaden
+access, overwrite unrelated context or redefine acceptance.
 
 ## Examples
 

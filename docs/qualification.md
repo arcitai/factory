@@ -1,6 +1,6 @@
 # Qualification
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.6 · Updated: 2026-10-09
 
 This record distinguishes source review, disposable exercises and observed native
 operation. A package release does not qualify another host, every future update
@@ -10,6 +10,8 @@ remain with the installation; public issues track the remaining acceptance work.
 | Boundary | Observed evidence | Limit / next check |
 | --- | --- | --- |
 | Package | Eight portable skills, metadata/link checks and staging tests | Mechanical checks do not establish agent decisions |
+| Model profile, scope and skill improvement (0.1.6) | 2026-10-09: two fresh Astra High contexts each answered four textual cases against baseline and candidate; both preserved scope, useful knowledge placement, reviewed skill adoption and visible quota limits. Candidate decisions made worker-option readback more explicit | No measured reliability or cost improvement, application delivery or installed-discovery claim. Concrete role presets remain proposals; see the delivery PR for independent source review |
+| Checker in Claude's native sandbox (0.1.6) | An initial metadata check failed on a masked `.claude` path. The fix prunes private harness directories before traversal; the direct check then passed for 8 skills, with 11 tests passing. Independent review reproduced the regression against both earlier variants and checked that maintained-source errors still propagate | This validates the package checker, not additional agent permissions or isolation |
 | Revision/access guidance (0.1.4 candidate) | Four fresh-context Codex textual cases kept least privilege, edit dates versus restore proof, genuine attribution and bounded native maintenance | Text-only decisions; not an application delivery or live deployment |
 | Earlier method cases | Opus cases exercised admission, delegated delivery, proportional context and review handoffs | Text-only cases had failures, including invented provenance; preserved in the [v0.1.3 rehearsal record](https://github.com/arcitai/factory/blob/v0.1.3/docs/rehearsals.md) |
 | Native delegation | Nightly 2861: Opus 5.5/High delegated separate Codex review; a fresh review found and led to fixes | One assisted path, not arbitrary application quality or unattended acceptance |
@@ -24,7 +26,7 @@ remain with the installation; public issues track the remaining acceptance work.
 | Claude automatic updates | `claude doctor`: native installation, latest channel, auto-updates enabled, no installation issues; subscription authentication retained | New versions apply to later processes; this is not a future compatibility guarantee |
 | Access | Unprivileged host account could not access the personal home or Docker socket; no effective worker sudo | AgentOps and ADLC still share the account and its GitHub identity |
 | Codex workspace sandbox | 0.162.0 native CLI and a fresh T3 2873 Auto turn: workspace write succeeded, outside write failed with an OS read-only-filesystem error; files removed and Git clean | One bounded write probe; no network, MCP or broad read-isolation claim. The CLI version check also warned that its PATH-alias directory was read-only |
-| Claude Bash sandbox | 2.1.295 terminal probes: workspace write succeeded, outside write failed with read-only filesystem; explicit user settings loaded | T3 is configured to load that user policy, but the attempted native turn reached Claude's five-hour quota limit before the probe. Native Resume at reset is selected; completion remains unproved. File tools/MCP/hooks are separate boundaries |
+| Claude Bash sandbox | 2.1.295 terminal probes: workspace write succeeded, outside write failed with read-only filesystem; explicit user settings loaded. 2026-10-09 evening, T3 2873 native Auto turn read back as `claudeAgent`/`claude-opus-5-5`, effort high, fast mode off, in its bound worktree: Bash exclusive-create in the workspace succeeded, a new file in the account home failed with `OSError` errno 30 (read-only filesystem); the probe file was removed | One Bash write probe; file tools, MCP, hooks, network and read isolation remain separate, unqualified boundaries, and the account's credentials stay shared. Inside the sandbox, Git listed masked dotfile mount points as untracked entries; they are not worktree changes. An earlier quota-blocked attempt's automatic resume was disabled, not replayed |
 | System maintenance | Omarchy 4.0.4-1 source/config inspection found native update checks and an interactive system-update path | No unattended OS installation enabled; prompts, administrator access, snapshot coverage and encrypted boot remain relevant |
 
 The older [Nightly 2861 record](https://github.com/arcitai/factory/blob/v0.1.3/docs/qualification.md)
@@ -37,10 +39,17 @@ The setup guide references T3 `0.0.46-nightly.20261009.2873`, upstream
 `ec80933ac8cd02fec5c97b342462ccc9567cdb1e`, inspected 2026-10-09. The server and
 operator desktop version matched after the update. The desktop later locked; a
 temporary native web client over the existing private SSH route allowed the Codex
-turn above. Claude's T3 probe remains pending at its
-observed subscription reset. The incomplete Opus review is not an acceptance
-verdict; a separate Codex context performs candidate review. No paid overage or
-permanent AgentOps model change was enabled.
+turn above. Claude's T3 Bash probe was later completed in a separately launched
+turn, as recorded above. The incomplete Opus review is not an acceptance
+verdict; a separate Codex context performs candidate review. No paid overage was
+enabled. On 2026-10-09 the pinned AgentOps thread was switched from Claude to
+Codex Astra High for research and coordination; a native readback showed
+`codex`/`gpt-6-astra`, reasoning effort high, service tier `default`. New-thread
+defaults did not change: an AgentOps inspection of selected T3 user-settings keys,
+observed 2026-10-09, showed both the environment default and the Factory project
+override as `codex`/`gpt-6-astra`, reasoning effort xhigh, service tier `default`.
+The empty model field in T3's legacy project record is not that effective
+override. The proposed role profiles are neither installed nor owner-selected.
 
 Codex native Auto policy and Claude approval mode were inspected in T3's adapters.
 The two providers do not implement an identical boundary. Claude's user-editable

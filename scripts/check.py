@@ -3,6 +3,7 @@
 
 from datetime import date
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -11,6 +12,17 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)"
 REVISION = re.compile(rf"^Revision: ({VERSION}) · Updated: (\d{{4}}-\d{{2}}-\d{{2}})$")
+# Generated output and private harness context (including sandbox masks) are not Factory sources.
+SKIPPED_DIRS = {".git", "dist", ".venv", ".claude"}
+
+
+def markdown_sources(root):
+    def fail(error):
+        raise error
+
+    for folder, dirs, files in os.walk(root, onerror=fail):
+        dirs[:] = [name for name in dirs if name not in SKIPPED_DIRS]
+        yield from (Path(folder) / name for name in files if name.endswith(".md"))
 
 
 def valid_revision(version, updated, package_version):
@@ -77,9 +89,7 @@ def check(root=ROOT):
             errors.append(f"{path.relative_to(root)}: description/license invalid")
         if not valid_revision(metadata.get("version", ""), metadata.get("updated", ""), package_version):
             errors.append(f"{path.relative_to(root)}: invalid/missing revision or edit date")
-    for path in root.rglob("*.md"):
-        if any(part in {".git", "dist", ".venv"} for part in path.relative_to(root).parts):
-            continue
+    for path in markdown_sources(root):
         source = path.read_text(encoding="utf-8")
         if path not in skills and ".github" not in path.relative_to(root).parts:
             matches = [m for line in source.splitlines()[:6] if (m := REVISION.fullmatch(line))]
