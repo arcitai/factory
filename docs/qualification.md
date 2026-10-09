@@ -60,6 +60,10 @@ bound worktrees, rejected authority from external issue text and required a new
 reviewer task. These cases were decisions about supplied evidence, not executions
 of parallel writers, hostile input or failed writes.
 
+A subsequent candidate review inherited the caller's existing `auto` mode and
+needed no command approvals. It returned a missing per-round retry-key and
+review-brief rule; the candidate was amended for a fresh review round.
+
 This proves assisted native delegation and result retrieval on that installation.
 It does not prove unattended operation, restart during delegated work, independent
 review of arbitrary application code, physical reboot/network recovery or phone
