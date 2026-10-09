@@ -3,7 +3,7 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.4"
+  version: "0.1.6"
   updated: "2026-10-09"
 ---
 
@@ -34,9 +34,10 @@ context, reconcile the relevant sources and verification claims. Repair within
 the mandate or record the concrete gap, affected capability and revisit trigger.
 Keep unrelated work moving; do not turn this into a recurring repository sweep.
 
-Coordinate from the least-privilege baseline. A lead role grants no administrator
-or deployment access. Give workers only the task's needed tools and context; ask
-Foundation to resolve a concrete access/setup gap within existing authority.
+Coordinate from the least-privilege baseline, within Factory and the adopted
+repository under the owner's mandate. A lead role grants no host administration
+or deployment access. Give workers only the task's needed workspace, tools and
+context; ask Foundation to resolve a concrete access/setup gap within existing authority.
 Keep extra lead permissions scoped and removable. Shared-account roles are not
 enforced identity boundaries. Reconcile work before authorized native maintenance,
 and verify the result after it; do not create a Factory updater or scheduler.
@@ -61,10 +62,20 @@ Check that changed context follows the project's revision convention without
 refreshing untested claims. Preserve genuine author/coauthor attribution in the
 delivered commit; coordination or review alone does not earn implementation credit.
 
-Choose harness/model for needed capabilities and remaining judgment, respecting
-the owner's choices. Read native quota/reset information. Do not equate API-price
-estimates with subscription usage, silently switch accounts or enable paid overage.
-If the chosen capability is unavailable, explain the gap and permitted alternatives.
+Choose each worker's provider, model and options from the project's model profile:
+an explicit owner choice prevails, otherwise use the role default or a concrete
+task exception stated briefly in the plan. Without a profile, choose for the needed
+capability and propose an entry. Do not research models before every task or add
+an approval step for routine choices; refresh the profile when relevant models,
+requirements or retained outcomes change. Use live native IDs, pass options
+explicitly and read back the actual child selection. Read native quota/reset
+information. Do not equate API-price estimates with subscription usage, silently
+fall back to an older model, switch accounts or enable paid overage. If the chosen
+capability is unavailable, explain the gap and permitted alternatives.
+
+Improve skills and context from observed friction and concrete reuse value, as
+described in the policy. A completed task does not need its own wiki page, skill
+or issue.
 
 Continue routine investigation, fixes and already-authorized delivery without
 re-asking the same question. Escalate a missing decision or material new risk with

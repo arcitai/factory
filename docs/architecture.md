@@ -1,6 +1,6 @@
 # Responsibility and access
 
-Revision: 0.1.5 · Updated: 2026-10-09
+Revision: 0.1.6 · Updated: 2026-10-09
 
 Factory has three responsibilities around existing tools. It has no server,
 provider adapter, task database or application runtime of its own.
@@ -8,7 +8,7 @@ provider adapter, task database or application runtime of its own.
 | Responsibility | Owns | Does not establish |
 | --- | --- | --- |
 | Foundation | Project context, native setup, access choices and readiness checks; repair when these change | Product scope, continuous execution or readiness merely because files were installed |
-| AgentOps | Research, priorities, assignments, exceptions and acceptance within delegated authority | Administrator access or permission to bypass review |
+| AgentOps | Research, priorities, assignments, worker model choices, reviewed skill/context improvements and acceptance within delegated authority | Administrator access, permission to bypass review or self-installed skills |
 | ADLC | The concrete specification, implementation, independent review and authorized delivery | Authority to accept unrelated work or widen its own access |
 | T3 and native harness | Conversations, models, worktree binding, native tools, permissions and recovery | Application deployment, monitoring or per-role OS isolation by naming a thread |
 | OS and GitHub | Actual account/filesystem/process boundaries, token grants and repository protections | Independent review merely because CI is green |
@@ -29,8 +29,8 @@ a fourth privileged agent tier.
 | Level | Normal responsibility and access | Example of a separate grant |
 | --- | --- | --- |
 | Human owner | Sets the mandate and controls personal, administrative and account access | Authorizes a specific staging deployment without sharing a personal admin session |
-| AgentOps | Reads the relevant project state, coordinates accepted work and reviews outcomes | A staging-only deployment identity for the authorized delivery step, kept outside implementation workers |
-| ADLC worker | Uses its assigned checkout, build/test tools and task-specific services; reviewers get the candidate and evidence | Access to the specific test service needed to verify the change, with a removal condition |
+| AgentOps | Works across Factory and the adopted repository within the mandate: reads project state, coordinates accepted work and reviews outcomes | A staging-only deployment identity for the authorized delivery step, kept outside implementation workers |
+| ADLC worker | Uses its narrower assigned task workspace, build/test tools and task-specific services; reviewers get the candidate and evidence | Access to the specific test service needed to verify the change, with a removal condition |
 
 Each level gets the least access needed. AgentOps can coordinate more while using
 the same restricted baseline as a worker; broader access is an explicit exception.

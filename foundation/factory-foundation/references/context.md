@@ -1,6 +1,6 @@
 # Establish useful project context
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.6 · Updated: 2026-10-09
 
 Use during setup or a scoped readiness assessment. Start with the actual repo,
 accepted work and existing documentation. The outcome is enough reliable context
@@ -55,6 +55,21 @@ different evidence. A missing file is not itself a defect, and a present file do
 not prove secure behavior. Read only the context needed for the current task;
 avoid loading every reference into every worker. Resolve contradictory instructions
 at their source rather than adding another layer of instructions.
+
+When work produces knowledge worth keeping, put it in the most specific existing home:
+
+| Knowledge | Home |
+| --- | --- |
+| Result and proof of one task | Its existing issue/PR, with sensitive evidence in the approved private location |
+| Durable application facts, architecture, dependencies or runbooks | The application's existing README, docs or source, linked from its instructions when discovery needs it |
+| A standing instruction for the whole project | A short addition to the existing AGENTS/CLAUDE or equivalent convention |
+| A repeatable, non-obvious procedure with concrete future use | An amended existing skill first; a focused project skill only for a real gap |
+| Transferable Factory method | The owning Foundation, AgentOps or ADLC canonical skill bundle |
+
+Keep an existing wiki that works. A wiki-style docs section is optional and
+needs a retrieval or maintenance benefit; do not reorganize content to fill one.
+Keep one canonical explanation and link to it instead of duplicating it in docs
+and skills. Do not put an application's facts into Factory's shared references.
 
 ## External dependencies
 
