@@ -5,11 +5,12 @@ optionally a phone as clients. The host can be a laptop, workstation or VPS.
 The method itself also works without T3 after qualifying
 the chosen harness's discovery and operation.
 
-Verified: upstream setup guidance; stable T3 **0.0.45**; 2026-10-07;
-source inspection, not live installation proof. Newer V2 delegation and
-automation are an additional qualification, not a prerequisite for the first
-manually coordinated task. Keep the chosen client/server/provider versions in
-the installation record. See [upstream installation](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/install.md).
+Reference version: T3 **0.0.46-nightly.20261009.2861**; upstream setup guidance
+checked 2026-10-09. This is a prerelease qualification baseline, not a guarantee
+for every host or future Nightly. Keep the selected client/server/provider versions
+and observed proof in the installation record. Native delegation and automation
+need their own qualification; installing them does not authorize their use.
+See [upstream installation](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/install.md).
 
 ## 1. Choose the boundary
 
@@ -56,13 +57,16 @@ factory_install_dir="$(mktemp -d)" &&
 After reviewing that downloaded script, execute the same file:
 
 ```sh
-T3CODE_VERSION=0.0.45 sh "${factory_install_dir:?Use the directory from the successful download and review above}/install.sh"
+T3CODE_CHANNEL=nightly T3CODE_VERSION=0.0.46-nightly.20261009.2861 sh "${factory_install_dir:?Use the directory from the successful download and review above}/install.sh"
 ```
 
 Use the installer-reported binary path if `~/.local/bin` is not on `PATH`.
 Check `t3 --version`, `codex --version`, `claude --version`, `git --version`
 and `gh --version` as the account that will run the service.
 Stop and reconcile if the reported T3 version differs from the selected version.
+Select the official Nightly release, not a maintainer's `preview` build. Keep all
+clients on a compatible orchestration protocol and check the provider compatibility
+reported for that release before starting agent work.
 
 In T3's provider settings, choose separate Codex and Claude configuration
 directories for this work. Authenticate against those same paths on the host:
@@ -89,9 +93,9 @@ from the actual provider catalog; use the owner's selection and measured results
 Extra providers and automatic model routing are optional. Usage belongs in T3;
 API-equivalent estimates are not subscription charges and missing limits are unknown.
 
-References: [Codex profiles](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/providers-codex.md),
-[Claude profiles and skills](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/providers-claude.md),
-[usage](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/usage.md).
+References: [Codex profiles](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/providers-codex.md),
+[Claude profiles and skills](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/providers-claude.md),
+[usage](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/usage.md).
 
 ## 3. Make the service independent of the client
 
@@ -114,12 +118,28 @@ and reconnection: [known shutdown/reconnect report](https://github.com/pingdotgg
 Inspect service ownership before mixing multiple launch methods.
 
 Before an update or restart, read active work and arrange interruption/recovery.
-Pin versions for a qualification run. The documented update path is `t3 update`
-with a selected version; restarting interrupts active turns. Back up native state
-with the service stopped before a major migration. Preserve the prior installation
-and selected userdata; a binary downgrade alone may not undo a database migration.
-[Service behavior](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/background-service.md),
-[V2 migration and backup](https://github.com/pingdotgg/t3code/blob/fd1c3386c4d60f3477ab3f13c87537848de099f5/docs/user/thread-migration.md).
+Pin versions for a qualification run. Stop the service and privately back up its
+`userdata`, service configuration and prior version before a major migration.
+The backup contains credentials and history; keep it with restricted access on
+the execution host. Restart the service after the consistent backup, then use the
+native update path, for example:
+
+```sh
+t3 update 0.0.46-nightly.20261009.2861 --channel nightly
+```
+
+The restart interrupts active turns. V2 copies `state.sqlite` to `statev2.sqlite`
+once, preserving the V1 database. Later activity in the two versions does not
+sync. Messages and thread metadata migrate; live provider sessions, old tool
+activity, approvals and checkpoints do not. The first continued turn must reload
+instructions, skills and outstanding decisions. Preserve the recovery copy;
+inspect it read-only if needed. A binary downgrade alone is not a data rollback.
+
+Upgrade every operator client to a compatible V2 build, then verify the service,
+connection route, projects, pins, archives, transcripts and a harmless provider
+turn. Record missing history or changed behavior before restarting real work.
+[Updating](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/updating.md),
+[V2 migration and backup](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/thread-migration.md).
 
 ## 4. Connect the operator clients
 
@@ -148,6 +168,9 @@ on if local work is also intended. Local history and remote connections are reta
 After restart, check the toggle, Connected status and the same thread; check that
 the execution service remained active. Avoid manually editing T3's database.
 
+Check the permissions of the route actually in use; saved routes can have different
+sessions and grants. A migrated connection notice does not authorize broader access.
+
 Pairing links are credentials. Transfer them directly into the intended client,
 then verify readback and remove temporary copies. If typing a full link fails,
 use the dialog's separate Host and Pairing code fields. Reconcile an uncertain
@@ -161,8 +184,12 @@ conversation. Test a real question/approval from the phone before relying on it.
 Select notification preferences deliberately. Keep external integrations for a
 later qualified route.
 
-[Connections](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/remote-access.md),
-[mobile notifications](https://github.com/pingdotgg/t3code/blob/v0.0.45/docs/user/mobile-notifications.md).
+Nightly V2 requires the **beta mobile app**; the stable store apps cannot connect
+to this baseline. Use the beta links in T3's **Settings → General → Mobile app**
+and prove the actual phone question/response route before relying on it.
+
+[Connections](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/remote-access.md),
+[mobile notifications](https://github.com/pingdotgg/t3code/blob/3b6af0bd1600f034b0466e1b8ff017fbabeba910/docs/user/mobile-notifications.md).
 
 ## 5. Adopt selected skills
 
