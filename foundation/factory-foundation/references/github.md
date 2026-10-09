@@ -1,5 +1,7 @@
 # Prepare repository work tracking and delivery
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Inspect the actual repository, owner, default branch, existing instructions,
 checks, labels, Projects and deployment rules. Preserve established conventions.
 Use GitHub's native CLI/API/UI; Factory has no label cache or workflow database.
@@ -113,6 +115,22 @@ Update affected delivery documentation to match the observed revision/environmen
 An untested deployment, rollback or restore remains unverified; publishing a release
 does not advance those verification dates. Retain private evidence at its approved
 location and link only a safe summary from public documentation.
+
+## Contributor credit
+
+Keep the human author and use the native Co-authored-by attribution for harnesses
+that actually contributed. Preserve these trailers when squashing. Codex's native
+identity is `Codex <noreply@openai.com>`; retain Claude's actual native selected
+model identity when it contributed. Do not invent another harness's email or
+rewrite history just to populate a graph. Review-only participation belongs in
+the PR's review evidence.
+
+This is attribution, not another GitHub login or permission boundary. GitHub
+associates commit emails with accounts and applies default-branch/contributor
+rules, so a visible trailer need not immediately create a separate avatar in the
+contributors graph. A shared credential still has its actual shared grants.
+[Multiple authors](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors),
+[contributors graph](https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors).
 
 Sources: [Projects API](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects),
 [built-in workflows](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations),

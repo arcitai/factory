@@ -1,5 +1,7 @@
 # Make the change easy to review
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Use when preparing or revising a PR or substantive handoff for a person. The
 implementer owns this presentation; independent review checks its claims, and
 AgentOps brings forward any remaining owner decision. Use the existing PR and

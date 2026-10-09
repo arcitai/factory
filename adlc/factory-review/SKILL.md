@@ -2,6 +2,9 @@
 name: factory-review
 description: Independently assess a concrete candidate against its accepted scope, project standards and actual verification evidence before delivery.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Review
@@ -18,6 +21,8 @@ defects from optional preferences. A placeholder check or generic score is not p
 Compare affected context and dependency/operating guidance with the actual candidate
 and evidence. Check changed access, failure signals and recovery claims where relevant;
 an edited date, a configured control or a green unrelated test is not proof they work.
+Check the project's revision metadata for changed instructions and references;
+verify that attribution reflects actual contributions and survives delivery.
 Inspect the human handoff as part of this review: its concrete comparison, check
 claims and pending decision must match the candidate. Check useful media and links
 in the rendered result; reject invented baselines, exposed sensitive data or hidden

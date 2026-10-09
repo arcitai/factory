@@ -1,5 +1,7 @@
 # Adoption record
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Use an existing project record when it already contains this information. Keep
 host identities, private paths, account references and sensitive proof in a private
 installation record. Public project documentation can link a sanitized summary.
@@ -18,6 +20,10 @@ Record the choices relevant to the installation:
   auto-settle choice; explicit source loading distinguished from native discovery.
 - Each client's saved service connection and Local environment choice; observed
   execution host, OS/account and workspace, distinguished from the client device.
+- Selected update channels and native installer/updater ownership; checks versus
+  automatic installs, idle/interruption rules, recovery and last observed result.
+- Extra AgentOps grants separately from the worker baseline: purpose, target,
+  authorizer and expiry/removal condition; user-editable versus managed controls.
 - Effective filesystem/network/tool boundaries, allowed data destinations,
   deployment credentials and private security reporting route.
 - Work-status source and actual Project/field/label identifiers; priority and

@@ -16,8 +16,10 @@ class CheckTests(unittest.TestCase):
             skill = root / "adlc/example"
             skill.mkdir(parents=True)
             path = skill / "SKILL.md"
-            valid = "---\nname: example\ndescription: A test skill.\nlicense: MIT\n---\n"
-            (skill / "reference.md").write_text("Useful local reference.\n")
+            (root / "VERSION").write_text("0.1.4\n")
+            valid = ('---\nname: example\ndescription: A test skill.\nlicense: MIT\n'
+                     'metadata:\n  version: "0.1.4"\n  updated: "2026-10-09"\n---\n')
+            (skill / "reference.md").write_text("# Reference\n\nRevision: 0.1.4 · Updated: 2026-10-09\n")
             path.write_text(valid + "[Local](reference.md)\n")
             self.assertEqual(module.check(root), ([], 1))
             path.write_text(valid.replace("name: example", "name: wrong"))
@@ -29,6 +31,66 @@ class CheckTests(unittest.TestCase):
             self.assertTrue(any("escapes" in e for e in module.check(root)[0]))
             path.write_text(valid + "[Encoded escape](%2E%2E/%2E%2E/outside.md)\n")
             self.assertTrue(any("escapes" in e for e in module.check(root)[0]))
+
+
+    def test_revision_metadata_rejects_malformed_or_future_release_values(self):
+        valid = ('---\nname: example\ndescription: A test skill.\nlicense: MIT\n'
+                 'metadata:\n  version: "0.1.4"\n  updated: "2026-10-09"\n---\n')
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "VERSION").write_text("0.1.4\n")
+            folder = root / "adlc/example"
+            folder.mkdir(parents=True)
+            path = folder / "SKILL.md"
+            for source in (valid, valid.replace('"0.1.4"', '"0.1.3"'),
+                           valid.replace('A test skill.', 'A skill --- with punctuation.')):
+                path.write_text(source)
+                self.assertEqual(module.check(root), ([], 1))
+            invalid = [
+                valid.replace('metadata:\n  version: "0.1.4"\n  updated: "2026-10-09"\n', ''),
+                valid.replace('"0.1.4"', '"0.1.5"'),
+                valid.replace('"0.1.4"', '"01.1.4"'),
+                valid.replace('"2026-10-09"', '"2026-02-30"'),
+                valid.replace('"2026-10-09"', '2026-10-09'),
+                valid.replace('"2026-10-09"', '"2026-1-9"'),
+                valid.replace('  version:', '  version: "0.1.3"\n  version:'),
+                valid.replace('  updated:', '  arbitrary:'),
+                valid.replace('"2026-10-09"', '"2026-10-09\t"'),
+                valid.replace('\n---\n', '\n---not-a-delimiter\n'),
+            ]
+            for source in invalid:
+                with self.subTest(source=source):
+                    path.write_text(source)
+                    self.assertTrue(module.check(root)[0])
+
+    def test_documents_need_top_revision_but_templates_do_not(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "VERSION").write_text("0.1.4\n")
+            doc = root / "README.md"
+            template = root / ".github/pull_request_template.md"
+            template.parent.mkdir()
+            template.write_text("## Describe this change\n")
+            for text, expected in [
+                ("# Guide\n\nRevision: 0.1.3 · Updated: 2026-10-08\n", False),
+                ("# Guide\nNo edit record.\n", True),
+                ("# Guide\n\nRevision: 0.1.5 · Updated: 2026-10-09\n", True),
+                ("# Guide\n\nRevision: 0.1.4 · Updated: 2026-13-09\n", True),
+                ("# Guide\n" + "\n" * 6 + "Revision: 0.1.4 · Updated: 2026-10-09\n", True),
+            ]:
+                with self.subTest(text=text):
+                    doc.write_text(text)
+                    errors = module.check(root)[0]
+                    self.assertEqual(any("README.md" in e for e in errors), expected)
+                    self.assertFalse(any("pull_request_template" in e for e in errors))
+
+    def test_package_version_is_required_and_numeric(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for value in (None, "next", "01.2.3"):
+                if value is not None:
+                    (root / "VERSION").write_text(value)
+                self.assertTrue(any("VERSION:" in e for e in module.check(root)[0]))
 
 
 if __name__ == "__main__":

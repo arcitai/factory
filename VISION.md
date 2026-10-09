@@ -1,5 +1,7 @@
 # Vision
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Help an owner turn ideas, bugs, features, research and scoped defensive work into
 well-founded decisions and verified application changes, with less coordination
 and platform maintenance.

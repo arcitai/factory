@@ -1,5 +1,7 @@
 # Contributor instructions
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Read [VISION.md](VISION.md), [README.md](README.md) and the affected skill.
 This repository owns Factory's method, not an adopting application's product rules.
 
@@ -23,3 +25,8 @@ authorized delivery. Record live proof separately from fixtures and source revie
 Keep changes, proof and roadmap in GitHub. Update affected guides and the
 qualification record. Readback published artifacts and preserve a recovery path;
 do not turn a passing package check into an installation claim.
+
+Follow the revision convention in CONTRIBUTING when editing skills or Markdown.
+Keep edit dates separate from dates of observed behavior. Preserve the human Git
+author and actual contributors' native Co-authored-by trailers through delivery;
+do not credit a model for work it did not perform.

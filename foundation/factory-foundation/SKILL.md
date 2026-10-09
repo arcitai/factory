@@ -2,6 +2,9 @@
 name: factory-foundation
 description: Prepare or assess a repository and execution host for Factory, including native harness access, selected skills, GitHub work tracking and delivery checks.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Factory Foundation
@@ -33,6 +36,11 @@ Prepare only the chosen capabilities:
   Keep the agent host distinct from application operation.
 - Confirm the native versions, selected provider account, effective tools and
   permissions. A discoverable binary or copied skill does not establish readiness.
+- Start AgentOps and workers with least privilege. Distinguish coordination
+  authority from enforced OS/tool/credential access. For a wider grant, identify
+  the required action, target, authorizer and removal condition; apply the smallest
+  native change and test an allowed and refused operation. Never make the lead
+  an administrator merely because it coordinates workers.
 - Scope the lead role to its chosen thread; an existing project is sufficient
   when it has the intended access. Separate credentials/access where required.
   A profile separates configuration/history, not OS access. Qualify the actual filesystem
@@ -48,6 +56,10 @@ Prepare only the chosen capabilities:
 - Qualify service startup, client disconnect, restart and recovery on disposable
   work before relying on unattended operation. Reconcile active/unknown writers
   before stopping a service or changing its version.
+- Establish the selected native update channel, updater ownership and maintenance
+  boundary. Update checks are not automatic installs; interrupted turns, OS prompts
+  and encrypted-disk unlock need an explicit recovery route. Preserve skill-local
+  changes when adopting a new reviewed version.
 
 Finish with observed readiness, versions, identities without secrets, checks and
 specific remaining gaps. A gap holds the dependent capability, not unrelated work.

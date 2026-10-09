@@ -1,5 +1,7 @@
 # Establish useful project context
 
+Revision: 0.1.4 · Updated: 2026-10-09
+
 Use during setup or a scoped readiness assessment. Start with the actual repo,
 accepted work and existing documentation. The outcome is enough reliable context
 and working controls for that work, not a required collection of Markdown files.
@@ -121,7 +123,10 @@ formal incident process each need a concrete purpose; no full stack is the defau
 Use a small verification note near a claim about changing external/runtime state:
 `Verified: <claim>; <revision/version/environment>; <date>; <check or evidence>.`
 Use a compact version table when an independently versioned combination matters.
-Git supplies edit history. A new date alone is not verification: preserve the last
+Use the project's revision convention for edited documents and skills. In this
+Factory package, source revision/date appears at the top; Git and PRs hold the
+change history. Do not impose a new metadata system on an adopting application
+that already has a useful convention. A new date alone is not verification: preserve the last
 observed baseline and mark a changed, untested claim as unverified. Narrow a note
 to what was actually checked; source inspection is not a restore or deployment test.
 An imported observation keeps its original date and source; missing dates stay

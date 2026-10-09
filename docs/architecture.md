@@ -1,89 +1,65 @@
-# Responsibility
+# Responsibility and access
 
-```mermaid
-flowchart TD
-  Owner[Owner: idea, task or accepted backlog] --> Lead[Agent Ops lead]
-  Foundation[Foundation: project and host preparation] --> Context[Project sources and controls]
-  Foundation --> T3[T3 Code on execution host]
-  Lead --> T3
-  T3 --> Native[Native harnesses and models]
-  Native --> Method[Selected ADLC skills and project instructions]
-  Context --> Method
-  Method --> GitHub[Issues, Projects, PR and CI]
-  GitHub --> Delivery[Authorized application delivery]
-  Delivery --> App[Application runtime and data]
-  App --> Signals[Health, logs and relevant alerts]
-  Signals --> Operator[Authorized operator and recovery]
-  Lead --> Decisions[Admission and delivery decisions]
-  Decisions --> Owner
-```
+Revision: 0.1.4 · Updated: 2026-10-09
 
-The Mac/phone is an operator entry point. The Linux host runs T3, providers and
-workspaces. Closing the client must not be assumed to preserve work until the
-chosen service/connection has been tested. The host still needs power and network.
-Application hosting is separate from the agent host. Its environments, data,
-credentials, dependencies and recovery belong to the application. This remains
-true if the two share a machine. A connected T3 service is not proof that the
-application deploys, reports failures or can recover its data.
+Factory has three responsibilities around existing tools. It has no server,
+provider adapter, task database or application runtime of its own.
 
-Foundation prepares the environment and observes readiness. Agent Ops researches,
-prioritizes within authority, delegates, handles exceptions and reports outcomes.
-ADLC skills perform the relevant task; they are not mandatory sequential jobs.
-T3/native tools own sessions, status, interruption and recovery. GitHub owns
-work status and delivery records. No Factory runtime sits between them.
+| Layer | Owns | Does not establish |
+| --- | --- | --- |
+| Foundation | Project context, native setup, access choices and readiness checks; repair when these change | Product scope, continuous execution or readiness merely because files were installed |
+| AgentOps | Research, priorities, assignments, exceptions and acceptance within delegated authority | Administrator access or permission to bypass review |
+| ADLC | The concrete specification, implementation, independent review and authorized delivery | Authority to accept unrelated work or widen its own access |
+| T3 and native harness | Conversations, models, worktree binding, native tools, permissions and recovery | Application deployment, monitoring or per-role OS isolation by naming a thread |
+| OS and GitHub | Actual account/filesystem/process boundaries, token grants and repository protections | Independent review merely because CI is green |
+| Application infrastructure | Hosting, data, deployment, health signals and recovery | A responsibility transferred to T3 by connecting the repository |
 
-## Context and control ownership
+AgentOps remains responsible while ADLC works. Foundation is used when a setup
+or context gap affects the task; it is not a stage repeated before every edit.
+The owner decides admission and delivery by default, or delegates either for a
+specific scope. A completed run is not acceptance; published is not installed.
 
-| Responsibility | Owner |
+## Where the work and authority live
+
+| Resource | Normal location | Useful check |
+| --- | --- | --- |
+| Operator view | Desktop/phone connected to the selected T3 environment | Same project and thread; route actually in use |
+| Agent processes and worktrees | Execution host, unprivileged service account | Native turn reports host, account, bound checkout and effective permission mode |
+| Method and project instructions | Reviewed source plus selected native skill scope | Loaded sources match the adopted revision |
+| Work status and delivery | GitHub issues/Projects, PRs, CI and releases | Actual fields, credentials and protections read back |
+| Deployment/data/telemetry | Application's chosen infrastructure | Task-specific operation and recovery evidence |
+
+A client can be on the execution machine itself and still connect to a different
+OS account's service. Closing a client is safe only after service independence
+has been tested. Power, network and encrypted-disk unlock remain host concerns.
+A worktree prevents writers colliding in one checkout; it is not a security wall.
+
+## Least privilege has more than one control
+
+Instructions describe what an agent should do. Native permissions restrict tools
+and selected shell/filesystem/network operations. The OS and remote services
+restrict what the whole account and its credentials can do. These boundaries
+complement each other; a provider profile or pinned AgentOps thread creates no
+new OS identity.
+
+AgentOps can have broader coordination authority while sharing workers' baseline
+permissions. Additional repositories, telemetry or delivery operations are granted
+only for a named need. If workers must be technically unable to use the lead's
+credentials, use separate identities/environments or an appropriately isolated
+runtime. A role instruction cannot provide that guarantee under a shared account.
+The [setup guide](../foundation/factory-foundation/references/setup.md#least-privilege-in-practice)
+contains the native configuration and expansion procedure.
+
+## Sources kept by this package
+
+| Need | Canonical source |
 | --- | --- |
-| Find existing project sources; establish missing context and initial checks | Foundation, within the setup/assessment mandate |
-| Update affected context alongside product changes; independently check claims against the candidate | ADLC specification, implementation and review |
-| Resolve concrete gaps when work, dependency changes or incidents reveal them | AgentOps, within the task's authority |
-| Enforce access, checks and delivery rules; collect operational signals | Native harness/OS, GitHub and the application's selected infrastructure |
-| Accept work and delivery or delegate those decisions | Project owner |
+| Purpose and contributor rules | [Vision](../VISION.md), [README](../README.md), [AGENTS](../AGENTS.md) |
+| Versions, checks and release | [Contributing](../CONTRIBUTING.md), [validator](../scripts/check.py), [tests](../tests), [CI](../.github/workflows/check.yml) |
+| Dependencies and installation | Python standard library for optional helpers; pinned CI action; selected native tools/accounts in [setup](../foundation/factory-foundation/references/setup.md) |
+| Access and changing claims | [Security](../SECURITY.md), [qualification](qualification.md), private installation [record](../foundation/factory-foundation/references/adoption.md) |
 
-The [context reference](../foundation/factory-foundation/references/context.md)
-covers dependencies, observability and honest verification notes. Keep a short
-route to authoritative sources; a file named `dependencies.md` or
-`observability.md` is optional. Neither docs nor skills enforce permissions or
-prove security. Read back controls and exercise the relevant behavior.
-
-For this method package, the existing sources are enough:
-
-| Need | Source |
-| --- | --- |
-| Purpose and contributor instructions | [Vision](../VISION.md), [README](../README.md), [AGENTS](../AGENTS.md) |
-| Build/test and release procedure | [Contributing](../CONTRIBUTING.md), [checks](../scripts/check.py), [tests](../tests), [CI configuration](../.github/workflows/check.yml) |
-| Dependencies | Python standard library for optional helpers; the SHA-pinned action in CI; selected native tools/accounts and their version/access checks in [setup](../foundation/factory-foundation/references/setup.md) |
-| Security and changing operational claims | [Security](../SECURITY.md), [qualification](qualification.md), [behavioral evidence](rehearsals.md); actual installations use a private [adoption record](../foundation/factory-foundation/references/adoption.md) |
-
-The public package's native-tool references do not bundle their implementations
-or credentials. Review an upstream version change and requalify the affected path.
-CI configuration describes the workflow; current required checks and repository
-protections must be read from GitHub. Package delivery uses reviewed tags and
-staged files, not an application database or a Factory production service.
-
-## Three different boundaries
-
-- **Instructions:** selected skills, repository rules and accepted task context.
-- **Native profile:** separate provider configuration, login, tools and history.
-- **Host access:** actual OS user, filesystem, network and process permissions.
-
-The first two do not enforce the third. T3 projects group work; they do not
-sandbox the server account. A lead with cross-project oversight must not give
-every worker all its context or credentials. Start with project-scoped work;
-stronger trust separation uses distinct OS identities/environments or VMs.
-
-The lead may read an idea without accepting it. Backlog status may describe
-accepted work without starting an agent. A completed turn is not acceptance;
-accepted code is not automatically merged, published or installed.
-
-Use native worktree binding for concurrent writers. Delegating a chat can inherit
-the parent's checkout, and changing directory inside a prompt does not necessarily
-change the thread's bound workspace. Independent review uses the identified
-candidate and a separate context. A second model alone does not prove independence.
-
-Provider/model selection follows required capability, remaining judgment and
-observed quota/cost. Start with a small supported set. The method does not hardcode
-a best model, pool credentials or automatically buy overage. Usage comes from its
-native source; missing data stays unknown.
+For applications, reuse their authoritative context. A separate dependencies,
+observability or architecture document needs a real discovery/maintenance benefit;
+see [project context](../foundation/factory-foundation/references/context.md).
+Historical migration and rehearsal detail remains in the earlier reviewed releases.

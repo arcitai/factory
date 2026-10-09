@@ -2,6 +2,9 @@
 name: factory-spec
 description: Turn an accepted application or defensive outcome into a bounded implementation brief with observable acceptance and relevant recovery.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Specify

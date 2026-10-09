@@ -2,6 +2,9 @@
 name: factory-evaluate
 description: Compare methods, model choices or setups with matched tasks, retained outcomes and honest accounting of quality, effort and usage.
 license: MIT
+metadata:
+  version: "0.1.4"
+  updated: "2026-10-09"
 ---
 
 # Evaluate
