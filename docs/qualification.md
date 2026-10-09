@@ -92,6 +92,7 @@ each worker moved its pause to a background command; its first run completed
 before its readback. The background completion notification started a second
 run in each thread, and those runs also overlapped. The operator waited for them
 before cleanup. This motivated the background-continuation note in the T3 guide.
+See the [rehearsal](rehearsals.md#background-continuation-8-candidate).
 
 **Partly live: Connect.** The service was restarted after all recorded runs were
 terminal. Persisted server state read on the host shows Connect exposure enabled,
