@@ -1,6 +1,6 @@
 # Factory
 
-Revision: 0.1.6 · Updated: 2026-10-09
+Revision: 0.1.8 · Updated: 2026-10-10
 
 A practical method for building and improving applications with coding agents.
 
@@ -20,6 +20,29 @@ ADLC means **Agentic Development Lifecycle**. The skills work with your
 application's existing standards, tools and hosting choices.
 AgentOps coordinates ADLC and calls on Foundation when setup needs repair.
 These are responsibilities, not three servers or mandatory separate projects.
+
+## What Foundation prepares
+
+| Scope | What must work | Existing guide |
+| --- | --- | --- |
+| Execution host | The selected harnesses, accounts, access boundaries, skills and client connection; recovery and maintenance for the intended operation | [Host setup](foundation/factory-foundation/references/setup.md) |
+| Application repository | Useful project context, dependencies, build and checks, GitHub rules, and the delivery/operation requirements of this application | [Project context](foundation/factory-foundation/references/context.md) and [GitHub preparation](foundation/factory-foundation/references/github.md) |
+
+A working host does not make every repository ready. A well-prepared repository
+does not prove its agents have the right access. Reuse unchanged host evidence
+when adding a project, then check that project's actual tools and boundaries.
+
+Foundation hands AgentOps a short result for the intended work: **verified**,
+**required gap**, or **conditional/not needed**, with the relevant source and
+proof. AgentOps starts authorized work on ready capabilities and returns setup gaps to
+Foundation. ADLC performs the accepted task and keeps affected project knowledge
+current. Reassess the affected capability when its code, configuration or access changes.
+
+The shared baseline is useful context, explicit authority, working checks and
+observable access. Worker count, models, communication channels, hosting and
+extra isolation are installation choices. A plugin, prototype and production
+service need different preparation; none needs every optional control or a new
+collection of documents. Keep the result in the project's existing record.
 
 ## Three access levels: owner, AgentOps and ADLC
 

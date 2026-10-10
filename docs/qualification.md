@@ -1,6 +1,6 @@
 # Qualification
 
-Revision: 0.1.7 · Updated: 2026-10-09
+Revision: 0.1.8 · Updated: 2026-10-10
 
 This record distinguishes source review, disposable exercises and observed native
 operation. A package release does not qualify another host, every future update
@@ -18,9 +18,12 @@ remain with the installation; public issues track the remaining acceptance work.
 | Concurrent writers | Nightly 2861: two Opus workers ran in distinct native-bound worktrees with overlapping run times; main stayed unchanged | Same account; worktrees are not OS isolation |
 | Deferred completion | Worker background completion started further runs; the lead waited before cleanup | First-run completion alone did not mean work was finished |
 | Mac independence | A Connect-launched task continued and delegated after the Mac app quit; reopening recovered the same thread | Host power/network still required |
-| Phone | Owner confirmed Factory and pinned AgentOps visible in the iPhone beta | Background notification and a real question/response remain unproved |
+| Phone | 2026-10-10, Nightly 2873 and selected iPhone beta: owner confirmed a notification on the locked phone and answered a real AIOS feedback-destination question in T3. Native readback showed the resolved answer and AgentOps' acknowledgment in the same thread | One T3 Connect question/answer route; not every phone, notification setting or approval type |
+| Client network change | 2026-10-10: owner disabled iPhone Wi-Fi, sent a bounded message over mobile data and confirmed the reply. Native readback identified the mobile sender and one completed reply | Mobile-data use is owner-confirmed; no host-network outage or disconnected-write replay was exercised |
+| Closed lid on power | 2026-10-10: host lid state was observed closed across repeated service checks; service stayed active with unchanged boot identity, and a mobile message completed while closed. Owner confirmed the reply with the lid closed and power connected | This qualifies the selected external-power policy, not battery operation or suspend recovery |
+| Desktop logout | 2026-10-10: owner logged out and received a mobile reply before logging back in. Readback showed only the desktop user's lingering manager session, the same active execution service/process and one completed native reply | Selected service/account configuration; logout is distinct from power loss or encrypted-disk startup |
 | Service interruption | A bounded worker wrote its marker once; restart cancelled the run; one deliberate follow-up inspected state | No duplicate write observed; this was not automatic completion of the interrupted task |
-| Physical host reboot | 2026-10-09: boot identity changed, service returned after the owner unlocked the disk; message contents and adopted skills were preserved; an Opus readback completed | Mac initially used saved SSH fallback; returning to Connect required a manual reconnect. Network-loss/lid behavior still open |
+| Physical host reboot | 2026-10-09: boot identity changed, service returned after the owner unlocked the disk; message contents and adopted skills were preserved; an Opus readback completed | Mac initially used saved SSH fallback; returning to Connect required a manual reconnect. Host-network loss remains untested; later client-network and lid checks are recorded separately |
 | Project cleanup | Nightly 2873: native removal deleted two obsolete project registrations and their four archived chats from the picker; active Factory stayed | Source folders remained; the specifically identified recent backup was deleted at owner request, not every historical copy |
 | Native update paths | T3 server updated to 2873 and preserved 216 message texts; Codex 0.162.0 and Claude 2.1.295 installed under the execution user | Root-owned copied launchers had broken updater detection. New native launchers repaired that path; future automatic installation is not established for every tool |
 | Claude automatic updates | `claude doctor`: native installation, latest channel, auto-updates enabled, no installation issues; subscription authentication retained | New versions apply to later processes; this is not a future compatibility guarantee |
@@ -79,6 +82,6 @@ probe does not by itself prove the same configuration in a T3-launched session.
 Read back publication separately from installed files and loaded skills.
 
 Open acceptance work lives in [Factory issues](https://github.com/arcitai/factory/issues):
-actual phone decisions and remaining recovery cases, end-to-end application
+remaining recovery cases, end-to-end application
 adoption, and a separately authorized Defence case. These do not become complete
 because the method package passes its checks. Kastanje product work remains parked.

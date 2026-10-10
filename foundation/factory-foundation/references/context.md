@@ -1,6 +1,6 @@
 # Establish useful project context
 
-Revision: 0.1.6 · Updated: 2026-10-09
+Revision: 0.1.8 · Updated: 2026-10-10
 
 Use during setup or a scoped readiness assessment. Start with the actual repo,
 accepted work and existing documentation. The outcome is enough reliable context
@@ -24,6 +24,14 @@ of establishing and maintaining it. Reuse adequate coverage. Check whether agent
 can find and use the relevant context and whether controls work on representative
 tasks. Evaluate quality, security, rework and human effort, not document counts or
 checklist completion. Keep unrelated improvements outside the current scope.
+
+Leave a short result in the existing adoption record, issue or task: capability,
+owning source, **verified**, **required gap**, or **conditional/not needed**,
+with dated evidence or a next action and responsible role. Explain why a control
+is conditional or unnecessary for this task; do not require a new document to
+hold this result. AgentOps uses it to start ready work and route necessary setup
+repairs. During ADLC, a relevant change reopens that capability's proof, not every
+previously completed setup step.
 
 ## Find the source before writing
 
