@@ -1,6 +1,6 @@
 # Factory
 
-Revision: 0.1.8 · Updated: 2026-10-10
+Revision: 0.1.9 · Updated: 2026-10-10
 
 A practical method for building and improving applications with coding agents.
 
@@ -26,7 +26,7 @@ These are responsibilities, not three servers or mandatory separate projects.
 | Scope | What must work | Existing guide |
 | --- | --- | --- |
 | Execution host | The selected harnesses, accounts, access boundaries, skills and client connection; recovery and maintenance for the intended operation | [Host setup](foundation/factory-foundation/references/setup.md) |
-| Application repository | Useful project context, dependencies, build and checks, GitHub rules, and the delivery/operation requirements of this application | [Project context](foundation/factory-foundation/references/context.md) and [GitHub preparation](foundation/factory-foundation/references/github.md) |
+| Application repository | Useful project context, reproducible setup, meaningful checks, standards and design continuity, GitHub rules, and the delivery/operation requirements of this application | [Project context](foundation/factory-foundation/references/context.md), [engineering foundation](foundation/factory-foundation/references/engineering.md), [CI and delivery](foundation/factory-foundation/references/ci-delivery.md) and [GitHub preparation](foundation/factory-foundation/references/github.md) |
 
 A working host does not make every repository ready. A well-prepared repository
 does not prove its agents have the right access. Reuse unchanged host evidence
