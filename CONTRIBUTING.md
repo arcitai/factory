@@ -1,6 +1,6 @@
 # Contributing
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.10 · Updated: 2026-10-10
 
 Start with a concrete problem, the applicable project goal and observable proof.
 Use an issue or accepted brief; research may end with a decision rather than code.
@@ -37,7 +37,9 @@ Adopting applications retain their own documentation/versioning conventions.
 
 The layout follows the [Agent Skills specification](https://agentskills.io/specification):
 small discovery metadata, focused instructions and references loaded only when
-needed. MIT permits reuse of this package; it grants no system or account access.
+needed. MIT permits reuse of Factory's method, code and documentation; the
+[branding exception](assets/branding/README.md) still applies. A license grants
+no system or account access.
 
 ## Verification and delivery
 

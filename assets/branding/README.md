@@ -8,5 +8,9 @@ Serve this directory locally, wait for `document.fonts.ready`, and capture the
 
 The unchanged mark, Geist fonts and blue `#4265a0` hover accent come from
 [Arc’ It AI’s website at 46e5566](https://github.com/arcitai/arcitai-website/tree/46e5566e5f4d1f89fc36df43cd5a35c79ff504f5).
-The font license is retained in `fonts/LICENSE.txt`. These presentation assets
-are not included in the staged Factory skills.
+The source's [license notice](https://github.com/arcitai/arcitai-website/blob/46e5566e5f4d1f89fc36df43cd5a35c79ff504f5/README.md#license)
+excludes brand names and logos from its software license. The Arc’ It AI name
+and logo, including their use in this banner, are not licensed for reuse under
+Factory's MIT license. The Geist fonts retain their separate license in
+`fonts/LICENSE.txt`. These presentation assets are not included in the staged
+Factory skills.

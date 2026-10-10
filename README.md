@@ -141,5 +141,8 @@ The earlier [migration audit](https://github.com/arcitai/factory/blob/v0.1.3/doc
 and [research decision](https://github.com/arcitai/factory/blob/v0.1.3/docs/decision.md)
 remain in release history; they are not prerequisites for a new installation.
 
-MIT licensed. Existing application licenses, third-party tools and provider
-subscriptions retain their own terms.
+Factory's method, code and documentation are MIT licensed. The Arc’ It AI name
+and logo, including their use in the banner, are not licensed for reuse by that
+software license. See [brand asset terms](assets/branding/README.md). Existing
+application licenses, third-party tools and provider subscriptions retain their
+own terms.
