@@ -1,6 +1,8 @@
+![Factory — Foundation, AgentOps and ADLC](assets/branding/factory-banner.png)
+
 # Factory
 
-Revision: 0.1.9 · Updated: 2026-10-10
+Revision: 0.1.10 · Updated: 2026-10-10
 
 A practical method for building and improving applications with coding agents.
 
@@ -20,6 +22,11 @@ ADLC means **Agentic Development Lifecycle**. The skills work with your
 application's existing standards, tools and hosting choices.
 AgentOps coordinates ADLC and calls on Foundation when setup needs repair.
 These are responsibilities, not three servers or mandatory separate projects.
+
+Keep one pinned **AgentOps** conversation in each application project. That lead
+owns the application's setup and work. The AgentOps conversation in the Factory
+repository develops Factory itself; it is not a central queue for every project.
+Share a relevant finding between projects when useful, with an explicit handoff.
 
 ## What Foundation prepares
 
@@ -43,6 +50,15 @@ observable access. Worker count, models, communication channels, hosting and
 extra isolation are installation choices. A plugin, prototype and production
 service need different preparation; none needs every optional control or a new
 collection of documents. Keep the result in the project's existing record.
+
+Foundation also establishes a small [configuration and adoption record](foundation/factory-foundation/references/adoption.md).
+The project's AgentOps maintains its relevant lasting choices: model defaults and
+exceptions, skills, tool versions, update policy, connections and access. Link the
+actual configuration source, record why a change was authorized, and distinguish
+the intended setting from what was applied and verified. Keep sensitive host and
+account details private and credentials in their native secret stores. Changes are
+reviewable and reversible where supported; the record itself does not apply
+settings or grant access.
 
 ## Three access levels: owner, AgentOps and ADLC
 
@@ -119,17 +135,14 @@ The [qualification record](docs/qualification.md) separates package checks,
 behavioral exercises and live proof. Skills guide work; the native tools and
 infrastructure enforce access and run it.
 
-Start both AgentOps and workers with only the access they need. AgentOps may
-coordinate more work without having administrator rights. A wider grant needs
-a concrete purpose and scope; a thread title or skill does not enforce it.
-The [access section](foundation/factory-foundation/references/setup.md#least-privilege-in-practice)
-explains the native controls, their limits and how to add access deliberately.
-
 See the [architecture](docs/architecture.md) for responsibility boundaries and
 [contributor guide](CONTRIBUTING.md) for versioning, checks and releases.
 The earlier [migration audit](https://github.com/arcitai/factory/blob/v0.1.3/docs/transition.md)
 and [research decision](https://github.com/arcitai/factory/blob/v0.1.3/docs/decision.md)
 remain in release history; they are not prerequisites for a new installation.
 
-MIT licensed. Existing application licenses, third-party tools and provider
-subscriptions retain their own terms.
+Factory's method, code and documentation are MIT licensed. The Arc’ It AI name
+and logo, including their use in the banner, are not licensed for reuse by that
+software license. See [brand asset terms](assets/branding/README.md). Existing
+application licenses, third-party tools and provider subscriptions retain their
+own terms.

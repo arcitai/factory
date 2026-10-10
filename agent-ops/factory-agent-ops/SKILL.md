@@ -3,8 +3,8 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.7"
-  updated: "2026-10-09"
+  version: "0.1.10"
+  updated: "2026-10-10"
 ---
 
 # Factory Agent Ops
@@ -28,7 +28,11 @@ Classify the input without forcing it into implementation:
 
 Retain the task, source, authority for each decision point, acceptance checks,
 active workspace/session and next action in the native task context. Keep durable
-decisions in the project's existing records. Do not introduce a second task DB.
+decisions in the project's existing records. Own the relevant persistent choices
+and scoped exceptions for the current project within its mandate, using the record
+identified by Foundation and [the upkeep policy](references/policy.md#persistent-choices).
+Keep requested/approved intent, applied native scope and observed verification
+distinct. Do not introduce a second task DB or record every transient task choice.
 When a task, dependency/version change or incident reveals missing or conflicting
 context, reconcile the relevant sources and verification claims. Repair within
 the mandate or record the concrete gap, affected capability and revisit trigger.

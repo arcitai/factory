@@ -1,13 +1,68 @@
 # Adoption record
 
-Revision: 0.1.6 · Updated: 2026-10-09
+Revision: 0.1.10 · Updated: 2026-10-10
 
-Use an existing project record when it already contains this information. Keep
-host identities, private paths, account references and sensitive proof in a private
-installation record. Public project documentation can link a sanitized summary.
-Do not record credentials. Unknown is a visible gap, not a made-up default.
+Foundation identifies the appropriate existing project/adoption record and
+establishes the relevant choices. AgentOps maintains them and scoped exceptions
+for its current project within the owner's mandate. Extend that record;
+do not create a separate register or require the whole inventory for every project.
+Record choices that need to survive the task, affect later work or need removal,
+not every transient task choice. Unknown is a visible gap, not a made-up default.
 
-Record the choices relevant to the installation:
+Version safe project-shared policy in the repository where useful. Keep host
+identities, private paths, account references and sensitive evidence in the existing
+private installation record; share only sanitized summaries. Credentials belong
+only in actual secret stores. Executable native configuration is the source of
+truth for applied state: link to its owning source/control instead of copying
+values uncritically. An observation may quote a safe value with its source and date.
+
+## Persistent choices and exceptions
+
+Use short prose or a small table with only meaningful fields:
+
+| Distinction | Useful content |
+| --- | --- |
+| Scope | Affected project, environment and role; requested scope versus actual account, provider, global, project, chat or task scope |
+| Intent | Requested or approved value/capability, source, owner, authority and reason; the default displaced by a scoped exception |
+| Application | Owning native configuration/control, actual applied scope and application date, or unapplied/uncertain status |
+| Verification | Dated effective-state readback and relevant operation/outcome, with version and evidence; keep unverified claims visible |
+| Upkeep | Relevant review trigger, expiry/removal condition, responsible owner and rollback/recovery route; verified removal when due |
+
+Requested intent, approved intent, applied settings and observed behavior are
+different states. A provider-wide setting or grant is not project isolation. If
+the native control cannot isolate the requested project, record that limitation
+and resolve an authorized supported boundary before applying; do not silently
+propagate the choice to other projects. The record grants no authority, enforces
+no access and applies no configuration. Factory Markdown does not apply itself.
+
+For an authorized persistent change:
+
+1. Read effective native state and its source, including overrides; assess the
+   real scope and affected projects before changing it.
+2. Reuse existing authority and its conditions. Resolve only missing authority or
+   material new scope/risk under the two decision points; retain the prior state
+   and a relevant recovery route.
+3. Apply through supported native controls and verify meaningful readback at the
+   affected scope, plus the operation or boundary the claim relies on. A failed
+   or uncertain apply remains unverified; reconcile actual state before retrying.
+4. Update the existing record without secrets, preserving intent versus applied
+   scope and observed proof. For a temporary grant or override, use native expiry
+   where supported or assign its actual removal; verify revocation/removal when
+   due and record the result. Prose expiry does not enforce itself.
+
+Reconcile affected entries on relevant setup, configuration or provider upgrades,
+incidents and task needs. Preserve unchanged evidence at its observed date; no
+watcher or expensive full scan is required on each run.
+
+The reviewable intent and reproducibility principle is informed by Warp's
+[versioned definitions](https://docs.warp.dev/factories/factory-as-code/) and
+[agent configuration](https://docs.warp.dev/factories/factory-agents/), read
+2026-10-10. Factory retains its existing records and native controls, with no
+imported schema or runtime.
+
+## Relevant installation context
+
+Reuse the following existing choice families only where they matter:
 
 - Project, owner, approved vision, canonical instructions and actual repo/branch.
 - Routes to relevant architecture, checks, dependency/configuration sources and
@@ -33,7 +88,7 @@ Record the choices relevant to the installation:
   role, target, environment, purpose, date, authorizer, expiry/removal condition
   and readback, without secrets; user-editable versus managed controls.
 - Effective filesystem/network/tool boundaries, allowed data destinations,
-  deployment credentials and private security reporting route.
+  deployment credential requirements and private security reporting route.
 - Work-status source and actual Project/field/label identifiers; priority and
   readiness policy; issue intake and trusted owner identity.
 - Admission authority and delivery authority separately, including explicit
