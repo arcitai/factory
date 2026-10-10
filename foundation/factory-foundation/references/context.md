@@ -1,6 +1,6 @@
 # Establish useful project context
 
-Revision: 0.1.8 · Updated: 2026-10-10
+Revision: 0.1.9 · Updated: 2026-10-10
 
 Use during setup or a scoped readiness assessment. Start with the actual repo,
 accepted work and existing documentation. The outcome is enough reliable context
@@ -56,6 +56,9 @@ Explain non-obvious decisions, interfaces and operating procedures in prose. Do
 not transcribe configuration, package trees, issue lists or generated inventories
 into a second source of truth. Point to private operational evidence without
 publishing credentials, sensitive endpoints, customer data or raw findings.
+The [engineering foundation](engineering.md) describes working setup, tests,
+standards, design continuity, documents and agent instructions; read
+[CI and delivery](ci-delivery.md) for check cadence, artifacts and environments.
 
 For each relevant gap, state the affected capability and the next useful check
 or repair. A configured control, a successful test and a documented intention are

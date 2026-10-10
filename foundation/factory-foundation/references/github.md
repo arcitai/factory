@@ -1,6 +1,6 @@
 # Prepare repository work tracking and delivery
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.9 · Updated: 2026-10-10
 
 Inspect the actual repository, owner, default branch, existing instructions,
 checks, labels, Projects and deployment rules. Preserve established conventions.
@@ -100,8 +100,11 @@ scanning/push protection where available and appropriate. Distinguish configured
 observed and unavailable controls; do not enable paid services or treat a scanner
 score as a security guarantee.
 
+For branch policy, PR and full-check cadence, the optional three-hour batch profile,
+artifacts and preview/staging delivery, read [CI and delivery](ci-delivery.md).
 Configure actual branch rules/required checks and applicable deployment protections
-in GitHub. Read them back. A workflow file alone does not enable those controls.
+in GitHub. Read them back, including the actors permitted to approve or bypass them.
+A workflow file alone does not enable those controls.
 Record plan/access limitations without changing billing or repository visibility.
 One person's accounts may be unable to approve their own PR: independent model
 review and GitHub-required review are distinct. Preserve configured controls;

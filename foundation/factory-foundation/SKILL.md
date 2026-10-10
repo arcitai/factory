@@ -1,9 +1,9 @@
 ---
 name: factory-foundation
-description: Prepare or assess a repository and execution host for Factory, including native harness access, selected skills, GitHub work tracking and delivery checks.
+description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.8"
+  version: "0.1.9"
   updated: "2026-10-10"
 ---
 
@@ -32,7 +32,13 @@ use [the operator workspace guide](references/workspace.md).
 For GitHub Projects, labels, PR and CI use [repository preparation](references/github.md).
 For application context, dependencies, operation and living documentation,
 use [project context](references/context.md).
-Keep the method independent of a particular model and personal plugin.
+For reproducible setup, tests, standards, design continuity, documents and agent
+instructions, use the [engineering foundation](references/engineering.md). When
+branch policy, check cadence, artifacts or environments change, read
+[CI and delivery](references/ci-delivery.md).
+Keep the method independent of a particular model and personal plugin. Repository
+work can run in a native Codex or Claude session without T3 once that harness's
+skill discovery, tools and permissions are qualified; T3 guides apply to T3 hosts.
 
 Prepare only the chosen capabilities:
 
@@ -63,6 +69,9 @@ Prepare only the chosen capabilities:
 - Prepare meaningful project checks, work tracking and delivery protections.
   Preserve existing field/label conventions and read settings back from GitHub.
   A local workflow file does not prove service-side protection is enabled.
+  Exercise clean setup, the real checks and relevant failure paths; distinguish a
+  prepared repository, an exercised non-production delivery and a
+  production-qualified application.
 - Record admission and delivery authority, including explicit delegated decisions,
   approved data destinations and material risk/escalation conditions.
 - Qualify service startup, client disconnect, restart and recovery on disposable

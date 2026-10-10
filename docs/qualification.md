@@ -1,6 +1,6 @@
 # Qualification
 
-Revision: 0.1.8 · Updated: 2026-10-10
+Revision: 0.1.9 · Updated: 2026-10-10
 
 This record distinguishes source review, disposable exercises and observed native
 operation. A package release does not qualify another host, every future update
@@ -10,6 +10,7 @@ remain with the installation; public issues track the remaining acceptance work.
 | Boundary | Observed evidence | Limit / next check |
 | --- | --- | --- |
 | Package | Eight portable skills, metadata/link checks and staging tests | Mechanical checks do not establish agent decisions |
+| Engineering Foundation (0.1.9 candidate) | Source change: Foundation gains engineering and CI/delivery references, adapted from AIOS project-foundation 1.1.1 at a pinned MIT commit, including an adaptable three-hour batch profile and design/interface continuity. Package checks pass on the candidate | See the delivery PR for independent source review and textual cases. No application adoption, live workflow, observed schedule or preview deployment; the profile enables no schedule |
 | Model profile, scope and skill improvement (0.1.6) | 2026-10-09: two fresh Astra High contexts each answered four textual cases against baseline and candidate; both preserved scope, useful knowledge placement, reviewed skill adoption and visible quota limits. Candidate decisions made worker-option readback more explicit | No measured reliability or cost improvement, application delivery or installed-discovery claim. Concrete role presets remain proposals; see the delivery PR for independent source review |
 | Checker in Claude's native sandbox (0.1.6) | An initial metadata check failed on a masked `.claude` path. The fix prunes private harness directories before traversal; the direct check then passed for 8 skills, with 11 tests passing. Independent review reproduced the regression against both earlier variants and checked that maintained-source errors still propagate | This validates the package checker, not additional agent permissions or isolation |
 | Revision/access guidance (0.1.4 candidate) | Four fresh-context Codex textual cases kept least privilege, edit dates versus restore proof, genuine attribution and bounded native maintenance | Text-only decisions; not an application delivery or live deployment |
@@ -65,7 +66,9 @@ blanket administrator access or cross-role credential isolation is claimed.
 Native scheduled intake was researched against Nightly 2861 and deliberately
 deferred; no Factory queue or scheduler was built. That decision is distinct from
 using native provider update facilities. No OS/server auto-install schedule has
-been qualified or enabled by this release.
+been qualified or enabled by this release. The 0.1.9 CI cadence profile guides an
+application's own workflows; it enables no schedule in Factory or any repository,
+and backlog-monitoring schedules remain deferred.
 
 ## How to qualify a change
 
