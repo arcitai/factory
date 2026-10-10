@@ -3,7 +3,7 @@ name: factory-foundation
 description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.9"
+  version: "0.1.10"
   updated: "2026-10-10"
 ---
 
@@ -15,9 +15,12 @@ standards and useful work. The setup request does not create product scope.
 
 Identify the repository, owner, intended work, execution host, operator entry
 point and delivery destination from accepted context. Resolve facts from the
-actual environment before asking for a missing owner decision. Record only
-what changes setup, authority or proof in the project's existing private record;
-the [adoption outline](references/adoption.md) is available if one is missing.
+actual environment before asking for a missing owner decision. Identify the
+appropriate existing project/adoption record and establish its relevant persistent
+choices using [the adoption guidance](references/adoption.md). Keep safe shared
+policy in the repo where useful and private installation details in their existing
+private record. Reconcile affected entries during setup or relevant changes;
+hand ongoing ownership for the current project to AgentOps within its mandate.
 
 Assess two scopes separately: the **execution host** that runs the agents and
 the **application repository** they will work on. Reuse applicable host proof
@@ -87,8 +90,9 @@ to the intended task. For each relevant capability, identify its host/repo scope
 owning source, **verified**, **required gap**, or **conditional/not needed**
 disposition, and dated proof or the next action and responsible role. Explain
 conditional choices; do not treat an unchecked requirement as not needed.
-Include versions and identities without secrets. Hand this result to AgentOps,
-which can start authorized, ready work and route setup repairs back to Foundation. ADLC keeps
+Include versions without secrets; keep identity details in the private installation
+record. Hand this result to AgentOps, which can start authorized, ready work and
+route setup repairs back to Foundation. ADLC keeps
 affected application sources and checks current during delivery. A gap holds the
 dependent capability, not unrelated work. Preserve unchanged proof rather than
 rerunning the entire installation for every task.

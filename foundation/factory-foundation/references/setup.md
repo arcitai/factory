@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.7 · Updated: 2026-10-09
+Revision: 0.1.10 · Updated: 2026-10-10
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -13,6 +13,14 @@ for every host or future Nightly. Keep the selected client/server/provider versi
 and observed proof in the installation record. Native delegation and automation
 need their own qualification; installing them does not authorize their use.
 See [upstream installation](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/install.md).
+
+Start by identifying the existing project/adoption record. Use
+[the adoption guidance](adoption.md#persistent-choices-and-exceptions) to establish
+relevant persistent choices and separate intent, native application scope and
+dated verification. Reuse its choice families, safe repository policy and private
+installation record; do not create another inventory. For authorized changes,
+follow its effective-state readback, scope, application and verification steps.
+Hand ongoing upkeep for the current project to AgentOps within its mandate.
 
 ## 1. Choose the boundary
 
@@ -101,7 +109,8 @@ Do not install a machine-wide policy blindly on a shared personal host.
 (path, domain, tool, repository or deployment environment), identify who authorizes
 it, and set its duration or removal condition. Apply at the appropriate control,
 read it back, and prove the required operation while an unrelated operation still
-fails. Remove temporary grants afterward. Avoid changing every thread to Full
+fails. Remove temporary grants afterward and verify revocation; a recorded expiry
+does not revoke access. Avoid changing every thread to Full
 access to resolve one denied build command. If AgentOps needs access that workers
 must not possess, use separate identities/environments; a title is not an ACL.
 
@@ -408,6 +417,9 @@ After an update, check the service, connection route, selected CLI/authenticatio
 loaded skills and one harmless native turn. Repeat relevant permission and recovery
 checks when those paths changed. Keep prior proof at its tested version. A saved
 SSH fallback may reconnect successfully without automatically returning to Connect.
+Reconcile the affected persistent choices and scoped exceptions with actual native
+state after relevant setup/provider changes, incidents or task needs; preserve
+unrelated evidence instead of scanning the entire installation on every run.
 
 Sources: [T3 updating](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/updating.md),
 [Claude installation and updates](https://code.claude.com/docs/en/setup),
