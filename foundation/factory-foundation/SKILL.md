@@ -3,8 +3,8 @@ name: factory-foundation
 description: Prepare or assess a repository and execution host for Factory, including native harness access, selected skills, GitHub work tracking and delivery checks.
 license: MIT
 metadata:
-  version: "0.1.7"
-  updated: "2026-10-09"
+  version: "0.1.8"
+  updated: "2026-10-10"
 ---
 
 # Factory Foundation
@@ -18,6 +18,13 @@ point and delivery destination from accepted context. Resolve facts from the
 actual environment before asking for a missing owner decision. Record only
 what changes setup, authority or proof in the project's existing private record;
 the [adoption outline](references/adoption.md) is available if one is missing.
+
+Assess two scopes separately: the **execution host** that runs the agents and
+the **application repository** they will work on. Reuse applicable host proof
+when adding a repo; recheck affected capabilities when versions, identities,
+configuration or access change. Repository readiness still needs its own sources,
+tools, checks and delivery boundary. Application hosting is part of that repo's
+operating needs, not automatically the agent execution host.
 
 For T3 host/client setup use [the setup guide](references/setup.md).
 For a pinned AgentOps thread, its skills and the host/client connection,
@@ -66,8 +73,16 @@ Prepare only the chosen capabilities:
   and encrypted-disk unlock need an explicit recovery route. Preserve skill-local
   changes when adopting a new reviewed version.
 
-Finish with observed readiness, versions, identities without secrets, checks and
-specific remaining gaps. A gap holds the dependent capability, not unrelated work.
+Finish with one short readiness result in the existing project record, scoped
+to the intended task. For each relevant capability, identify its host/repo scope,
+owning source, **verified**, **required gap**, or **conditional/not needed**
+disposition, and dated proof or the next action and responsible role. Explain
+conditional choices; do not treat an unchecked requirement as not needed.
+Include versions and identities without secrets. Hand this result to AgentOps,
+which can start authorized, ready work and route setup repairs back to Foundation. ADLC keeps
+affected application sources and checks current during delivery. A gap holds the
+dependent capability, not unrelated work. Preserve unchanged proof rather than
+rerunning the entire installation for every task.
 Preserve native history and recovery material during migration. Retiring an old
 runtime is a separate deliberate step after its replacement is qualified.
 Foundation installs no Factory daemon and grants no authority beyond the request.
