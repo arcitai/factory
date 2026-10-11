@@ -1,6 +1,6 @@
 # Prepare repository work tracking and delivery
 
-Revision: 0.1.9 · Updated: 2026-10-10
+Revision: 0.1.12 · Updated: 2026-10-11
 
 Inspect the actual repository, owner, default branch, existing instructions,
 checks, labels, Projects and deployment rules. Preserve established conventions.
@@ -99,6 +99,11 @@ effective workflow/token permissions, and native dependency alerts and secret
 scanning/push protection where available and appropriate. Distinguish configured,
 observed and unavailable controls; do not enable paid services or treat a scanner
 score as a security guarantee.
+When the selected private security-reporting route is GitHub private vulnerability
+reporting, read its remote setting back through the API or repository settings;
+disabled, inaccessible or unchecked state stays a visible gap. A SECURITY file
+documents a route but does not prove it is enabled. Another monitored private route,
+or a justified not-needed choice for a small private repository, remains valid.
 
 For branch policy, PR and full-check cadence, the optional three-hour batch profile,
 artifacts and preview/staging delivery, read [CI and delivery](ci-delivery.md).

@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.10 · Updated: 2026-10-10
+Revision: 0.1.12 · Updated: 2026-10-11
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -8,6 +8,13 @@ for its current project within the owner's mandate. Extend that record;
 do not create a separate register or require the whole inventory for every project.
 Record choices that need to survive the task, affect later work or need removal,
 not every transient task choice. Unknown is a visible gap, not a made-up default.
+
+Name the record's actual maintainer: a person/operator or concrete authorized role,
+the portion and location each may maintain, and the access limit. If the project's
+lead cannot read or update the private record through its effective boundary,
+record that limitation and the supported handoff, such as sanitized changes passed
+to the operator who holds access. Do not claim independent lead upkeep, copy private
+details into a second register or broaden access to close the gap.
 
 Version safe project-shared policy in the repository where useful. Keep host
 identities, private paths, account references and sensitive evidence in the existing
