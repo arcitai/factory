@@ -1,6 +1,6 @@
 # Establish useful project context
 
-Revision: 0.1.9 · Updated: 2026-10-10
+Revision: 0.1.12 · Updated: 2026-10-11
 
 Use during setup or a scoped readiness assessment. Start with the actual repo,
 accepted work and existing documentation. The outcome is enough reliable context
@@ -67,6 +67,14 @@ not prove secure behavior. Read only the context needed for the current task;
 avoid loading every reference into every worker. Resolve contradictory instructions
 at their source rather than adding another layer of instructions.
 
+Before claiming readiness, reconcile the actual instructions, README/check commands
+and local skill routes with the relevant dependency and distribution sources,
+CI/protections, chosen security/reporting controls, native capability limits and
+the existing setup record. Weigh each source against code, configuration, remote
+readback and dated observations rather than against another document. A conflict
+or unverified prerequisite stays visible as a gap; it does not become verified or
+justified not-needed because one source claims it.
+
 When work produces knowledge worth keeping, put it in the most specific existing home:
 
 | Knowledge | Home |
@@ -114,6 +122,16 @@ Installation, authentication, resource access and a successful operation are
 distinct observations. An optional dependency can still be required for a selected
 feature. Do not expand permissions merely to make a readiness indicator green.
 
+Distinguish what the product needs to run, what contributors need to author and
+verify it, and each installation or distribution route. A project may use itself
+for documented bootstrapping or dogfooding; assess that route on its real
+requirements. An instruction that makes installing the product a mandatory
+authoring step without a current, documented reason is a contradiction at its
+source. Hold the dependent work as a required gap and route it to the
+instruction's owner; do not install the product to satisfy it or silently bypass
+it. Qualify distribution claims to the route they describe: a package's payload
+exclusions, for example, say nothing about installing the whole repository.
+
 ## Operation and observability
 
 Keep the agent execution host separate from the application's runtime, accounts,
@@ -158,6 +176,13 @@ to what was actually checked; source inspection is not a restore or deployment t
 An imported observation keeps its original date and source; missing dates stay
 unknown rather than becoming today's date.
 Drafts state untested outcomes as pending, including examples with blank date fields.
+
+On reassessment, reuse the existing record, settings readback and dated proof;
+recheck only capabilities whose code, configuration, access or versions changed.
+Compare current-state claims in entry documents, such as a README's release or
+pending-cutover status, with the latest delivery readback. Correct a stale current
+claim within scope or route it to the project's actual owner, preserving dated
+historical entries. This needs no watcher or new log.
 
 Foundation establishes the relevant sources and initial checks. During accepted
 work, specification identifies affected context, implementation updates it with

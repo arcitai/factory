@@ -3,8 +3,8 @@ name: factory-foundation
 description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.10"
-  updated: "2026-10-10"
+  version: "0.1.12"
+  updated: "2026-10-11"
 ---
 
 # Factory Foundation
@@ -85,17 +85,27 @@ Prepare only the chosen capabilities:
   and encrypted-disk unlock need an explicit recovery route. Preserve skill-local
   changes when adopting a new reviewed version.
 
+Before finishing, make one short consistency pass over the sources relevant to
+the intended work, as described in [project context](references/context.md#find-the-source-before-writing).
 Finish with one short readiness result in the existing project record, scoped
 to the intended task. For each relevant capability, identify its host/repo scope,
 owning source, **verified**, **required gap**, or **conditional/not needed**
 disposition, and dated proof or the next action and responsible role. Explain
 conditional choices; do not treat an unchecked requirement as not needed.
+Mark a capability verified only from an actual check, readback or retained dated
+proof; a document, configuration file or earlier claim alone is not that proof.
+An unchecked, inaccessible or contradictory prerequisite stays a required gap with
+its observed evidence, source and date, plus the next action and responsible owner.
 Include versions without secrets; keep identity details in the private installation
-record. Hand this result to AgentOps, which can start authorized, ready work and
-route setup repairs back to Foundation. ADLC keeps
+record. Hand this result to AgentOps, which maintains the project's mandate,
+readiness and agreed upkeep, starts authorized, ready work and routes setup
+repairs back to Foundation. ADLC proves the changed task and keeps
 affected application sources and checks current during delivery. A gap holds the
-dependent capability, not unrelated work. Preserve unchanged proof rather than
-rerunning the entire installation for every task.
+dependent capability, not unrelated work. A native binding, authentication or
+capability gap holds only the work depending on it; keep the current task and
+its responsible next action visible for AgentOps' operator path. Editing these
+sources does not repair a native failure or prove autonomous operation.
+Preserve unchanged proof rather than rerunning the entire installation for every task.
 Preserve native history and recovery material during migration. Retiring an old
 runtime is a separate deliberate step after its replacement is qualified.
 Foundation installs no Factory daemon and grants no authority beyond the request.
