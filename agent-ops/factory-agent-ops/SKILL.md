@@ -3,8 +3,8 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.11"
-  updated: "2026-10-11"
+  version: "0.1.13"
+  updated: "2026-10-12"
 ---
 
 # Factory Agent Ops
@@ -53,7 +53,11 @@ Use a sufficient authorized native capability or report the specific limitation.
 
 Delegate only separable work with clear scope, inputs, access and proof. Give
 each concurrent writer its own bound workspace. Pass reviewers the actual
-candidate and requirements in a separate context. Read their evidence and resolve
+candidate and requirements in a separate context. State whether a reviewer only
+inspects sources or also runs checks. For checks, name the permitted generated
+outputs, scratch location and any cleanup under existing authority; do not forbid
+all writes while requiring write-producing checks, or add an owner gate for routine
+authorized check output. Read their evidence and resolve
 findings; a successful tool call or finished turn does not establish acceptance.
 Recheck affected evidence after fixes, rebases or changed scope.
 
