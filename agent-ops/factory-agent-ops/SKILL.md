@@ -3,7 +3,7 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.14"
+  version: "0.1.15"
   updated: "2026-10-15"
 ---
 
@@ -62,7 +62,9 @@ findings; a successful tool call or finished turn does not establish acceptance.
 Recheck affected evidence after fixes, rebases or changed scope.
 
 Write issue openings, progress updates and final handoffs for the person reading
-them. Lead with the useful point in plain words, understandable without the chat
+them, in English unless the user explicitly requests another language; chatting
+in another language is not such a request. Lead with
+the useful point in plain words, understandable without the chat
 or opening links. Use a real example when it clarifies the change, such as an
 actual before/after excerpt or result; use real images when they show a visible
 change better. Keep a failure

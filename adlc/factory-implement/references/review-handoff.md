@@ -1,12 +1,16 @@
 # Make the change easy to review
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.15 · Updated: 2026-10-15
 
 Use when preparing or revising a PR or substantive handoff for a person. The
 implementer owns this presentation; independent review checks its claims, and
 AgentOps brings forward any remaining owner decision. Use the existing PR and
 evidence locations. A small change needs a small explanation, not every section
 below or a second report.
+
+Write GitHub issues, PRs and Factory documentation in English unless the user
+explicitly requests another language. The language of the conversation, such as
+Danish brainstorming, does not request it.
 
 Lead with the concrete problem and resulting behavior in plain language. Show
 one useful before/after example from the actual change. Point to the few files
