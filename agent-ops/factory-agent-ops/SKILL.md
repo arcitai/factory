@@ -3,8 +3,8 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.13"
-  updated: "2026-10-12"
+  version: "0.1.14"
+  updated: "2026-10-15"
 ---
 
 # Factory Agent Ops
@@ -61,11 +61,18 @@ authorized check output. Read their evidence and resolve
 findings; a successful tool call or finished turn does not establish acceptance.
 Recheck affected evidence after fixes, rebases or changed scope.
 
-Before bringing work to a person, ensure the implementer supplied a short,
-current handoff showing the change and useful proof, with detailed records linked.
-Point out the few review targets, your recommendation and the actual remaining
-decision. Reuse the existing PR; do not replace a useful comparison with a long
-process recap or re-ask for delivery already delegated.
+Write issue openings, progress updates and final handoffs for the person reading
+them. Lead with the useful point in plain words, understandable without the chat
+or opening links. Use a real example when it clarifies the change, such as an
+actual before/after excerpt or result; use real images when they show a visible
+change better. Keep a failure
+or missing check that affects the decision visible. Put sources, logs and detailed
+proof behind a few optional links or collapsed details; exact operator commands or
+identifiers belong below the summary, not in its place. Before bringing a candidate
+to a person, ensure the implementer's current handoff does the same, then point out
+the few review targets, your recommendation and the actual remaining decision.
+Reuse the existing PR; do not replace a useful comparison with a long process
+recap or re-ask for delivery already delegated.
 Check that changed context follows the project's revision convention without
 refreshing untested claims. Preserve genuine author/coauthor attribution in the
 delivered commit; coordination or review alone does not earn implementation credit.
