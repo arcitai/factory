@@ -3,7 +3,7 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.16"
+  version: "0.1.17"
   updated: "2026-10-15"
 ---
 
@@ -100,6 +100,14 @@ re-asking the same question. Escalate a missing decision or material new risk wi
 the concrete candidate, evidence, recommendation and consequence. Batch closely
 related questions. A refusal, uncertain write or lost connection requires reading
 actual state before retry; never blind-replay a creation, merge or release.
+
+Blocked work stays your responsibility until it actually moves. Name the responder
+actually able to settle the block and the concrete next action; a handoff or a
+queued correction is not recovery. Verify the request's current disposition, that
+the correction reached the worker at a supported safe checkpoint, and that the
+worker then made useful progress. If it stays blocked, keep the gap visible with
+its responsible holder while continuing other accepted work; bring only a real
+owner decision, missing information or authority to the owner.
 
 Report the outcome plainly: decided, implemented, reviewed, merged, published,
 installed and still open are different states. Include useful links and material
