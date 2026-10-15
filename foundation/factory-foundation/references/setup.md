@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.10 · Updated: 2026-10-10
+Revision: 0.1.14 · Updated: 2026-10-15
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -178,12 +178,63 @@ copying their credentials into a new location.
 
 Start with Codex and Claude if those are the selected subscriptions. Choose models
 from the actual provider catalog; use the owner's selection and measured results.
-Extra providers and automatic model routing are optional. Usage belongs in T3;
-API-equivalent estimates are not subscription charges and missing limits are unknown.
+Extra providers and automatic model routing are optional. Read usage and limits
+as described in [Usage and limits](#usage-and-limits).
 
 References: [Codex profiles](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/providers-codex.md),
-[Claude profiles and skills](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/providers-claude.md),
-[usage](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/usage.md).
+[Claude profiles and skills](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/providers-claude.md).
+
+### Usage and limits
+
+Assessed against T3 upstream `d83929ad`, 2026-10-15; read back the installed
+client's view before relying on it.
+
+Open **Usage** from the sidebar or command palette (`mod+U` when the terminal is
+not focused). Cost and Tokens show history over a 24 h, 7 d, 30 d or 90 d window;
+Limits shows each provider's own reset windows; the history-period controls are disabled there.
+Choose the environment (default: all) and inspect the provider/model breakdown and
+visibility each tab supports. These selections are local view preferences; they
+configure no billing, permission, quota or security policy.
+
+- Usage scans each configured provider's native history, including work outside
+  T3 and disabled accounts. Sources sharing one provider home, such as one
+  `CODEX_HOME` or `CLAUDE_CONFIG_DIR`, count once; use that deduplication rather
+  than adding totals across environments.
+- In the assessed pin, Usage has no project or thread attribution, and an
+  environment filter does not infer one. Do not estimate project cost retrospectively.
+  As of 2026-10-15 native project accounting is an open upstream
+  [proposal](https://github.com/pingdotgg/t3code/discussions/16722) and
+  [unmerged PR](https://github.com/pingdotgg/t3code/pull/15902); do not treat it as
+  installed, and recheck after a supported update.
+- Tokens are recorded units; reasoning is part of output, so do not add it twice.
+- Cost is an API-equivalent estimate where provider-reported or model-priced, not a
+  subscription charge; unpriced usage has no cost figure. Use the provider for actual
+  plans and charges: [Codex](https://learn.chatgpt.com/docs/pricing),
+  [Claude](https://code.claude.com/docs/en/costs).
+- Limits and resets belong to the provider account, not a project. One account used
+  by several environments is one allowance; do not sum it. `/usage-limits` reads
+  cached limits without starting a turn; refresh through the existing control.
+- Missing history, a stale scan or unavailable pricing or limits is unknown, not zero.
+
+Do not activate banked resets or paid overage, switch accounts or configure prices
+to produce a figure.
+
+A machine is the OS host; a server is the running T3 backend; an environment is
+that backend's identity, data and auth scope; a saved connection is one route to it;
+a project groups a repository or workspace; a provider account holds subscription,
+billing, history and authentication. Several environments on one host can have
+separate IDs, data and connection grants, yet still share the OS user and provider
+homes. Projects are not filesystem sandboxes: `filesystem:read` reaches what the
+server's OS user can read ([environment auth](https://github.com/pingdotgg/t3code/blob/d83929ad0bb0d4aec800f12c332de57e873cc7e5/docs/internals/environment-auth.md)).
+Keep the existing environment rather than adding one per project for accounting or
+isolation. Where a task genuinely needs separation, qualify a separate OS identity
+or protected native boundary as in [Choose the boundary](#1-choose-the-boundary);
+remaining approval and worker-boundary limits are tracked in
+[Factory #32](https://github.com/arcitai/factory/issues/32) and
+[#33](https://github.com/arcitai/factory/issues/33).
+
+Sources: [T3 usage](https://github.com/pingdotgg/t3code/blob/d83929ad0bb0d4aec800f12c332de57e873cc7e5/docs/user/usage.md),
+[usage contract](https://github.com/pingdotgg/t3code/blob/d83929ad0bb0d4aec800f12c332de57e873cc7e5/packages/contracts/src/usage.ts).
 
 ## 3. Make the service independent of the client
 

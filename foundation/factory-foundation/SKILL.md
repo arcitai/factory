@@ -3,8 +3,8 @@ name: factory-foundation
 description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.12"
-  updated: "2026-10-11"
+  version: "0.1.14"
+  updated: "2026-10-15"
 ---
 
 # Factory Foundation
@@ -53,6 +53,10 @@ Prepare only the chosen capabilities:
 - Confirm the native versions, selected provider account, effective tools and
   permissions. A discoverable binary or copied skill does not establish readiness.
   Record the project's small model profile from live native IDs and owner choices.
+- When using T3, read usage and limits in its native Usage view, as in
+  [the setup guide](references/setup.md#usage-and-limits). An environment there is
+  a view scope, not project accounting, quota or isolation; do not add environments
+  to obtain them.
 - Start AgentOps and workers with least privilege. Distinguish coordination
   authority from enforced OS/tool/credential access. For a wider grant, identify
   the required action, target, authorizer and removal condition; apply the smallest

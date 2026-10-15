@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.12 · Updated: 2026-10-11
+Revision: 0.1.14 · Updated: 2026-10-15
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -75,7 +75,8 @@ Reuse the following existing choice families only where they matter:
 - Routes to relevant architecture, checks, dependency/configuration sources and
   operational guidance. Preserve the project's existing names and records.
 - Execution host and OS identity, client route, service owner, native versions,
-  provider profiles and billing/usage source.
+  provider profiles and billing/usage source: the provider account and history it
+  covers, the native Usage view and filters used, known coverage gaps, and who reads it.
 - Model profile: a small editable default per role or kind of work, such as lead
   research, implementation, independent review and small mechanical work, with
   any concrete exception and its reason. Use live native provider, model and option
