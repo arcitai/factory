@@ -3,7 +3,7 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.15"
+  version: "0.1.16"
   updated: "2026-10-15"
 ---
 
