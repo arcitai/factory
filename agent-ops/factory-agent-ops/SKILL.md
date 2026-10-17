@@ -3,8 +3,8 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.17"
-  updated: "2026-10-15"
+  version: "0.1.18"
+  updated: "2026-10-17"
 ---
 
 # Factory Agent Ops
@@ -60,6 +60,23 @@ all writes while requiring write-producing checks, or add an owner gate for rout
 authorized check output. Read their evidence and resolve
 findings; a successful tool call or finished turn does not establish acceptance.
 Recheck affected evidence after fixes, rebases or changed scope.
+
+Before reporting delivery, reconcile the children's actual completed outcomes and
+findings with every agreed acceptance condition for the delivered artifact, kept in
+the existing issue or handoff. Carry accepted owner amendments into the current
+writer and review criteria; do not silently narrow the task to the latest fix.
+When an artifact going to adoption affects expected packaged, generated or
+embedded resources, require the applicable proof on that exact artifact, covering
+its consumed output and a supported non-test production path, before authorizing
+or performing adoption. Missing or failed proof holds adoption under any existing
+delegation; native workflow acceptance can follow authorized adoption.
+An acknowledged handoff or a green CI aggregate does not by itself establish a
+condition it did not test, or complete the promised workflow; keep the evidence it
+does provide, and keep BLOCKED or NOT RUN conditions open. Run the checks you can.
+For a genuinely host-only check, name the next holder able to perform it. Keep labels
+such as source-qualified or installed-but-unaccepted until native acceptance
+passes, and do not ask the owner to repeat basic packaging checks. Absent native
+behavior is not a defect until an established expected contract makes it one.
 
 Write issue openings, progress updates and final handoffs for the person reading
 them, in English unless the user explicitly requests another language; chatting

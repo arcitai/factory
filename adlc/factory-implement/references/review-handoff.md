@@ -1,6 +1,6 @@
 # Make the change easy to review
 
-Revision: 0.1.15 · Updated: 2026-10-15
+Revision: 0.1.18 · Updated: 2026-10-17
 
 Use when preparing or revising a PR or substantive handoff for a person. The
 implementer owns this presentation; independent review checks its claims, and
@@ -22,6 +22,22 @@ decision; do not bury it to make the headline look green.
 Return the handoff itself, without narrating compliance with this method. Combine
 problem, example and checks in a short paragraph when sufficient; do not add a
 separate heading for every fact or repeat the same limitation in several places.
+
+Connect the promised outcome to the artifact actually produced and served. A test
+that substitutes its own resource list (such as a `cfg(test)` stand-in), fixture or
+proxy output, a successful build or a hash of the input tree does not show that a
+packaged, generated or embedded resource reached production. When the change
+affects one, inspect the consumed build output and use a supported non-test
+production path on that exact artifact, comparing it with the payload the source
+should produce. Scale this to the change, and catch a missing resource before an
+owner discovers it. For example, if the source should embed eight editor assets,
+show eight in the built package and the editor loading through its normal route,
+not six passing tests. For an artifact going to adoption, this proof comes before
+adoption is authorized or performed, and missing or failed proof holds adoption. A
+development build allowed to omit the bundle does not need it. If no supported
+runtime exposure exists, say which bytes are provenance-only or unverified. Name
+the native acceptance still open after authorized adoption and who can perform it;
+installed does not mean accepted.
 
 ## Choose evidence that explains this change
 

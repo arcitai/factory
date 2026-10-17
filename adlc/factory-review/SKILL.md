@@ -3,8 +3,8 @@ name: factory-review
 description: Independently assess a concrete candidate against its accepted scope, project standards and actual verification evidence before delivery.
 license: MIT
 metadata:
-  version: "0.1.13"
-  updated: "2026-10-12"
+  version: "0.1.18"
+  updated: "2026-10-17"
 ---
 
 # Review
@@ -39,6 +39,14 @@ in the rendered result; reject invented baselines, exposed sensitive data or hid
 material failures. Check whether the format explains the actual change and the
 reader's question; flag decorative or redundant visuals. Clearly distinguish
 explanatory diagrams from observed behavior.
+
+Check that each claimed path and result corresponds to the inspected candidate and
+the artifact it actually consumes or serves. Check that the evidence could have
+revealed a realistic omission or failure. A test that substitutes its own
+resource list does not show what the production build contains. Do not demand every possible
+test or invent a universal source-to-runtime check. Absent native behavior is a
+defect only against an established expected contract; otherwise report the open
+question.
 
 Consider consequences and affected trust/data boundaries, not just diff size.
 Use a scoped security review when needed. Compare before/after evidence for claims

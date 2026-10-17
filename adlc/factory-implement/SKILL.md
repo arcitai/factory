@@ -3,8 +3,8 @@ name: factory-implement
 description: Implement accepted application work in its designated workspace and produce a working candidate with evidence for independent review.
 license: MIT
 metadata:
-  version: "0.1.15"
-  updated: "2026-10-15"
+  version: "0.1.18"
+  updated: "2026-10-17"
 ---
 
 # Implement
