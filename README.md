@@ -2,7 +2,7 @@
 
 # Factory
 
-Revision: 0.1.10 · Updated: 2026-10-10
+Revision: 0.1.18 · Updated: 2026-10-19
 
 A practical method for building and improving applications with coding agents.
 
@@ -27,6 +27,20 @@ Keep one pinned **AgentOps** conversation in each application project. That lead
 owns the application's setup and work. The AgentOps conversation in the Factory
 repository develops Factory itself; it is not a central queue for every project.
 Share a relevant finding between projects when useful, with an explicit handoff.
+
+## Why I built this
+
+I’m building Factory to give software work with agents a modular structure, from
+understanding the problem to reviewing and delivering the result.
+
+I build on established tools and standards: Codex, Claude Code and GitHub, with
+T3 Code as the workspace. Factory adds methods and reusable skills around them,
+keeping extra code and maintenance small.
+
+Foundation prepares the project, AgentOps directs the work, and the Agentic
+Development Lifecycle (ADLC) covers specification, implementation, review and
+delivery. I’m developing a Power BI module that also covers the surrounding data
+and software work, and exploring modules for research and reverse engineering.
 
 ## What Foundation prepares
 
