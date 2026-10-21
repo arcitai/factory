@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.14 · Updated: 2026-10-15
+Revision: 0.1.19 · Updated: 2026-10-21
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -40,7 +40,20 @@ Activate the lead role in that thread; preserve the project's shared instruction
 Workers receive the target project's context and skills. Separate provider profiles,
 T3 environments/OS identities or VMs are appropriate when
 the lead, workers or projects require different filesystem/network trust.
-Do not copy a personal AIOS installation or personal provider home into this setup.
+
+Keep the owner's personal account and the Factory execution account separate,
+each with its own instructions. Do not copy a personal AIOS installation, personal
+provider home, Notion workspace, browser profile or credentials into this setup. A
+separate OS account or provider home does not prove that connectors synced to the
+provider account are excluded. Check which tools a fresh native session actually
+exposes, and use the provider's supported local controls to exclude unwanted ones
+for this installation. Preserve unrelated settings and the owner's global
+connections; do not revoke, connect or grant anything account-wide to pass the
+check. A session that was already running may keep its previous tool registry;
+do not claim the change reached it without reading it back, and move it over through
+the supported lifecycle at a natural safe checkpoint. This needs no new chat or
+restart for unrelated native tools or an already-qualified context. The
+repository's GitHub access and native T3 orchestration must keep working.
 
 Preserve any old Factory runtime and private history while qualifying this setup.
 Avoid pointing two active agent writers at the same checkout. Do not run native
@@ -349,6 +362,50 @@ and prove the actual phone question/response route before relying on it.
 [Connections](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/remote-access.md),
 [mobile notifications](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/mobile-notifications.md).
 
+## Keep the host ready after restart
+
+An installation can look ready while the operator's apps do not start after login
+and no maintenance schedule is active. The installer or host owner establishes and
+verifies the chosen startup, service, power, network and schedule settings.
+
+An installation may also choose an owner-side **host coordinator**, sometimes
+called a Planning Agent: a thread with an explicit mandate to keep the host
+continuous, coordinate maintenance that affects several projects, and ask
+Foundation to repair a host condition. It is optional. An existing lead thread can
+take that mandate, so no extra top-level chat, daemon or central queue is needed.
+It does not replace each project's AgentOps, which keeps that product's priorities,
+workers and acceptance, and ADLC still performs the tasks. The role grants no
+administrator rights or personal connectors; host administration stays with the
+person or narrow native route that holds it. Resolve the actual host and accounts,
+client and server routes, effective permissions, and the person who can operate
+recovery when the service is down. After a restart or migration, reuse the
+existing coordinator and leads instead of starting replacements.
+
+Each startup stage is a separate observation:
+
+| Stage | Establish and verify | Limit |
+| --- | --- | --- |
+| Disk unlock | Who unlocks an encrypted disk after boot, and how they learn it is waiting | Nothing below starts until then |
+| Headless service boot | The execution service is enabled, starts at boot without a login and survives logout, as in [section 3](#3-make-the-service-independent-of-the-client) | Read it back after boot; the install command alone is not proof |
+| Network routes | The network, a private route such as Tailscale, T3 Connect and the chosen SSH route come up without a desktop login | A client may reconnect through a fallback route rather than the selected one |
+| Desktop session | Operator apps the owner expects start through the desktop's supported autostart after login | Runs only after someone logs in; it is not service boot |
+| Power and reachability | On external power the host stays awake and reachable with the screen locked; battery protection and suspend follow the owner's choice | Locked operation on power is not battery or suspend recovery |
+
+Prove readiness at each boundary separately: boot, login, client disconnect and
+reconnect, and an actual scheduled wake. After a controlled reboot, read back from
+a fresh native turn that the service, routes, projects, threads and held decisions
+are present, and that the expected apps started after login. One scheduled wake is
+not reboot, disconnected-client or full recovery proof. Notify someone when a stage
+fails or holds, a gap appears or maintenance changed something; do not send daily
+unchanged pings.
+
+Hand each relevant capability over in the existing adoption record, without a new
+template: the selected capability; its actual native owner and control, applied
+scope and readback; where its private evidence lives and who holds it; and the
+exact remaining gap and next action. A missing access, recovery or launcher fact
+stays a named capability gap. Keep host identities, paths, raw history and recovery
+copies private.
+
 ## 5. Adopt selected skills
 
 Clone a reviewed Factory tag on the host into a source directory, separate from
@@ -456,6 +513,49 @@ or promise scheduling from a skill. An agent must not stop its own host mid-task
 and assume it can inspect the result. Hand off disruptive maintenance to the
 host's existing operator/maintenance facility and reconcile on return.
 
+### One nightly maintenance opportunity
+
+Give the host one owned nightly maintenance opportunity through a supported native
+scheduler, such as the OS timer facility or a native T3 scheduled task. It is a
+check that runs once per night for each target. It reads active work and current
+versions, then records what actually happened:
+
+- **No-op:** the component is already current and there is nothing to install. Do
+  not reinstall it.
+- **Deferred:** a change is due but unsafe now, for example because of active
+  work. Record the concrete reason, the next action or revisit trigger, and who
+  holds it. A deferral is never a completed update or continuation.
+- **Installed, restarted, continued:** observed stages that one transaction can
+  pass through in turn. Installing applies an update through the component's
+  native route; restarting activates it and interrupts active turns; continuation
+  means interrupted work actually resumed, read back afterwards. A restart alone
+  is not continuation.
+
+The schedule grants no authority by itself. Installing or restarting still needs
+the existing delegated authority for that component and scope.
+
+OS and packages, the desktop client, the execution service and provider CLIs are
+separate transactions, each with its own channel and owner. One succeeding neither
+updates nor proves another. The opportunity is not an installer and does not
+guarantee unattended updates. Prove it from actual trigger evidence, not from the
+configured schedule. After a migration, keep exactly one schedule per night and
+target; retire the old one rather than letting two run. Do not add polling or an
+approval pump.
+
+A blocked update, reboot or client acceptance holds only that operation and the
+work depending on it. Other already-authorized product and method work continues
+in its existing lead and writer, with the specific hold kept visible. An agreed
+short maintenance hold is different: healthy work drains or reaches a checkpoint,
+every actual producer is accounted for and paused (schedules, clients, PR watches
+and other wakes), and each one's prior enabled state is restored afterwards. Do
+not interrupt a healthy job to start maintenance.
+
+Keep the current official runtime and native harnesses; do not run a maintained
+fork or activate a parked custom patch on the execution host. A quoted
+configuration, installed file, native preference, open listener or successful
+reconnect does not by itself prove the allowed tools, isolation, recovery or
+resumed work.
+
 For Omarchy, use the installed version's supported updater; inspect its prompts
 and restart behavior before unattended use. Encrypted boot may still require a
 person to unlock the disk. A system snapshot need not cover the separate home
@@ -493,3 +593,30 @@ threads, including archived chats, from T3; the folder and Git repository remain
 on disk. Archiving a thread does not remove its project. Reconcile active work
 first and obtain the owner's explicit deletion decision. Use the native action,
 not manual database edits. Backup retention/deletion is a separate scoped choice.
+
+### Same-host recovery copy
+
+Before a disruptive change, take a consistent private recovery copy on the same
+host:
+
+1. Before stopping anything, establish an operator route independent of the
+   service, so it survives the service disconnecting. Account for the relevant
+   holders of the state, including connected clients and any client SSH
+   auto-launch that could start another server.
+2. Let healthy work drain or reach a checkpoint, then quiesce through supported
+   native controls. If a relevant holder is unknown or cannot be seen, or work
+   does not drain cleanly, defer before stopping. Do not stop or kill every
+   process to force quiescence.
+3. Check that the source is stable before the copy, take the copy, check the
+   source again afterwards, and confirm the copy matches it.
+4. Copy the complete required state: databases with their SQLite companion files,
+   shared attachments, service configuration and the prior version.
+
+Keep the copy private on the same host and verify a restore there. Afterwards,
+check actual reconnection and provider continuation, and that held queues and
+pending decisions survived. Restore exactly the prior connections and enabled
+producers. A root filesystem snapshot alone does not prove a consistent home or
+application recovery; its coverage and consistency depend on the actual subvolume
+and data scope. Watch disk space, clock correctness and log retention. Preserve
+actual failures and history, and read back the current state before any retry.
+Keep commands, process identities, paths and other host facts in the private record.

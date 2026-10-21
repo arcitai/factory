@@ -1,6 +1,6 @@
 # Responsibility and access
 
-Revision: 0.1.6 · Updated: 2026-10-09
+Revision: 0.1.19 · Updated: 2026-10-21
 
 Factory has three responsibilities around existing tools. It has no server,
 provider adapter, task database or application runtime of its own.
@@ -8,6 +8,7 @@ provider adapter, task database or application runtime of its own.
 | Responsibility | Owns | Does not establish |
 | --- | --- | --- |
 | Foundation | Project context, native setup, access choices and readiness checks; repair when these change | Product scope, continuous execution or readiness merely because files were installed |
+| Host coordinator (optional) | Host continuity, maintenance shared by several projects, and repair requests to Foundation, within an explicit owner mandate | Product priorities, worker assignments or acceptance in a project; administrator rights or personal connectors |
 | AgentOps | Research, priorities, assignments, worker model choices, reviewed skill/context improvements and acceptance within delegated authority | Administrator access, permission to bypass review or self-installed skills |
 | ADLC | The concrete specification, implementation, independent review and authorized delivery | Authority to accept unrelated work or widen its own access |
 | T3 and native harness | Conversations, models, worktree binding, native tools, permissions and recovery | Application deployment, monitoring or per-role OS isolation by naming a thread |
@@ -18,6 +19,16 @@ AgentOps remains responsible while ADLC works. Foundation is used when a setup
 or context gap affects the task; it is not a stage repeated before every edit.
 The owner decides admission and delivery by default, or delegates either for a
 specific scope. A completed run is not acceptance; published is not installed.
+
+A host coordinator, sometimes called a Planning Agent, is an installation choice.
+It can be an existing lead thread given a host mandate; it is not a daemon, a
+central queue or another privileged tier. It keeps the shared host ready after
+restart and coordinates maintenance that affects several projects. When a host
+condition needs repair, it asks Foundation, which owns the reusable method and
+scoped readiness checks. Each project's AgentOps keeps its product priorities,
+workers and acceptance; ADLC performs the tasks. A blocked host operation holds
+only that operation and the work depending on it, not every project. See
+[keeping the host ready](../foundation/factory-foundation/references/setup.md#keep-the-host-ready-after-restart).
 
 ## Three-level access architecture
 
@@ -54,6 +65,7 @@ calling three role names three isolated environments.
 | Method and project instructions | Reviewed source plus selected native skill scope | Loaded sources match the adopted revision |
 | Work status and delivery | GitHub issues/Projects, PRs, CI and releases | Actual fields, credentials and protections read back |
 | Deployment/data/telemetry | Application's chosen infrastructure | Task-specific operation and recovery evidence |
+| Host startup and maintenance schedule | Host's native service, autostart and scheduler; private installation record | Readback after boot and login; actual trigger evidence, not the configured schedule |
 
 A client can be on the execution machine itself and still connect to a different
 OS account's service. Closing a client is safe only after service independence
