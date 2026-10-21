@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.14 · Updated: 2026-10-15
+Revision: 0.1.19 · Updated: 2026-10-21
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -91,6 +91,18 @@ Reuse the following existing choice families only where they matter:
   execution host, OS/account and workspace, distinguished from the client device.
 - Selected update channels and native installer/updater ownership; checks versus
   automatic installs, idle/interruption rules, recovery and last observed result.
+- Host continuity, where chosen: the host coordinator's thread and mandate, and
+  the projects whose leads it coordinates with. For each startup stage (disk
+  unlock, headless service boot, network routes, desktop autostart after login,
+  power policy), record its owner and last dated readback; see the
+  [setup guide](setup.md#keep-the-host-ready-after-restart).
+- The one owned nightly maintenance opportunity: its native scheduler and target,
+  each component transaction and its owner, the last actual trigger and what it
+  observed (no-op; deferred with reason, next action and holder; or the stages
+  installed, restarted and continued that it reached), the authority it used, and
+  the retired duplicate after a migration.
+- Recovery: the private recovery copy's location, holder and scope, the last
+  verified same-host restore, and the operator able to act while the service is down.
 - AgentOps scope (Factory and the adopted repository) and the narrower ADLC task
   workspaces. Record each extra grant separately from that baseline: who or which
   role, target, environment, purpose, date, authorizer, expiry/removal condition
@@ -123,6 +135,9 @@ date and evidence. Relevant proof includes:
 5. The actual phone/remote decision route if selected.
 6. A representative isolation check for each trust boundary being claimed.
 7. Readback of actual GitHub status/protections and delivered application behavior.
+8. Where host continuity is claimed: boot, login, disconnect and reconnect, and one
+   actual scheduled wake, each recorded separately. A wake alone is not reboot or
+   recovery proof.
 
 Keep source inspection, disposable rehearsals and live installation evidence
 distinct. One successful run qualifies that path, not every model or future update.

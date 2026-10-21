@@ -3,8 +3,8 @@ name: factory-foundation
 description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.14"
-  updated: "2026-10-15"
+  version: "0.1.19"
+  updated: "2026-10-21"
 ---
 
 # Factory Foundation
@@ -83,7 +83,12 @@ Prepare only the chosen capabilities:
   approved data destinations and material risk/escalation conditions.
 - Qualify service startup, client disconnect, restart and recovery on disposable
   work before relying on unattended operation. Reconcile active/unknown writers
-  before stopping a service or changing its version.
+  before stopping a service or changing its version. For host continuity,
+  establish each startup stage and the one owned nightly maintenance opportunity as
+  in [the setup guide](references/setup.md#keep-the-host-ready-after-restart). An
+  optional host coordinator holds host continuity under an explicit mandate and
+  asks Foundation to repair host conditions. Project AgentOps keeps product work,
+  and the coordinator gains no administrator rights.
 - Establish the selected native update channel, updater ownership and maintenance
   boundary. Update checks are not automatic installs; interrupted turns, OS prompts
   and encrypted-disk unlock need an explicit recovery route. Preserve skill-local
