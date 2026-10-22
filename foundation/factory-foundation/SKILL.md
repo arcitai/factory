@@ -3,8 +3,8 @@ name: factory-foundation
 description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.19"
-  updated: "2026-10-21"
+  version: "0.1.20"
+  updated: "2026-10-22"
 ---
 
 # Factory Foundation
@@ -73,6 +73,8 @@ Prepare only the chosen capabilities:
 - Stage and review selected skills before native project/profile adoption.
   Keep one canonical copy, verify discovery in each chosen harness and preserve
   local adaptations on updates. Never install personal context as a dependency.
+  For the owner's own AI agent, adopt `factory-entry` as in
+  [the setup guide](references/setup.md#the-owners-own-ai-agent).
 - Prepare meaningful project checks, work tracking and delivery protections.
   Preserve existing field/label conventions and read settings back from GitHub.
   A local workflow file does not prove service-side protection is enabled.

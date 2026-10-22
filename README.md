@@ -2,7 +2,7 @@
 
 # Factory
 
-Revision: 0.1.18 · Updated: 2026-10-19
+Revision: 0.1.20 · Updated: 2026-10-22
 
 A practical method for building and improving applications with coding agents.
 
@@ -27,6 +27,23 @@ Keep one pinned **AgentOps** conversation in each application project. That lead
 owns the application's setup and work. The AgentOps conversation in the Factory
 repository develops Factory itself; it is not a central queue for every project.
 Share a relevant finding between projects when useful, with an explicit handoff.
+
+## Use Factory from your own AI agent
+
+Give your everyday AI agent the [Factory entry skill](agent-ops/factory-entry/SKILL.md).
+It tells that agent where each request belongs:
+
+- Work on Factory's method goes to the Factory repository's AgentOps.
+- Work on an application goes to that application's own AgentOps.
+- A request spanning several applications becomes one bounded handoff per lead,
+  and your agent coordinates what they share.
+- "Help me make this machine a Factory host and explain its role" loads
+  Foundation and its existing host setup guide.
+
+Your agent carries the request, candidate, authority and holds between leads and
+follows up. It does not become a lead or gain approval rights. Install it with the
+[setup guide](foundation/factory-foundation/references/setup.md#the-owners-own-ai-agent);
+installed, discovered and actually used are separate checks.
 
 ## Why I built this
 
