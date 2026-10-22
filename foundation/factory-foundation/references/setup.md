@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.19 · Updated: 2026-10-21
+Revision: 0.1.20 · Updated: 2026-10-22
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -426,6 +426,11 @@ Select scope deliberately:
 | Agent Ops | The selected project, activated in its Ops thread; use a separate project/profile/identity when its access needs differ |
 | ADLC | The application project, or the native user/config scope described below |
 
+To stage every canonical skill as one flat set with one manifest, run
+`python3 scripts/stage.py all --output "$factory_stage_root/all"`. It refuses a
+missing group or a duplicate skill name, and keeps the same tracked-only, symlink
+and fresh-destination controls. Copy from it only the skills each destination needs.
+
 For Codex, use the native project location `.agents/skills/`. Its documented user
 location is `$HOME/.agents/skills`, shared across that OS user's projects; changing
 `CODEX_HOME` alone does not isolate that skill location. A project skill is discoverable
@@ -466,9 +471,10 @@ requires deliberate reconciliation; failure of the command is not successful ado
 Before removing the temporary stage, retain its `manifest.json` in the persistent
 private adoption record, alongside the version, date and installed destination.
 The manifest is at the bundle root, not inside the copied skill directory.
-Use `.claude/skills` instead for a project-scoped Claude installation. Load a new
-native session and verify the correct skills appear and can read their references.
-Ask it to assess a harmless example; copied files alone are not discovery proof.
+Use `.claude/skills` instead for a project-scoped Claude installation. In the
+intended harness and session, verify the correct skills appear and can read their
+references. Ask it to assess a harmless example; copied files alone are not
+discovery proof.
 Do not replace the application's AGENTS/CLAUDE instructions. Add a short route only
 where the native harness requires one, preserving the canonical source.
 
@@ -476,6 +482,41 @@ In the Factory method repository itself, the Ops thread can read the reviewed
 canonical skill files directly without copying them back into their own source
 tree. Record this as explicit source loading, not native skill discovery. Configure
 the persistent thread with [the operator workspace guide](workspace.md).
+
+### The owner's own AI agent
+
+The owner's everyday AI agent reaches Factory through `factory-entry`. It routes
+each request to the right existing project lead, and loads `factory-foundation`
+when the owner asks to set up or explain a host. Install both from the all-set
+stage into that agent's own native skill scope, such as its user-level skill
+location. Project leads keep their own installations. Keep the owner's agent and
+personal connectors out of the execution account, as in
+[Choose the boundary](#1-choose-the-boundary).
+
+Record four separate states in the adoption record:
+
+- **Requested:** the owner asked for the entry in a named agent and harness.
+- **Installed:** the destination and the retained stage manifest.
+- **Discovered:** a readback from the actual caller surface showing the skill is
+  listed or can be invoked.
+- **Used:** a real request routed through it to the intended lead.
+
+Do not assume a client picks up a newly installed skill in a running session, or
+that it needs a restart; read it back in the intended harness and session. If
+the skill cannot be discovered, the agent may read the canonical file explicitly
+from a reviewed checkout; record that as explicit loading. An inaccessible path is
+a gap to report, not a reason to widen access.
+
+Factory ships portable canonical skills and this staging route. Codex documents
+[plugins](https://developers.openai.com/plugins/build/plugins) as a distribution
+unit for several skills, alongside [repository and user skills](https://learn.chatgpt.com/docs/build-skills).
+Claude has its own [skill locations and invocation](https://code.claude.com/docs/en/skills).
+A Codex plugin is not proof of T3 or Claude discovery. A plugin remains an optional
+later packaging for a harness that needs one; none is delivered or installed here.
+
+To update, stage the new reviewed tag, compare it with the installed copy and its
+retained manifest, then adopt it deliberately. To roll back, restore the prior
+reviewed copy named by its manifest, as in [Removal and recovery](#removal-and-recovery).
 
 ## 6. Prepare the repo and prove one delivery
 

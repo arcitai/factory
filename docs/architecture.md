@@ -1,12 +1,13 @@
 # Responsibility and access
 
-Revision: 0.1.19 · Updated: 2026-10-21
+Revision: 0.1.20 · Updated: 2026-10-22
 
 Factory has three responsibilities around existing tools. It has no server,
 provider adapter, task database or application runtime of its own.
 
 | Responsibility | Owns | Does not establish |
 | --- | --- | --- |
+| Owner's own AI agent (`factory-entry`) | Routing each request to the right existing project lead, bounded handoffs across projects, and following them up | A project's priorities, workers or acceptance; approval, merge or administrator rights |
 | Foundation | Project context, native setup, access choices and readiness checks; repair when these change | Product scope, continuous execution or readiness merely because files were installed |
 | Host coordinator (optional) | Host continuity, maintenance shared by several projects, and repair requests to Foundation, within an explicit owner mandate | Product priorities, worker assignments or acceptance in a project; administrator rights or personal connectors |
 | AgentOps | Research, priorities, assignments, worker model choices, reviewed skill/context improvements and acceptance within delegated authority | Administrator access, permission to bypass review or self-installed skills |

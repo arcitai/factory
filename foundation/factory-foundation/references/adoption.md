@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.19 · Updated: 2026-10-21
+Revision: 0.1.20 · Updated: 2026-10-22
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -85,6 +85,10 @@ Reuse the following existing choice families only where they matter:
   prevail. Refresh it when models, requirements or retained outcomes change.
 - Selected skills, Factory tag/revision, stage hashes, installed paths, preserved
   local changes and observed native discovery.
+- The owner's own AI agent: which agent and harness hold `factory-entry`, and its
+  requested, installed, discovered and used states recorded separately. Also the
+  current lead for each project it routes to, so a resumed caller can find the
+  right recipient again.
 - Ops thread identity, project/workspace binding, role/source paths, pin and
   auto-settle choice; explicit source loading distinguished from native discovery.
 - Each client's saved service connection and Local environment choice; observed
