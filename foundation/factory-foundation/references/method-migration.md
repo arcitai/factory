@@ -73,9 +73,11 @@ All of these must hold for the host in question:
    the owner's qualification proof (clean install, upgrade keeping the existing
    home, mixed installations, fresh-session discovery and invocation).
 2. Owner authority for this host, account and scope.
-3. The recorded baseline and its recovery route, freshly verified on the same host
-   before any effect (step 2 below).
-4. An agreed idle checkpoint for the affected work, and its holder.
+3. An agreed idle checkpoint for the affected work, and its holder.
+4. A consistent **current** recovery copy on the same host, made or refreshed at
+   that checkpoint and verified immediately before any effect (step 5 below), with
+   the recorded immutable baseline identity and its supported native recovery
+   route. A copy taken earlier does not satisfy this gate by itself.
 
 A missing gate is a blocked field naming its holder. Do not invent install
 commands, URLs or controls to fill it.
@@ -83,29 +85,46 @@ commands, URLs or controls to fill it.
 ## Cut over one host
 
 1. Inventory and classify, as above.
-2. Privately preserve the current program, registration and context-instruction
-   files in scope on the same host, with their full modes. Then check the copy
-   against the current files: the same file set, bytes, sizes and full modes, and
-   internal links where they matter. Record what was preserved and the current
-   state it came from. Do not copy authentication or profile roots.
+2. If useful, privately take a preliminary copy of the program, registration and
+   context-instruction files in scope, with their full modes. It is only
+   preliminary: affected work may still change those files, so it does not
+   satisfy the recovery gate.
 3. Select the verified candidate and the compatibility route for this host's
    generation.
-4. Reach the idle checkpoint with the affected work's holders. Do not end
-   unrelated running work to rename it.
-5. Apply only through the harness's supported native help, plugin or upgrade
+4. Reach the idle checkpoint with the affected work's holders. Quiesce only the
+   affected work; healthy independent work continues, and unrelated running work
+   is not ended to rename it.
+5. **At that checkpoint, before any native effect,** establish the current
+   recovery copy:
+   - Confirm every relevant holder is accounted for and the scoped sources stay
+     quiet.
+   - Make or refresh the copy on the same host, with full modes. Check that the
+     source is stable before the copy and after it, and that the copy matches the
+     current files: the same file set, bytes, sizes and full modes, and internal
+     links where they matter. A preliminary copy counts only after this fresh
+     comparison. If anything changed, refresh and reconcile it, keeping existing
+     recovery material.
+   - Keep the recorded immutable baseline identity bound to its supported native
+     recovery route, and preserve the current home, IDs, user rules and
+     permissions. Do not copy authentication or profile roots.
+   - Stop before applying on an unknown holder, a failed consistency check, new
+     editing or an uncertain effect. Use no manual cache, mode or grant edits and
+     no custom fence.
+6. Apply only through the harness's supported native help, plugin or upgrade
    controls that the candidate names.
-6. Verify that the installed payload matches the candidate's manifest, the native
+7. Verify that the installed payload matches the candidate's manifest, the native
    registration shows the new identity, and unrelated configuration is unchanged.
-7. In a fresh target session, verify discovery, display, invocation and one real
+8. In a fresh target session, verify discovery, display, invocation and one real
    use that reaches the same AI Operating Model, home and IDs. Check that the
    standing calls resolve.
-8. Only then retire the old active family through supported controls, leaving one
+9. Only then retire the old active family through supported controls, leaving one
    active family.
 
 Record one outcome per host: **changed and verified**, **already current**,
 **blocked** (with the dependency and holder), **unavailable** (not migrated), or
 **mixed, stopped**. Stop on an ambiguous generation, an unsupported native step, a
-failed check or an uncertain effect. Never replay blindly, edit caches by hand or
+failed check or an uncertain effect. After a partial effect, reconcile the actual
+state before any retry or rollback. Never replay blindly, edit caches by hand or
 change file modes to force a result.
 
 ## Roll back
