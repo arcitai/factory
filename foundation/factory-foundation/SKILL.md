@@ -3,7 +3,7 @@ name: factory-foundation
 description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.21"
+  version: "0.1.22"
   updated: "2026-10-23"
 ---
 
