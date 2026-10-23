@@ -1,6 +1,6 @@
 # Vision
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.21 · Updated: 2026-10-23
 
 Help an owner turn ideas, bugs, features, research and scoped defensive work into
 well-founded decisions and verified application changes, with less coordination
@@ -26,7 +26,8 @@ chat relay or scheduler. Use a maintained native capability first.
 Keep setup portable and testable. A feature earns its place through an observed
 problem and useful proof. Preserve application conventions instead of forcing
 every project into identical labels, technology, documentation or workflow.
-The package operates without AIOS or personal context.
+The package operates without The Onlinesourdough Method (OSM, formerly AIOS) or
+personal context.
 
 Success is useful decisions and verified deliveries on real applications,
 with observable human effort, rework and usage. Source checks and model claims

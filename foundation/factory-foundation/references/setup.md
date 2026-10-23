@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.20 · Updated: 2026-10-22
+Revision: 0.1.21 · Updated: 2026-10-23
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -13,6 +13,24 @@ for every host or future Nightly. Keep the selected client/server/provider versi
 and observed proof in the installation record. Native delegation and automation
 need their own qualification; installing them does not authorize their use.
 See [upstream installation](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/install.md).
+
+Prefer the official stable channel as the normal baseline. Use a Nightly only for
+a concrete capability reason, with its own qualification. The commands and
+observations below stay at Nightly 2873, where they were qualified. For a stable
+release, follow its own installation and update documentation, check its bytes,
+migration path and supported client/server combination, and qualify it like any
+other version. Move an existing host to it only through that host's own recovery
+and maintenance process; a newer release does not bypass that process's open
+gates.
+
+Keep three things apart: features in the installed T3, upstream work that is
+released but not yet installed or proposed but unmerged, and boundaries the
+installation actually enforces. A released fix is not installed, and an installed
+one is not accepted until it works in this installation. For the Factory host,
+[#34](https://github.com/arcitai/factory/issues/34) holds the selected stable target
+and its maintenance gates, and [#32](https://github.com/arcitai/factory/issues/32)
+holds the live roadmap of released and pending native functions. Read those issues
+for current status rather than copying it here.
 
 Start by identifying the existing project/adoption record. Use
 [the adoption guidance](adoption.md#persistent-choices-and-exceptions) to establish
@@ -34,6 +52,28 @@ Keep deployment/admin credentials outside implementation workers unless a task
 explicitly needs them. A second T3 project or provider config directory under the
 same OS user is not a filesystem sandbox.
 
+When a stronger boundary is needed, compare a **rootless container** and a **VM**
+against the same requirements before selecting either. A rootless container shares
+the host kernel; a VM runs its own guest kernel. Neither is qualified merely by
+starting it. Put the whole execution environment inside the boundary: the T3
+server and the host-side tools it runs, not just a provider executable, because a
+wrapped provider leaves other effectful tools outside it. Compare:
+
+| Requirement | Check in each candidate |
+| --- | --- |
+| Identity and credentials | Only the selected workspace, identity and least-privilege credentials; no inherited owner home, personal connectors, browser profile, SSH agent, privileged or runtime socket, or unrelated project access |
+| Workspaces | The author reaches its selected checkout; an independent reviewer reaches the immutable candidate with allocated scratch output; shared Git metadata does not expose unrelated repositories |
+| Allowed and refused actions | Real file, symlink, process, network, socket and remote-tool operations, tested separately for Codex and Claude; harness sandboxing and account-synced connectors are separate checks |
+| Native operation | Environment connection, provider login, delegation and approvals still work inside, with any callback or localhost reachability recorded and no broad host-network or credential escape |
+| Recovery and cost | Disconnect, restart, recovery, cleanup and revoked grants actually verified, plus the maintenance and configuration effort |
+
+The reusable method requires no separate browser. If a task needs a browser, its
+actual profile, session and access must fit the chosen boundary. Run such a
+comparison only on disposable inputs in a separately prepared test area, with its
+operator, allowed effects and recovery agreed; keep an unavailable check open. The
+Factory comparison and its decision are tracked in
+[#32](https://github.com/arcitai/factory/issues/32).
+
 Use one persistent AgentOps thread in the owner's existing project when it has the
 right context and access. A separate lead project is optional, not a requirement.
 Activate the lead role in that thread; preserve the project's shared instructions.
@@ -42,7 +82,8 @@ T3 environments/OS identities or VMs are appropriate when
 the lead, workers or projects require different filesystem/network trust.
 
 Keep the owner's personal account and the Factory execution account separate,
-each with its own instructions. Do not copy a personal AIOS installation, personal
+each with its own instructions. Do not copy a personal method installation, such
+as The Onlinesourdough Method (OSM, formerly AIOS), a personal
 provider home, Notion workspace, browser profile or credentials into this setup. A
 separate OS account or provider home does not prove that connectors synced to the
 provider account are excluded. Check which tools a fresh native session actually
@@ -546,6 +587,7 @@ compatibility are different actions.
 | Codex | Native installation/update support, or T3's detected provider update action | Inspect the actual installation; do not infer automatic installation merely from a version-check setting |
 | Linux/Omarchy | Distribution's maintained update command and notifications | Package changes, migrations, prompts and reboot are system administration; a check notification is not an unattended update |
 | Factory skills | Reviewed tag → staged diff → checks → deliberate adoption | Preserve local adaptations and verify discovery; do not auto-overwrite project instructions |
+| Optional method package, such as OSM | The package owner's qualified native route, as in [migrating an optional method](method-migration.md) | Factory does not depend on it; preserve its context home, IDs and standing calls |
 
 Native update checks may stay enabled. Automatically applying updates requires a
 selected, supported and tested maintenance route: idle-work checks, bounded scope,

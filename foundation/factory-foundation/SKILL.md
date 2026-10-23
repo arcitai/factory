@@ -3,8 +3,8 @@ name: factory-foundation
 description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
 license: MIT
 metadata:
-  version: "0.1.20"
-  updated: "2026-10-22"
+  version: "0.1.21"
+  updated: "2026-10-23"
 ---
 
 # Factory Foundation
@@ -94,7 +94,11 @@ Prepare only the chosen capabilities:
 - Establish the selected native update channel, updater ownership and maintenance
   boundary. Update checks are not automatic installs; interrupted turns, OS prompts
   and encrypted-disk unlock need an explicit recovery route. Preserve skill-local
-  changes when adopting a new reviewed version.
+  changes when adopting a new reviewed version. Prefer the official stable T3
+  channel, through the host's own maintenance process.
+- When an optional method package the owner uses changes identity, such as The
+  Onlinesourdough Method (OSM, formerly AIOS), migrate its hosts and consumers as
+  in [migrating an optional method](references/method-migration.md).
 
 Before finishing, make one short consistency pass over the sources relevant to
 the intended work, as described in [project context](references/context.md#find-the-source-before-writing).
