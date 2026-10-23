@@ -73,7 +73,8 @@ All of these must hold for the host in question:
    the owner's qualification proof (clean install, upgrade keeping the existing
    home, mixed installations, fresh-session discovery and invocation).
 2. Owner authority for this host, account and scope.
-3. The recorded baseline and its recovery route.
+3. The recorded baseline and its recovery route, freshly verified on the same host
+   before any effect (step 2 below).
 4. An agreed idle checkpoint for the affected work, and its holder.
 
 A missing gate is a blocked field naming its holder. Do not invent install
@@ -83,8 +84,10 @@ commands, URLs or controls to fill it.
 
 1. Inventory and classify, as above.
 2. Privately preserve the current program, registration and context-instruction
-   files in scope, with their full modes. Do not copy authentication or profile
-   roots.
+   files in scope on the same host, with their full modes. Then check the copy
+   against the current files: the same file set, bytes, sizes and full modes, and
+   internal links where they matter. Record what was preserved and the current
+   state it came from. Do not copy authentication or profile roots.
 3. Select the verified candidate and the compatibility route for this host's
    generation.
 4. Reach the idle checkpoint with the affected work's holders. Do not end
@@ -107,10 +110,14 @@ change file modes to force a result.
 
 ## Roll back
 
-Use the recorded baseline's immutable pin or selector and the harness's already
-supported recovery route. Keep the current private state: context, homes, IDs and
-user rules. Then verify in a fresh session that the old calls work again.
-Rolling back deletes no context and no legacy blocks.
+Bind rollback to both the baseline's recorded immutable source or package
+identity and the harness's supported native selector or route for exactly that
+identity. A reused selector alone can resolve to something else. Keep the current
+private state: context, homes, IDs and user rules. If an effect was partial or
+uncertain, stop and reconcile the actual state before any rollback or retry. Then
+verify in a fresh session that the old calls work again. Rolling back deletes no
+context and no legacy blocks, and uses no invented command, cache edit, mode
+change or grant.
 
 Factory #93 stays open until each applicable host and consumer has its own
 recorded outcome.

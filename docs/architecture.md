@@ -99,6 +99,11 @@ Factory adds no runtime or policy engine to fill a gap; it waits for official
 native functions. The live roadmap of those functions and the comparison is
 [#32](https://github.com/arcitai/factory/issues/32), and stable-channel adoption
 for the Factory host is [#34](https://github.com/arcitai/factory/issues/34).
+Released upstream, installed here and accepted here are different states.
+The hosted platform in [#75](https://github.com/arcitai/factory/issues/75) is parked
+future product, not part of the reusable method; a project-specific extension
+needs its own mandate. Cloudflare in [#79](https://github.com/arcitai/factory/issues/79)
+stays optional research, not a required boundary or selected service.
 
 ## Sources kept by this package
 

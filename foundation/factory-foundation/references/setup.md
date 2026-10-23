@@ -21,7 +21,12 @@ release, follow its own installation and update documentation, check its bytes,
 migration path and supported client/server combination, and qualify it like any
 other version. Move an existing host to it only through that host's own recovery
 and maintenance process; a newer release does not bypass that process's open
-gates.
+gates. A cutover is verified only when the intended server and every client read
+back both the exact version and the stable channel; a desktop update or a request
+for one version is not that readback. A combined update action can update
+providers, servers and connected machines together, so it is not a scoped version
+check. Documentation of a newer launcher's rollback does not show that an older
+installation has that launcher or its guarantees.
 
 Keep three things apart: features in the installed T3, upstream work that is
 released but not yet installed or proposed but unmerged, and boundaries the
@@ -30,7 +35,17 @@ one is not accepted until it works in this installation. For the Factory host,
 [#34](https://github.com/arcitai/factory/issues/34) holds the selected stable target
 and its maintenance gates, and [#32](https://github.com/arcitai/factory/issues/32)
 holds the live roadmap of released and pending native functions. Read those issues
-for current status rather than copying it here.
+for current status rather than copying it here. Factory adds no runtime, approval
+service or bridge for a function still pending upstream; it waits for the official
+release and qualifies it.
+
+Stable T3 source documents an outside-agent route over MCP with OAuth, which an
+owner-side caller could use to read, start, message and stop threads within a
+chosen writable mode. That mode covers all of the environment's projects. It is
+not a per-project access list, it grants no authority to decide another worker's
+approval, and it is no isolation boundary. Treat it as documented source only
+until it is connected and qualified in the installation; a qualified native route
+like this is preferable to a custom bridge.
 
 Start by identifying the existing project/adoption record. Use
 [the adoption guidance](adoption.md#persistent-choices-and-exceptions) to establish
@@ -43,9 +58,10 @@ Hand ongoing upkeep for the current project to AgentOps within its mandate.
 ## 1. Choose the boundary
 
 Use an ordinary execution account on the host, with access to the selected repos
-and tools. On a shared personal machine, prefer a dedicated VM with its own
-unprivileged guest account. Keep the personal home, SSH agent, browser, clipboard
-and host sockets outside it; admit shared folders/devices only for a stated need.
+and tools. On a shared personal machine, give the agents a separate boundary with
+its own unprivileged account: a VM or a rootless container, selected only after the
+comparison below. Keep the personal home, SSH agent, browser, clipboard and host
+sockets outside it; admit shared folders/devices only for a stated need.
 On a dedicated host, a separate unprivileged OS user may be sufficient for the
 selected workload. It shares the kernel and is not equivalent to a VM.
 Keep deployment/admin credentials outside implementation workers unless a task
@@ -72,13 +88,15 @@ actual profile, session and access must fit the chosen boundary. Run such a
 comparison only on disposable inputs in a separately prepared test area, with its
 operator, allowed effects and recovery agreed; keep an unavailable check open. The
 Factory comparison and its decision are tracked in
-[#32](https://github.com/arcitai/factory/issues/32).
+[#32](https://github.com/arcitai/factory/issues/32). A Cloudflare-based approach
+remains optional research in [#79](https://github.com/arcitai/factory/issues/79),
+not a third required boundary.
 
 Use one persistent AgentOps thread in the owner's existing project when it has the
 right context and access. A separate lead project is optional, not a requirement.
 Activate the lead role in that thread; preserve the project's shared instructions.
 Workers receive the target project's context and skills. Separate provider profiles,
-T3 environments/OS identities or VMs are appropriate when
+T3 environments/OS identities, VMs or containers are appropriate when
 the lead, workers or projects require different filesystem/network trust.
 
 Keep the owner's personal account and the Factory execution account separate,
@@ -582,7 +600,7 @@ compatibility are different actions.
 | Component | Native route | Boundary |
 | --- | --- | --- |
 | Desktop/mobile clients | Official application updater or store/beta channel | Match the host's protocol; an updated client does not update the server |
-| T3 background server | The named environment's Update server action or `t3 update <selected-version>` | Reconcile active turns and background commands first; it restarts the service |
+| T3 background server | The named environment's Update server action or `t3 update <selected-version>` | Reconcile active turns and background commands first; it restarts the service. Read back both version and channel; a service keeps its current channel |
 | Claude native installation | Native background updates; `claude doctor` reports installation, channel and updater state | New version takes effect on the next process; custom/copied launchers may prevent adoption |
 | Codex | Native installation/update support, or T3's detected provider update action | Inspect the actual installation; do not infer automatic installation merely from a version-check setting |
 | Linux/Omarchy | Distribution's maintained update command and notifications | Package changes, migrations, prompts and reboot are system administration; a check notification is not an unattended update |
