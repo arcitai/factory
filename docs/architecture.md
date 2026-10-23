@@ -1,6 +1,6 @@
 # Responsibility and access
 
-Revision: 0.1.20 · Updated: 2026-10-22
+Revision: 0.1.21 · Updated: 2026-10-23
 
 Factory has three responsibilities around existing tools. It has no server,
 provider adapter, task database or application runtime of its own.
@@ -88,6 +88,22 @@ credentials, use separate identities/environments or an appropriately isolated
 runtime. A role instruction cannot provide that guarantee under a shared account.
 The [setup guide](../foundation/factory-foundation/references/setup.md#least-privilege-in-practice)
 contains the native configuration and expansion procedure.
+
+Before choosing an isolated runtime, compare a rootless container and a VM against
+the same requirements, with the whole T3 execution server and its host-side tools
+inside the boundary; see [choose the boundary](../foundation/factory-foundation/references/setup.md#1-choose-the-boundary).
+Keep features in the installed T3, released or proposed upstream work, and
+boundaries the installation enforces as three separate statements. Shared threads,
+worktrees, environment labels and approval screens are not enforced isolation.
+Factory adds no runtime or policy engine to fill a gap; it waits for official
+native functions. The live roadmap of those functions and the comparison is
+[#32](https://github.com/arcitai/factory/issues/32), and stable-channel adoption
+for the Factory host is [#34](https://github.com/arcitai/factory/issues/34).
+Released upstream, installed here and accepted here are different states.
+The hosted platform in [#75](https://github.com/arcitai/factory/issues/75) is parked
+future product, not part of the reusable method; a project-specific extension
+needs its own mandate. Cloudflare in [#79](https://github.com/arcitai/factory/issues/79)
+stays optional research, not a required boundary or selected service.
 
 ## Sources kept by this package
 

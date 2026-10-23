@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.20 · Updated: 2026-10-22
+Revision: 0.1.21 · Updated: 2026-10-23
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -95,6 +95,12 @@ Reuse the following existing choice families only where they matter:
   execution host, OS/account and workspace, distinguished from the client device.
 - Selected update channels and native installer/updater ownership; checks versus
   automatic installs, idle/interruption rules, recovery and last observed result.
+- Optional method packages the owner uses on each host, such as The Onlinesourdough
+  Method (OSM): installed generation and version, invocation names, standing calls,
+  context home and IDs, and the current recovery route, as in
+  [migrating an optional method](method-migration.md).
+- For a stronger worker boundary: the rootless-container or VM comparison, its
+  evidence and the decision, as in the [setup guide](setup.md#1-choose-the-boundary).
 - Host continuity, where chosen: the host coordinator's thread and mandate, and
   the projects whose leads it coordinates with. For each startup stage (disk
   unlock, headless service boot, network routes, desktop autostart after login,
