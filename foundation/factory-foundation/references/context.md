@@ -1,6 +1,6 @@
 # Establish useful project context
 
-Revision: 0.1.12 · Updated: 2026-10-11
+Revision: 0.1.23 · Updated: 2026-10-26
 
 Use during setup or a scoped readiness assessment. Start with the actual repo,
 accepted work and existing documentation. The outcome is enough reliable context
@@ -83,7 +83,7 @@ When work produces knowledge worth keeping, put it in the most specific existing
 | Durable application facts, architecture, dependencies or runbooks | The application's existing README, docs or source, linked from its instructions when discovery needs it |
 | A standing instruction for the whole project | A short addition to the existing AGENTS/CLAUDE or equivalent convention |
 | A repeatable, non-obvious procedure with concrete future use | An amended existing skill first; a focused project skill only for a real gap |
-| Transferable Factory method | The owning Foundation, AgentOps or ADLC canonical skill bundle |
+| Transferable Factory method | Its owning shared authoring source (Notion in our reference recipe), deliberately exported to a reviewed portable distribution |
 
 Keep an existing wiki that works. A wiki-style docs section is optional and
 needs a retrieval or maintenance benefit; do not reorganize content to fill one.

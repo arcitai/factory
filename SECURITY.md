@@ -1,9 +1,9 @@
 # Security
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.23 · Updated: 2026-10-26
 
-Factory ships instructions and local staging/validation helpers. The native
-harness, T3 environment, OS and repository services enforce permissions.
+Factory ships instructions and local staging/validation helpers. The selected native
+agent tools, workspace, OS and service permissions enforce actual access.
 Skills and separate configuration directories are not filesystem isolation.
 
 Never put provider credentials, private connection links, native transcripts,

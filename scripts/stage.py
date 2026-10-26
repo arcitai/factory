@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Stage one reviewed skill bundle into a fresh directory; never install it."""
+"""Stage one reviewed skill bundle, or all of them as one flat set, into a fresh
+directory; never install it."""
 
 import argparse
 import hashlib
@@ -9,6 +10,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLES = ("foundation", "agent-ops", "adlc")
+ALL = "all"
 
 
 def source_info(source):
@@ -34,18 +36,24 @@ def source_info(source):
 
 
 def stage(bundle, destination, source=ROOT):
-    if bundle not in BUNDLES:
-        raise ValueError("Select foundation, agent-ops or adlc")
+    if bundle != ALL and bundle not in BUNDLES:
+        raise ValueError("Select foundation, agent-ops, adlc or all")
     destination = Path(destination)
     source = Path(source)
     tracked, revision, modified = source_info(source)
     if tracked is not None and not {"LICENSE", "VERSION"}.issubset(tracked):
         raise ValueError("LICENSE and VERSION must be tracked in the source checkout")
-    skills = sorted(p.parent for p in (source / bundle).glob("*/SKILL.md"))
-    if tracked is not None:
-        skills = [p for p in skills if (p / "SKILL.md").relative_to(source).as_posix() in tracked]
-    if not skills:
-        raise ValueError("The selected bundle has no skills")
+    skills = []
+    for group in BUNDLES if bundle == ALL else (bundle,):
+        found = sorted(p.parent for p in (source / group).glob("*/SKILL.md"))
+        if tracked is not None:
+            found = [p for p in found if (p / "SKILL.md").relative_to(source).as_posix() in tracked]
+        if not found:
+            raise ValueError(f"The {group} bundle has no skills")
+        skills.extend(found)
+    # A flat set must not let one group's skill silently replace another's.
+    if len({skill.name for skill in skills}) != len(skills):
+        raise ValueError("Skill names must be unique across the staged set")
     files = {}
     license_bytes = (source / "LICENSE").read_bytes()
     version = (source / "VERSION").read_text().strip()
@@ -81,7 +89,7 @@ def stage(bundle, destination, source=ROOT):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("bundle", choices=BUNDLES)
+    parser.add_argument("bundle", choices=BUNDLES + (ALL,))
     parser.add_argument("--output", required=True, type=Path,
                         help="New directory under an existing parent")
     args = parser.parse_args()

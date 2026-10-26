@@ -1,6 +1,6 @@
 # Engineering foundation for a software project
 
-Revision: 0.1.9 · Updated: 2026-10-10
+Revision: 0.1.21 · Updated: 2026-10-23
 
 Use when preparing or assessing a project's engineering conditions: setup, checks,
 standards, design continuity, documentation, delivery and operation. [Project
@@ -190,5 +190,5 @@ This guide and [CI and delivery](ci-delivery.md) adapt and generalize the
 `aios-project-foundation` 1.1.1 skill from
 [AIOS-plugin](https://github.com/onlinesourdough/AIOS-plugin) at commit
 `3977b4de6da004bdbca47e383862390c2e4cd1fe`, MIT License, Copyright (c) 2026 Gustav
-Anderson. The same license text accompanies this skill. Factory requires no AIOS
-installation.
+Anderson. The same license text accompanies this skill. Factory requires no
+installation of that plugin, now The Onlinesourdough Method (OSM).

@@ -1,33 +1,38 @@
 # Vision
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.23 · Updated: 2026-10-26
 
-Help an owner turn ideas, bugs, features, research and scoped defensive work into
-well-founded decisions and verified application changes, with less coordination
-and platform maintenance.
+Help an owner turn ideas, tasks and accepted backlogs into useful decisions and
+verified results across software, BI, defence, research and other work, with less
+coordination and platform maintenance.
 
-Factory is a public, reusable method and setup package. Foundation prepares a
-project and host. Agent Ops is the independent lead role. ADLC means Agentic
-Development Lifecycle and includes development and scoped defensive/security work.
-An owner may use the method directly or provide setup and support around it.
+Factory is a portable method assembled from native tools. Foundation prepares the
+agent environment, project foundation and operating conditions. AgentOps leads one
+project; domain methods supply the work and checks. Evaluation compares outcomes
+across domains. The optional owner entry routes work to existing project leads.
+Dedicated BI and research bundles are future work; their mention is not a shipped
+capability.
 
-The lead accepts rough ideas and links, researches alternatives, challenges weak
-assumptions and can recommend rejecting work. It also handles explicit assignments
-and an approved backlog. Admission and delivery are human decisions by default;
-either can be explicitly delegated for a defined scope. Existing authority is
-retained, and new material risk or scope changes can require escalation.
+Use a small declaration to make the setup concrete. Our reference original is a
+YAML code block in Notion, with versioned Git exports for reviewed distributions
+and experiments. AgentOps interprets it. Native tools enforce actual settings and
+access; Factory adds no parser, reconciler or execution engine.
 
-T3 Code and native harnesses own execution, conversations and native permissions.
-GitHub owns issues, Projects, PRs and CI. The host and application's chosen
-infrastructure own availability, isolation and deployment. Factory adds no
-agent runtime, provider adapters, usage collector, task database, dashboard,
-chat relay or scheduler. Use a maintained native capability first.
+Notion is the current replaceable context home. Code, models, data, applied
+configuration and work records keep their native sources. Keep one editable
+original and deliberate, versioned exports. Choose products to fit the customer
+and task; T3 Code and Notion are reference choices, not architectural requirements.
 
-Keep setup portable and testable. A feature earns its place through an observed
-problem and useful proof. Preserve application conventions instead of forcing
-every project into identical labels, technology, documentation or workflow.
-The package operates without AIOS or personal context.
+Build on maintained agent tools, trackers, forges and infrastructure. Add no agent
+runtime, provider adapters, usage collector, task database, dashboard, chat relay
+or scheduler. OSM and other personal-method packages remain optional. A later
+hosted product is separate from this method.
 
-Success is useful decisions and verified deliveries on real applications,
-with observable human effort, rework and usage. Source checks and model claims
-alone do not prove reliable unattended operation.
+Start small and preserve each project's useful conventions and local adaptations.
+The owner controls goals and boundaries; admission and delivery can be delegated
+for an explicit scope. Instructions and green checks do not grant authority.
+
+Success is useful outcomes with observable defects, rework, human effort, time
+and usage. The next proof is one real Factory Lab task with qualified source
+access, skill loading, independent review and bounded worker access. Extend the
+recipe from that evidence, rather than making every product example mandatory.

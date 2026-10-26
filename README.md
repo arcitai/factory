@@ -1,162 +1,98 @@
-![Factory — Foundation, AgentOps and ADLC](assets/branding/factory-banner.png)
+![Factory — a method assembled from native tools](assets/branding/factory-banner.png)
 
 # Factory
 
-Revision: 0.1.18 · Updated: 2026-10-19
+Revision: 0.1.23 · Updated: 2026-10-26
 
-A practical method for building and improving applications with coding agents.
+A portable method for using AI agents across software, BI, defence and research.
+Start small, use existing tools, and add complexity when a real task needs it.
 
-Use Factory when you want to give an agent an idea, a bug, a feature or an accepted
-backlog and get back a useful decision or a verified change. It gives owners and
-small teams a repeatable way to prepare a project, direct the work and review its
-delivery. T3 Code provides the workspace, native harnesses run the agents, and
-GitHub holds issues, pull requests and checks.
+**[Read the practical guide and architecture](https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a)** — the public Notion home explains the method, diagrams, skills and current open choices.
 
-| Part | Responsibility | Example |
-| --- | --- | --- |
-| [Foundation](foundation/factory-foundation/SKILL.md) | Prepare and maintain the conditions for work | Connect the execution host; establish context, access and real delivery checks |
-| [AgentOps](agent-ops/factory-agent-ops/SKILL.md) | Direct work within the owner's mandate, before and during execution | Investigate an idea, select accepted work, coordinate workers and bring back a decision |
-| [ADLC](adlc/README.md) | Perform and verify a concrete task | Specify a feature, implement it, independently review it and deliver under the agreed rules |
+Factory supplies methods and portable Agent Skills. Your chosen agent tools run
+the work; their native configuration and service permissions enforce access.
+T3 Code is our reference workspace. Codex, Claude Code or another capable native
+setup can also be used after checking the capabilities the task needs. Choose
+your own context home, tracker, source hosting and infrastructure.
 
-ADLC means **Agentic Development Lifecycle**. The skills work with your
-application's existing standards, tools and hosting choices.
-AgentOps coordinates ADLC and calls on Foundation when setup needs repair.
-These are responsibilities, not three servers or mandatory separate projects.
+## How it fits together
 
-Keep one pinned **AgentOps** conversation in each application project. That lead
-owns the application's setup and work. The AgentOps conversation in the Factory
-repository develops Factory itself; it is not a central queue for every project.
-Share a relevant finding between projects when useful, with an explicit handoff.
+| Responsibility | Purpose |
+| --- | --- |
+| [Foundation](foundation/factory-foundation/SKILL.md) | Prepare the agent environment, project foundation, and operations and maintenance needed for the work |
+| [AgentOps](agent-ops/factory-agent-ops/SKILL.md) | Lead one project: investigate, assign bounded work, coordinate review and deliver within the owner's mandate |
+| Work modules | Supply domain methods and checks: [software](adlc/README.md), [scoped defence](adlc/factory-security/SKILL.md), and future dedicated BI and research methods |
+| [Evaluation](adlc/factory-evaluate/SKILL.md) | Compare outcomes, defects, cost, time and human effort before recommending a change |
 
-## Why I built this
+Independent review checks the actual result against the original requirements in
+a fresh context. Reviewer numbers, roles and models are project choices. A model
+judge's verdict does not replace tests, reconciliations or other domain evidence.
 
-I’m building Factory to give software work with agents a modular structure, from
-understanding the problem to reviewing and delivering the result.
+An optional [Factory entry skill](agent-ops/factory-entry/SKILL.md) helps your own
+Planning Agent route requests to existing project leads. Each project keeps its
+own AgentOps; Factory Lab develops this method rather than managing every project.
 
-I build on established tools and standards: Codex, Claude Code and GitHub, with
-T3 Code as the workspace. Factory adds methods and reusable skills around them,
-keeping extra code and maintenance small.
+## Start with a new or existing project
 
-Foundation prepares the project, AgentOps directs the work, and the Agentic
-Development Lifecycle (ADLC) covers specification, implementation, review and
-delivery. I’m developing a Power BI module that also covers the surrounding data
-and software work, and exploring modules for research and reverse engineering.
+1. Ask Foundation to assess the intended work. Reuse the project's sources,
+   useful conventions and existing checks; prepare only missing capabilities.
+   Follow [setup](foundation/factory-foundation/references/setup.md) for the
+   selected native tools.
+2. Select the declaration and skills, with their revisions. Our Lab's
+   [YAML original lives in Notion](https://gustavanderson.notion.site/4056d2e17f56811b96fec7b970741916);
+   [factory.yaml](factory.yaml) is a versioned export. AgentOps reads the
+   declaration; it does not apply settings or grant access.
+3. Give the project's AgentOps one bounded task. Check the result, get independent
+   review, and deliver under the agreed authority.
 
-## What Foundation prepares
+**Already using Factory?** Use the same Foundation skill and its
+[existing-project adoption guidance](foundation/factory-foundation/references/adoption.md#update-an-existing-project).
+Compare the selected reviewed revision with local adaptations, update affected
+routes and complete bundles, and prove discovery and use. A project shown in T3
+has not automatically adopted the latest method. No extra migration agent or
+synchronization service is needed.
 
-| Scope | What must work | Existing guide |
-| --- | --- | --- |
-| Execution host | The selected harnesses, accounts, access boundaries, skills and client connection; recovery and maintenance for the intended operation | [Host setup](foundation/factory-foundation/references/setup.md) |
-| Application repository | Useful project context, reproducible setup, meaningful checks, standards and design continuity, GitHub rules, and the delivery/operation requirements of this application | [Project context](foundation/factory-foundation/references/context.md), [engineering foundation](foundation/factory-foundation/references/engineering.md), [CI and delivery](foundation/factory-foundation/references/ci-delivery.md) and [GitHub preparation](foundation/factory-foundation/references/github.md) |
+## Context and distributions
 
-A working host does not make every repository ready. A well-prepared repository
-does not prove its agents have the right access. Reuse unchanged host evidence
-when adding a project, then check that project's actual tools and boundaries.
+Notion is our replaceable authoring home for shared methods, policies and skills.
+The [Factory Skills library](https://gustavanderson.notion.site/5e1552911ffc42b8a999609cc6847a00)
+contains their instructions and supporting files. Databricks remains a future
+enterprise option. Project code, data, applied configuration, technical tasks and
+results stay in their existing native sources. Keep one editable original.
 
-Foundation hands AgentOps a short result for the intended work: **verified**,
-**required gap**, or **conditional/not needed**, with the relevant source and
-proof. AgentOps starts authorized work on ready capabilities and returns setup gaps to
-Foundation. ADLC performs the accepted task and keeps affected project knowledge
-current. Reassess the affected capability when its code, configuration or access changes.
+This repository contains reviewed portable distributions, bounded staging/check
+helpers, and Factory Lab's technical work. Required references travel with each
+skill. Use a reviewed release without live Notion access, or read the selected
+Notion original and identify its revision. Changes go to their owning original
+before a deliberate export; no process maintains two editable copies.
+See [source ownership](docs/factory-definition.md) and [contributing](CONTRIBUTING.md).
 
-The shared baseline is useful context, explicit authority, working checks and
-observable access. Worker count, models, communication channels, hosting and
-extra isolation are installation choices. A plugin, prototype and production
-service need different preparation; none needs every optional control or a new
-collection of documents. Keep the result in the project's existing record.
+## Where we are going
 
-Foundation also establishes a small [configuration and adoption record](foundation/factory-foundation/references/adoption.md).
-The project's AgentOps maintains its relevant lasting choices: model defaults and
-exceptions, skills, tool versions, update policy, connections and access. Link the
-actual configuration source, record why a change was authorized, and distinguish
-the intended setting from what was applied and verified. Keep sensitive host and
-account details private and credentials in their native secret stores. Changes are
-reviewable and reversible where supported; the record itself does not apply
-settings or grant access.
+| Step | Status and next work |
+| --- | --- |
+| Method and distribution | The public guide, declaration and portable skills describe the setup. This repo transition reconciles #85, #92, #94 and #98. |
+| Factory Lab | Next: qualify its scoped source connection, actual skill loading, worker boundaries and one real task. [Native isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) retain their live requirements. |
+| Improvement | Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Automations, reviewer defaults and update ownership remain open choices. |
+| Other factories | Adopt the reviewed method project by project through Foundation, after the Lab path works. |
 
-## Three access levels: owner, AgentOps and ADLC
+The [qualification record](docs/qualification.md) separates source checks,
+synthetic exercises and observed native operation. A published package does not
+install a connection, isolate workers or establish unattended operation.
+The [technical architecture notes](docs/architecture.md) explain those boundaries.
 
-Factory's access architecture starts with the human owner and gives each agent
-only the access needed for its work:
+## Decisions and credit
 
-- **You, the owner**, set the goals, approve or delegate decisions, and control
-  which accounts, systems and permissions the agents may use. Personal and
-  administrative access stays outside agent environments unless specifically granted.
-- **AgentOps** directs the work within that mandate, assigns bounded tasks and
-  brings back decisions. Any extra coordination or delivery access has a named
-  purpose and scope; being the lead does not grant administrator rights.
-- **ADLC agents** perform specific tasks in their assigned workspaces, using the
-  tools and access needed to implement, test or independently review the change.
-  They do not gain every permission held by the owner or lead simply by being delegated work.
+The owner decides admission and delivery by default and may explicitly delegate
+either for a defined scope. Keep that authority through continuation and workers;
+raise genuinely new material scope or risk. See the
+[operating policy](agent-ops/factory-agent-ops/references/policy.md).
 
-Foundation prepares and checks these boundaries through the selected OS accounts,
-environments, native harness sandboxes and service permissions. It tests both an
-operation that should work and one that should be refused, and records the limits.
-Least privilege applies at all three levels; additional access can be configured
-for a concrete need and removed afterward.
+Substantially inspired by Zach Lloyd's [Factory Stack](https://www.warp.dev/blog/the-factory-stack)
+and [Warp Factories examples](https://github.com/warpdotdev/warp-factory-examples).
+Warp supplies a platform and native execution engine; this independent method
+assembles existing capabilities. It does not claim Warp schema compatibility.
 
-Three access levels describe the intended responsibility and permission model.
-Claiming **three isolated environments** also requires technical separation. In a
-shared-account setup, AgentOps and workers can still reach the account's shared
-resources; separate threads, skills and worktrees do not change that. Use separately
-qualified identities/environments when workers must be unable to use the lead's
-resources. The [architecture](docs/architecture.md#three-level-access-architecture)
-and [setup guide](foundation/factory-foundation/references/setup.md#least-privilege-in-practice)
-explain the controls; the [qualification record](docs/qualification.md) states what
-has actually been demonstrated.
-
-## Start
-
-You need a repository, an execution machine, access to the selected coding
-provider and permission to work with the repository on GitHub. T3 Code is the
-reference workspace; another capable harness can use the skills after its
-loading, access and execution behavior have been checked.
-
-1. Follow the [setup guide](foundation/factory-foundation/references/setup.md)
-   to connect the chosen host and clients, authenticate the tools and adopt the
-   skills from a reviewed Factory release. It also covers least privilege,
-   updates and recovery. Its worked example uses a Linux host and a Mac client.
-2. Ask Foundation to assess and prepare your project. Reuse existing instructions,
-   configuration and documentation; establish the missing context and real checks
-   needed for the intended work. Record a small default model choice for the lead,
-   implementation and review; AgentOps uses it unless you choose otherwise.
-   The [GitHub guide](foundation/factory-foundation/references/github.md)
-   covers repository access, work tracking and delivery protections.
-3. Keep a pinned **AgentOps** thread in your project. Use the
-   [workspace guide](foundation/factory-foundation/references/workspace.md) to
-   activate its role, then give it one bounded task and verify the result.
-
-Give the lead an idea, a specific task or an accepted backlog. Examples:
-
-- “Research this approach against our product goals. Recommend adopt, experiment,
-  defer or reject. Bring me the decision before adding implementation work.”
-- “Fix this accepted bug, run the relevant checks and get independent review.
-  Bring me the candidate before merge.”
-- “Work through these accepted issues in order. You may merge and release work
-  that passes our rules. Ask me if new scope or significant risk changes the decision.”
-
-There are two default human decisions: **admit work to the implementation
-backlog**, and **accept its delivery before merge/release**. The owner may delegate
-either decision for an explicit scope. Retain that delegation throughout the
-task. Tests and independent review still apply, and material new risk can require
-the owner to reconsider. See [the operating policy](agent-ops/factory-agent-ops/references/policy.md).
-
-## How much is verified?
-
-A published method release is not an installed or qualified system. Verify your
-selected host, tools and a real task before relying on unattended operation.
-The [qualification record](docs/qualification.md) separates package checks,
-behavioral exercises and live proof. Skills guide work; the native tools and
-infrastructure enforce access and run it.
-
-See the [architecture](docs/architecture.md) for responsibility boundaries and
-[contributor guide](CONTRIBUTING.md) for versioning, checks and releases.
-The earlier [migration audit](https://github.com/arcitai/factory/blob/v0.1.3/docs/transition.md)
-and [research decision](https://github.com/arcitai/factory/blob/v0.1.3/docs/decision.md)
-remain in release history; they are not prerequisites for a new installation.
-
-Factory's method, code and documentation are MIT licensed. The Arc’ It AI name
-and logo, including their use in the banner, are not licensed for reuse by that
-software license. See [brand asset terms](assets/branding/README.md). Existing
-application licenses, third-party tools and provider subscriptions retain their
-own terms.
+Factory's method, code and documentation are MIT licensed. Arc’ It AI branding
+has [separate terms](assets/branding/README.md). Third-party products and projects
+retain their own terms.
