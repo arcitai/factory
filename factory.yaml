@@ -1,0 +1,76 @@
+# Versioned export; the canonical editable original is the Notion YAML block.
+# Original: https://gustavanderson.notion.site/4056d2e17f56811b96fec7b970741916
+# Source page last edited: 2026-10-26T13:09:50.077Z
+# Canonical YAML SHA-256 (UTF-8, LF, trailing newline): 91da912a1c8d40f90fe89e9d502d7fdf2d98e1a45b5766bfdc81640a47b17b7d
+# Exported: 2026-10-26 for Factory 0.1.19 candidate; edit the original before exporting.
+
+# Factory Lab declaration; version 0.1.
+# Interpreted by AgentOps; not applied configuration.
+# Native tools enforce only what is configured and verified in them.
+# This file grants no authority or access and does not override existing holds.
+# Inspired by Warp Factories; not their schema or a compatible Warp definition.
+# Reference: https://www.warp.dev/blog/the-factory-stack
+definition_version: "0.1"
+name: arcitai-factory-lab
+description: Develop, qualify and publish the portable Factory method.
+status: candidate
+
+context:
+  home: https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a
+  skills: https://gustavanderson.notion.site/5e1552911ffc42b8a999609cc6847a00
+  work: https://github.com/arcitai/factory/issues
+  native_artifacts: https://github.com/arcitai/factory
+
+workspace:
+  preferred: t3-code
+  alternatives: [codex, claude-code, cursor]
+  qualification: required-for-selected-capabilities
+
+agents:
+  lead:
+    skill: https://gustavanderson.notion.site/4056d2e17f56819cbe9df834bc7819f0
+  foundation:
+    skill: https://gustavanderson.notion.site/4056d2e17f5681edb778c29cc5faa9a0
+  evaluator:
+    skill: https://gustavanderson.notion.site/4056d2e17f5681e1b1b7d2bc2b5d783c
+
+work_modules:
+  software:
+    skills:
+      triage: https://gustavanderson.notion.site/4056d2e17f5681668e80d9aa3cccdf61
+      specify: https://gustavanderson.notion.site/4056d2e17f568177aee7f7fc46918863
+      implement: https://gustavanderson.notion.site/4056d2e17f5681a4bee6c4d5bc4da0ac
+      review: https://gustavanderson.notion.site/4056d2e17f5681c1857be250346718f8
+  defence:
+    skill: https://gustavanderson.notion.site/4056d2e17f5681d38bd0feb651c8fd22
+    scope: authorized-only
+  bi: not-yet-packaged
+  research: not-yet-packaged
+
+policy:
+  source: https://gustavanderson.notion.site/4056d2e17f56819cbe9df834bc7819f0
+  reference: references/policy.md  # within policy.source skill, not a repo-root path
+  admission: owner-or-explicit-delegate
+  delivery: owner-or-explicit-delegate
+  review:
+    default_contexts: 1
+    independence: fresh-context
+    criteria: original-accepted-task
+    additional_reviewers: explicit-task-choice
+  limits: set-time-cost-rounds-and-no-progress-before-execution
+
+evaluation:
+  role: evaluator
+  benchmarks: []  # none qualified for this recipe
+  proposed_experiments:
+    - https://github.com/arcitai/factory/issues/97
+
+operations:
+  recipes: https://gustavanderson.notion.site/4056d2e17f5681a79c09f46f42742989
+  automations: disabled-until-authorized-and-qualified  # intended, not observed
+  maintenance_owner: not-assigned
+  access_and_isolation: qualify-in-native-tools
+
+qualification:
+  installed_recipe: not-qualified
+  evidence: https://github.com/arcitai/factory/blob/main/docs/qualification.md

@@ -2,9 +2,13 @@
 
 # Factory
 
-Revision: 0.1.18 · Updated: 2026-10-19
+Revision: 0.1.19 · Updated: 2026-10-26
 
 A practical method for building and improving applications with coding agents.
+
+The next method revision has a [public architecture and practical guide](https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a), including the Factory Skills authoring library.
+The [Factory definition in Notion](https://gustavanderson.notion.site/4056d2e17f56811b96fec7b970741916) is the only editable original for Factory Lab's proposed composition. [factory.yaml](factory.yaml) is a versioned export. AgentOps interprets the selected definition; it is not an executable coordinator or permission grant.
+See [definition and source ownership](docs/factory-definition.md) before changing the method. The existing bundles below remain the released reference until an explicit reviewed cutover. The Notion-connected recipe is not yet live-qualified.
 
 Use Factory when you want to give an agent an idea, a bug, a feature or an accepted
 backlog and get back a useful decision or a verified change. It gives owners and

@@ -1,9 +1,10 @@
 # Contributor instructions
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.19 · Updated: 2026-10-26
 
 Read [VISION.md](VISION.md), [README.md](README.md) and the affected skill.
-This repository owns Factory's method, not an adopting application's product rules.
+Read [factory.yaml](factory.yaml) and [source ownership](docs/factory-definition.md) for the selected exported declaration and owning sources. The Notion YAML block owns the current authoring definition; use a release/export at its recorded revision when working from that version. Do not silently refresh it mid-task or edit a distribution as a second original. The declaration is interpreted by AgentOps; it does not apply settings, grant authority or override holds.
+This repository owns versioned distributions and Factory Lab's native project artifacts, not an adopting application's product rules. Shared next-edition methods are authored in the linked Notion home; existing bundles retain authority for their released versions until reviewed cutover.
 
 Keep one canonical source for each skill and its references. A staged bundle
 must remain useful outside this checkout. Put required resources inside its
@@ -22,7 +23,7 @@ Material skill changes need representative behavioral evidence; metadata checks
 alone cannot prove decisions. Review the final candidate independently before
 authorized delivery. Record live proof separately from fixtures and source review.
 
-Keep changes, proof and roadmap in GitHub. Update affected guides and the
+Keep technical changes, tasks and proof in GitHub; update shared method/context in its owning source. Avoid a second editable copy. Update affected guides and the
 qualification record. Readback published artifacts and preserve a recovery path;
 do not turn a passing package check into an installation claim.
 
