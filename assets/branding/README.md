@@ -15,4 +15,4 @@ Factory's MIT license. The Geist fonts retain their separate license in
 `fonts/LICENSE.txt`. These presentation assets are not included in the staged
 Factory skills.
 
-`factory-icon.png` is the transparent blue factory glyph for the public Notion guide, created with ImageGen to match the owner's existing Notion icon style. It is a presentation asset under the same branding exception, not part of a staged skill.
+`factory-icon.svg` is the editable source of the transparent blue factory glyph for the public Notion guide; `factory-icon.png` is its native browser export. It matches the owner's rounded gradient Notion icon style. It is a presentation asset under the same branding exception, not part of a staged skill.
