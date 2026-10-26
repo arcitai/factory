@@ -3,7 +3,7 @@
 Revision: 0.1.19 · Updated: 2026-10-26
 
 The [Notion YAML code block](https://gustavanderson.notion.site/4056d2e17f56811b96fec7b970741916) is Factory Lab's only editable declaration. [factory.yaml](../factory.yaml) is a version-marked export: one small description of its purpose, context, roles, selected methods, review
-profile, operating recipes and evaluation proposals. An adopting project chooses its own declaration and context home. A repository is optional for non-software work.
+settings, automation and routine ideas and evaluation proposals. An adopting project chooses its own declaration and context home. A repository is optional for non-software work.
 
 ## Declaration, configuration and evidence
 
@@ -21,11 +21,11 @@ No parser, reconciler, workflow engine or synchronization service is added here.
 
 `context` identifies the entry, library and native records. `agents` names the
 lead and optional bounded setup/evaluation roles; `work_modules` selects domain
-methods without requiring a separate agent for every skill. `policy` selects a
-review profile and references the AgentOps skill's `references/policy.md` in its
+methods without requiring a separate agent for every skill. `policy` selects
+review settings and references the AgentOps skill's `references/policy.md` in its
 native Files folder. Limits must be made concrete for an actual run. `evaluation`
-lists proposals separately from qualified benchmarks. `operations` declares
-intended choices; it is not an observed inventory of enabled native automations.
+lists proposals separately from qualified benchmarks. `operations` links to ideas and records
+open choices; it is not an observed inventory of enabled native automations.
 `qualification` routes to evidence, which must describe the actual installation.
 
 ## One editable original
