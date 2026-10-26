@@ -1,41 +1,38 @@
 # Vision
 
-Revision: 0.1.19 · Updated: 2026-10-26
+Revision: 0.1.23 · Updated: 2026-10-26
 
-Help an owner turn ideas, bugs, features, research and scoped defensive work into
-well-founded decisions and verified outcomes across software, BI, defence and research, with less coordination
-and platform maintenance.
+Help an owner turn ideas, tasks and accepted backlogs into useful decisions and
+verified results across software, BI, defence, research and other work, with less
+coordination and platform maintenance.
 
-Factory is a public, reusable method and setup package. Foundation prepares a
-project, agent environment and operating conditions. AgentOps is the project lead.
-Domain work modules supply their workflow and acceptance criteria. The currently
-released ADLC bundles cover development and scoped defensive/security work;
-dedicated BI and research bundles remain future work.
-An owner may use the method directly or provide setup and support around it.
+Factory is a portable method assembled from native tools. Foundation prepares the
+agent environment, project foundation and operating conditions. AgentOps leads one
+project; domain methods supply the work and checks. Evaluation compares outcomes
+across domains. The optional owner entry routes work to existing project leads.
+Dedicated BI and research bundles are future work; their mention is not a shipped
+capability.
 
-The lead accepts rough ideas and links, researches alternatives, challenges weak
-assumptions and can recommend rejecting work. It also handles explicit assignments
-and an approved backlog. Admission and delivery are human decisions by default;
-either can be explicitly delegated for a defined scope. Existing authority is
-retained, and new material risk or scope changes can require escalation.
+Use a small declaration to make the setup concrete. Our reference original is a
+YAML code block in Notion, with versioned Git exports for reviewed distributions
+and experiments. AgentOps interprets it. Native tools enforce actual settings and
+access; Factory adds no parser, reconciler or execution engine.
 
-A small YAML Factory definition makes composition and context routes explicit.
-Our reference original is a code block in Notion, with version-marked Git exports
-for reviewed releases and experiments. AgentOps initially interprets it; it is
-not a new runtime or an access-control mechanism. Shared method/skills use the
-replaceable context home, with Notion as our reference authoring choice.
+Notion is the current replaceable context home. Code, models, data, applied
+configuration and work records keep their native sources. Keep one editable
+original and deliberate, versioned exports. Choose products to fit the customer
+and task; T3 Code and Notion are reference choices, not architectural requirements.
 
-T3 Code and native harnesses are reference tools for execution, conversations and native permissions; another capable native setup can be qualified.
-GitHub owns issues, Projects, PRs and CI. The host and application's chosen
-infrastructure own availability, isolation and deployment. Factory adds no
-agent runtime, provider adapters, usage collector, task database, dashboard,
-chat relay or scheduler. Use a maintained native capability first.
+Build on maintained agent tools, trackers, forges and infrastructure. Add no agent
+runtime, provider adapters, usage collector, task database, dashboard, chat relay
+or scheduler. OSM and other personal-method packages remain optional. A later
+hosted product is separate from this method.
 
-Keep setup portable and testable. A feature earns its place through an observed
-problem and useful proof. Preserve application conventions instead of forcing
-every project into identical labels, technology, documentation or workflow.
-The package operates without AIOS or personal context.
+Start small and preserve each project's useful conventions and local adaptations.
+The owner controls goals and boundaries; admission and delivery can be delegated
+for an explicit scope. Instructions and green checks do not grant authority.
 
-Success is useful decisions and verified deliveries on real applications,
-with observable human effort, rework and usage. Source checks and model claims
-alone do not prove reliable unattended operation.
+Success is useful outcomes with observable defects, rework, human effort, time
+and usage. The next proof is one real Factory Lab task with qualified source
+access, skill loading, independent review and bounded worker access. Extend the
+recipe from that evidence, rather than making every product example mandatory.

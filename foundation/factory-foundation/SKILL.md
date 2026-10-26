@@ -1,115 +1,64 @@
 ---
 name: factory-foundation
-description: Prepare or assess a software project's engineering foundation and its execution host, including reproducible setup, real checks, documentation, CI/delivery, native harness access and GitHub work tracking.
+description: Prepare or assess a factory's agent environment, project foundation and operating conditions for the intended work, across software, BI, defence and research.
 license: MIT
 metadata:
-  version: "0.1.14"
-  updated: "2026-10-15"
+  version: "0.1.23"
+  updated: "2026-10-26"
 ---
 
 # Factory Foundation
 
-Use for requested setup, adoption, migration or readiness assessment. Assessment
-is read-only. Preserve the application's existing vision, instructions, code,
-standards and useful work. The setup request does not create product scope.
+Use for requested setup, adoption, migration or readiness assessment. Assessment is read-only. Preserve the project's purpose, existing tools, instructions, artifacts and useful work. Setup does not admit new product work.
 
-Identify the repository, owner, intended work, execution host, operator entry
-point and delivery destination from accepted context. Resolve facts from the
-actual environment before asking for a missing owner decision. Identify the
-appropriate existing project/adoption record and establish its relevant persistent
-choices using [the adoption guidance](references/adoption.md). Keep safe shared
-policy in the repo where useful and private installation details in their existing
-private record. Reconcile affected entries during setup or relevant changes;
-hand ongoing ownership for the current project to AgentOps within its mandate.
+Identify the owner, intended outcome, project records, execution environment, operator entry and delivery destination. Recover facts from the actual sources before asking the owner to repeat them. Use the existing project/adoption record; do not create a second tracker. Resolve the assigned Factory declaration from its owning context source. In our Notion recipe, the YAML code block is the original; a selected `factory.yaml` export records a particular version. Read its declared composition and source routes. It records intended choices; verify applied native configuration separately and preserve existing authority and holds.
 
-Assess two scopes separately: the **execution host** that runs the agents and
-the **application repository** they will work on. Reuse applicable host proof
-when adding a repo; recheck affected capabilities when versions, identities,
-configuration or access change. Repository readiness still needs its own sources,
-tools, checks and delivery boundary. Application hosting is part of that repo's
-operating needs, not automatically the agent execution host.
+## Foundation scopes
 
-For T3 host/client setup use [the setup guide](references/setup.md).
-For a pinned AgentOps thread, its skills and the host/client connection,
-use [the operator workspace guide](references/workspace.md).
-For GitHub Projects, labels, PR and CI use [repository preparation](references/github.md).
-For application context, dependencies, operation and living documentation,
-use [project context](references/context.md).
-For reproducible setup, tests, standards, design continuity, documents and agent
-instructions, use the [engineering foundation](references/engineering.md). When
-branch policy, check cadence, artifacts or environments change, read
-[CI and delivery](references/ci-delivery.md).
-Keep the method independent of a particular model and personal plugin. Repository
-work can run in a native Codex or Claude session without T3 once that harness's
-skill discovery, tools and permissions are qualified; T3 guides apply to T3 hosts.
+**Agent environment:** selected client/host, native agent tools and models, assigned skills, identities/connections, effective permissions, native history, startup and recovery. T3 Code is a reference workspace, not a required Factory server. Another native tool is suitable only after its needed loading, execution and access behavior is checked.
 
-Prepare only the chosen capabilities:
+**Project foundation:** authoritative context, goal and mandate, selected domain methods, native artifacts, meaningful acceptance checks and applicable standards. Software may use a repository; BI may use models and workspaces; research may use documents and datasets. Keep their native sources.
 
-- Find the authoritative project sources and concrete gaps for the intended work.
-  Reuse existing docs, code/configuration and checks; establish missing context
-  according to the product's purpose and actual risks. Weigh setup and upkeep
-  against the benefit; the task does not require perfecting the whole repo.
-  Keep the agent host distinct from application operation.
-- Confirm the native versions, selected provider account, effective tools and
-  permissions. A discoverable binary or copied skill does not establish readiness.
-  Record the project's small model profile from live native IDs and owner choices.
-- When using T3, read usage and limits in its native Usage view, as in
-  [the setup guide](references/setup.md#usage-and-limits). An environment there is
-  a view scope, not project accounting, quota or isolation; do not add environments
-  to obtain them.
-- Start AgentOps and workers with least privilege. Distinguish coordination
-  authority from enforced OS/tool/credential access. For a wider grant, identify
-  the required action, target, authorizer and removal condition; apply the smallest
-  native change and test an allowed and refused operation. Never make the lead
-  an administrator merely because it coordinates workers.
-- Scope the lead role to its chosen thread; an existing project is sufficient
-  when it has the intended access. Separate credentials/access where required.
-  A profile separates configuration/history, not OS access. Qualify the actual filesystem
-  and network boundary; use a separate OS identity/environment where required.
-  Prove each tool boundary the work relies on, such as shell, native file tools or
-  MCP, in an actual launch with its effective settings source; a settings file's
-  presence is not proof. Record success, permission denial, approval request and
-  OS refusal as different results.
-- Stage and review selected skills before native project/profile adoption.
-  Keep one canonical copy, verify discovery in each chosen harness and preserve
-  local adaptations on updates. Never install personal context as a dependency.
-- Prepare meaningful project checks, work tracking and delivery protections.
-  Preserve existing field/label conventions and read settings back from GitHub.
-  A local workflow file does not prove service-side protection is enabled.
-  Exercise clean setup, the real checks and relevant failure paths; distinguish a
-  prepared repository, an exercised non-production delivery and a
-  production-qualified application.
-- Record admission and delivery authority, including explicit delegated decisions,
-  approved data destinations and material risk/escalation conditions.
-- Qualify service startup, client disconnect, restart and recovery on disposable
-  work before relying on unattended operation. Reconcile active/unknown writers
-  before stopping a service or changing its version.
-- Establish the selected native update channel, updater ownership and maintenance
-  boundary. Update checks are not automatic installs; interrupted turns, OS prompts
-  and encrypted-disk unlock need an explicit recovery route. Preserve skill-local
-  changes when adopting a new reviewed version.
+**Operations & maintenance:** the work/test/delivery/operating environments the task needs, observable failures, updater ownership, maintenance windows, recovery and relevant ongoing care. The agent host and the delivered product may run on different systems. A prototype does not require every production control.
 
-Before finishing, make one short consistency pass over the sources relevant to
-the intended work, as described in [project context](references/context.md#find-the-source-before-writing).
-Finish with one short readiness result in the existing project record, scoped
-to the intended task. For each relevant capability, identify its host/repo scope,
-owning source, **verified**, **required gap**, or **conditional/not needed**
-disposition, and dated proof or the next action and responsible role. Explain
-conditional choices; do not treat an unchecked requirement as not needed.
-Mark a capability verified only from an actual check, readback or retained dated
-proof; a document, configuration file or earlier claim alone is not that proof.
-An unchecked, inaccessible or contradictory prerequisite stays a required gap with
-its observed evidence, source and date, plus the next action and responsible owner.
-Include versions without secrets; keep identity details in the private installation
-record. Hand this result to AgentOps, which maintains the project's mandate,
-readiness and agreed upkeep, starts authorized, ready work and routes setup
-repairs back to Foundation. ADLC proves the changed task and keeps
-affected application sources and checks current during delivery. A gap holds the
-dependent capability, not unrelated work. A native binding, authentication or
-capability gap holds only the work depending on it; keep the current task and
-its responsible next action visible for AgentOps' operator path. Editing these
-sources does not repair a native failure or prove autonomous operation.
-Preserve unchanged proof rather than rerunning the entire installation for every task.
-Preserve native history and recovery material during migration. Retiring an old
-runtime is a separate deliberate step after its replacement is qualified.
-Foundation installs no Factory daemon and grants no authority beyond the request.
+These areas are preparation scopes, not three compulsory machines or access levels. Prepare only the capabilities the intended work requires. Reuse unchanged proof; recheck the affected capability after a relevant version, account, permission, configuration or dependency change.
+
+## Adopt or update an existing project
+
+Use [the adoption guidance](references/adoption.md#update-an-existing-project) when an existing project should align with a selected reviewed Factory revision. Compare installed methods and local adaptations before changing files; preserve product work, context and current authority. A project visible in a workspace is not necessarily an adopted installation.
+
+## Establish context and skills
+
+Resolve each artifact's original source. In the selected Notion recipe, shared method, policies and authored skills can live in Notion; project-native artifacts and technical work records remain in their native systems. Notion is replaceable. Until an explicit cutover, an existing source retains its authority for its version.
+
+Keep project bootstrap instructions thin: common constraints, source routes and checks. Assign the role and selected skill explicitly; a role title or `AGENTS.md` does not load every skill or grant access. Preserve required references in the selected skill bundle. Identify source/version when materializing a worker's files or adopting a reviewed distribution. Do not invent a sync service or silently refresh installed skills.
+
+## Prove the boundaries and operation
+
+- Read the actual versions, selected provider/account, tools and effective native settings. A binary, connection, copied skill or available model name is not a working installation.
+- Separate the human's personal access, the lead's bounded coordination access and the worker's assigned task access. Reviewers/evaluators are bounded workers, not administrators.
+- Selection of context is coordination; service permissions, OS/environment boundaries, mounts, network and tool controls enforce access. A worktree separates changes, not readable files or credentials.
+- For the Notion recipe, grant the lead only the intended source pages through a scoped connection. Supply selected skill/context files to workers; do not expose the lead's credential or inherited personal connector routes. Read-only access cannot write progress; use the existing native task record or a task-scoped handoff document until a scoped write route is available. If an inherited connector exceeds the accepted task access, hold dependent worker execution until the exposure is removed, isolated or explicitly resolved by the owner; do not treat a role instruction as the repair.
+- Check an allowed operation and one that should be refused in the actual worker/tool environment. Record success, approval request, permission denial and OS refusal distinctly. A document's claim is not proof of enforcement.
+- Confirm actual project checks and relevant failure paths. Distinguish source inspection, a rehearsal, installed behavior and the delivered outcome. Domain checks must assess the original criteria. If no suitable domain module exists, agree task-specific checks and disclose the gap; do not imply that a BI or research module is already shipped.
+- Agree update ownership for a shared host; this remains an owner choice. Until it is set, route update decisions to the owner. An idle maintenance window has no active or unknown writers on the affected host. Reconcile them before changing versions, stopping services or rebooting. Keep a recoverable starting state, verify affected operation afterwards and preserve private native history.
+- Qualify the recovery behavior required by the intended unattended work on disposable tasks. Unqualified restart or update behavior holds actions that depend on it; other explicitly authorized work may continue only where interruption is harmless and the recovery limitation is disclosed. Updates, approval prompts, machine login and encrypted-disk unlock may need different recovery routes. Native scheduling is optional and needs an authorized, tested configuration.
+- Keep credentials in native secret stores and sensitive host/account details in private installation records. A private record of a permission does not apply it or enforce its expiry.
+
+Preserve explicit admission/delivery delegation and stop conditions. A new grant must identify the needed operation, target, authorizer and removal condition. The lead role alone grants no administration or delivery authority.
+
+## Hand over a readiness result
+
+For each required capability, record its scope, owning source, disposition and retained evidence:
+
+- **Verified:** an actual check/readback or applicable dated proof supports the claim.
+- **Required gap:** unchecked, inaccessible, conflicting or failed prerequisites remain visible, with the next action and responsible holder.
+- **Conditional / not needed:** explain why the intended work does not depend on it.
+
+A required gap holds dependent work, not unrelated authorized work. A recorded gap is not readiness. Hand the result to AgentOps, which maintains project choices within its mandate and routes concrete setup repairs back to Foundation. The work module verifies each changed deliverable and updates affected context.
+
+For an optional owner-side entry, use `factory-entry` and the selected native installation route in `references/setup.md`. For a personal method package changing identity, consult `references/method-migration.md`; Factory depends on no such package.
+
+For software/T3-specific preparation, consult only the relevant bundled reference: `references/adoption.md`, `context.md`, `engineering.md`, `ci-delivery.md`, `github.md`, `setup.md` or `workspace.md`. These imported references retain their observed versions/dates; old worked examples are not current installation proof. Qualify them against the chosen tools before applying them.
+
+Factory Foundation installs no Factory daemon and grants no authority beyond the request.

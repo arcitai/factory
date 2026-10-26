@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.14 · Updated: 2026-10-15
+Revision: 0.1.23 · Updated: 2026-10-26
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -16,12 +16,42 @@ record that limitation and the supported handoff, such as sanitized changes pass
 to the operator who holds access. Do not claim independent lead upkeep, copy private
 details into a second register or broaden access to close the gap.
 
-Version safe project-shared policy in the repository where useful. Keep host
+Keep shared method and policy in their chosen authoring home; our Lab uses Notion. Project-native configuration and technical records remain in their own tools. Keep host
 identities, private paths, account references and sensitive evidence in the existing
 private installation record; share only sanitized summaries. Credentials belong
 only in actual secret stores. Executable native configuration is the source of
 truth for applied state: link to its owning source/control instead of copying
 values uncritically. An observation may quote a safe value with its source and date.
+
+## Update an existing project
+
+Use this route for an existing repository or other project adopting a newer
+reviewed Factory revision. The setup request changes the method within its scope;
+it does not admit new product work or migrate every project on the host.
+
+1. Identify the current lead, actual workspace, source/context routes, installed
+   skill versions, local adaptations and existing holds. Read the project's own
+   instructions, checks and delivery rules. Keep the existing adoption record.
+2. Select an immutable reviewed distribution or a specific context-home revision,
+   including the full required references. Compare old source, local changes and
+   the candidate. Preserve useful adaptations; resolve conflicts rather than
+   replacing the project with Factory Lab's settings.
+3. Update only the affected skills, thin bootstrap routes and documentation in
+   their owning sources. Preserve product files, work in progress, personal
+   context, native history and credentials. Broader connector, host or access
+   changes keep their own authority and recovery requirements.
+4. Use the chosen tool's supported loading/adoption route. Verify the actual
+   installed bytes, fresh-session discovery or explicit loading, and a bounded
+   task with its relevant checks and independent review. If live adoption is
+   outside this task, report the source as prepared and leave those checks open.
+5. Record the selected revision, retained adaptations, demonstrated result and
+   remaining gaps. Keep the prior working revision and supported recovery route.
+   Recheck affected capabilities; do not repeat unrelated host qualification.
+
+A repository's `AGENTS.md` can point to the selected methods and shared rules;
+it does not need to copy them all. A declaration belongs in the project's chosen
+context home. Notion is our reference, not a dependency for using a released bundle.
+For an optional method package changing identity, use [method migration](method-migration.md).
 
 ## Persistent choices and exceptions
 
@@ -85,12 +115,34 @@ Reuse the following existing choice families only where they matter:
   prevail. Refresh it when models, requirements or retained outcomes change.
 - Selected skills, Factory tag/revision, stage hashes, installed paths, preserved
   local changes and observed native discovery.
+- The owner's own AI agent: which agent and harness hold `factory-entry`, and its
+  requested, installed, discovered and used states recorded separately. Also the
+  current lead for each project it routes to, so a resumed caller can find the
+  right recipient again.
 - Ops thread identity, project/workspace binding, role/source paths, pin and
   auto-settle choice; explicit source loading distinguished from native discovery.
 - Each client's saved service connection and Local environment choice; observed
   execution host, OS/account and workspace, distinguished from the client device.
 - Selected update channels and native installer/updater ownership; checks versus
   automatic installs, idle/interruption rules, recovery and last observed result.
+- Optional method packages the owner uses on each host, such as The Onlinesourdough
+  Method (OSM): installed generation and version, invocation names, standing calls,
+  context home and IDs, and the current recovery route, as in
+  [migrating an optional method](method-migration.md).
+- For a stronger worker boundary: the rootless-container or VM comparison, its
+  evidence and the decision, as in the [setup guide](setup.md#1-choose-the-boundary).
+- Host continuity, where chosen: the host coordinator's thread and mandate, and
+  the projects whose leads it coordinates with. For each startup stage (disk
+  unlock, headless service boot, network routes, desktop autostart after login,
+  power policy), record its owner and last dated readback; see the
+  [setup guide](setup.md#keep-the-host-ready-after-restart).
+- If scheduled maintenance is selected, its agreed opportunity: its native scheduler and target,
+  each component transaction and its owner, the last actual trigger and what it
+  observed (no-op; deferred with reason, next action and holder; or the stages
+  installed, restarted and continued that it reached), the authority it used, and
+  the retired duplicate after a migration.
+- Recovery: the private recovery copy's location, holder and scope, the last
+  verified same-host restore, and the operator able to act while the service is down.
 - AgentOps scope (Factory and the adopted repository) and the narrower ADLC task
   workspaces. Record each extra grant separately from that baseline: who or which
   role, target, environment, purpose, date, authorizer, expiry/removal condition
@@ -123,6 +175,9 @@ date and evidence. Relevant proof includes:
 5. The actual phone/remote decision route if selected.
 6. A representative isolation check for each trust boundary being claimed.
 7. Readback of actual GitHub status/protections and delivered application behavior.
+8. Where host continuity is claimed: boot, login, disconnect and reconnect, and one
+   actual scheduled wake, each recorded separately. A wake alone is not reboot or
+   recovery proof.
 
 Keep source inspection, disposable rehearsals and live installation evidence
 distinct. One successful run qualifies that path, not every model or future update.

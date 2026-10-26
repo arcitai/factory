@@ -1,0 +1,29 @@
+name: Lab test
+description: Propose a bounded comparison or experiment; this is not a product implementation request.
+title: "Lab: "
+labels: [research]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or hypothesis
+      description: What decision would the experiment inform, and what one factor should change?
+    validations:
+      required: true
+  - type: textarea
+    id: baseline
+    attributes:
+      label: Shared starting point
+      description: Identify the frozen task/session checkpoint, input history, candidate/data revision, skills, tools and access. For model A/B, use independent copies of that state. Keep private logs out of this issue.
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Checks, limits and comparison
+      description: Define domain checks, repetitions, time/cost limits and what result would support a decision. Record failures, false findings, repair, human effort and all-role cost. Unknown stays unknown.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Creating this issue captures the idea. Execution and adoption follow existing authority. Use native tools; no benchmark platform is implied. See #50 for same-session replay."

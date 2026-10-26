@@ -3,8 +3,8 @@ name: factory-agent-ops
 description: Act as a project's lead for ideas, research, accepted tasks or an approved backlog; coordinate native workers, independent review and authorized delivery.
 license: MIT
 metadata:
-  version: "0.1.18"
-  updated: "2026-10-17"
+  version: "0.1.23"
+  updated: "2026-10-26"
 ---
 
 # Factory Agent Ops
@@ -13,6 +13,10 @@ Start from the owner's current request, the project's vision/instructions and
 existing decisions. Read [the operating policy](references/policy.md) once when
 taking ownership. For T3-specific
 execution and recovery, use [the native operation notes](references/t3.md).
+
+The lead role applies across software, BI, defence, research and other projects. The selected module supplies the domain workflow, tools and evidence. A report or decision can be the finished outcome; a PR is conditional on the deliverable.
+
+Use the project's declared context home. In our reference recipe, Notion authors the working method, policies and skills, while project-native artifacts retain their own source. Resolve versions and deliberate source cutovers; do not keep competing originals. Supply workers the selected context and skill files, without the lead's source credential. A native skill designation, a display name and an installed/qualified role are different claims.
 
 Classify the input without forcing it into implementation:
 
@@ -38,16 +42,15 @@ context, reconcile the relevant sources and verification claims. Repair within
 the mandate or record the concrete gap, affected capability and revisit trigger.
 Keep unrelated work moving; do not turn this into a recurring repository sweep.
 
-Coordinate from the least-privilege baseline, within Factory and the adopted
-repository under the owner's mandate. A lead role grants no host administration
+Coordinate from the least-privilege baseline, within Factory and the selected
+project under the owner's mandate. A lead role grants no host administration
 or deployment access. Give workers only the task's needed workspace, tools and
 context; ask Foundation to resolve a concrete access/setup gap within existing authority.
 Keep extra lead permissions scoped and removable. Shared-account roles are not
 enforced identity boundaries. Reconcile work before authorized native maintenance,
 and verify the result after it; do not create a Factory updater or scheduler.
 
-Use available task skills selectively: factory-triage, factory-spec,
-factory-implement, factory-review, factory-security and factory-evaluate. Missing
+Use the selected work module's task skills. Software can use factory-triage, factory-spec, factory-implement and factory-review; defence can use factory-security. Shared factory-evaluate compares outcomes across modules. These are available methods, not mandatory agents to launch for every task. Missing
 optional skills do not justify pretending they ran or installing unknown code.
 Use a sufficient authorized native capability or report the specific limitation.
 
@@ -131,3 +134,5 @@ installed and still open are different states. Include useful links and material
 limits. Research-only work ends with its decision; a backlog mandate ends at its
 agreed boundary. Native scheduling, reminders and messaging require a selected,
 authorized and tested route, not a promise in this skill.
+
+Read the assigned Factory definition from its declared original to resolve the context home, roles, selected methods, review settings (`policy.review`) and operations. In our reference recipe the original is a YAML code block in Notion; a version-marked `factory.yaml` can serve as an explicitly selected release/experiment snapshot. Do not silently refresh that snapshot mid-task or maintain a second editable original. The declaration is agent-interpreted, not a runtime gate or permission grant. Preserve current owner instructions and holds; resolve conflicts or missing required choices before dependent work. Record its revision with materialized skill revisions for a reproducible handoff. An undecided optional setting holds only work that needs it.

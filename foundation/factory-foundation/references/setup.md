@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.14 · Updated: 2026-10-15
+Revision: 0.1.23 · Updated: 2026-10-26
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -14,6 +14,39 @@ and observed proof in the installation record. Native delegation and automation
 need their own qualification; installing them does not authorize their use.
 See [upstream installation](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/install.md).
 
+Prefer the official stable channel as the normal baseline. Use a Nightly only for
+a concrete capability reason, with its own qualification. The commands and
+observations below stay at Nightly 2873, where they were qualified. For a stable
+release, follow its own installation and update documentation, check its bytes,
+migration path and supported client/server combination, and qualify it like any
+other version. Move an existing host to it only through that host's own recovery
+and maintenance process; a newer release does not bypass that process's open
+gates. A cutover is verified only when the intended server and every client read
+back both the exact version and the stable channel; a desktop update or a request
+for one version is not that readback. A combined update action can update
+providers, servers and connected machines together, so it is not a scoped version
+check. Documentation of a newer launcher's rollback does not show that an older
+installation has that launcher or its guarantees.
+
+Keep three things apart: features in the installed T3, upstream work that is
+released but not yet installed or proposed but unmerged, and boundaries the
+installation actually enforces. A released fix is not installed, and an installed
+one is not accepted until it works in this installation. For the Factory host,
+[#34](https://github.com/arcitai/factory/issues/34) holds the selected stable target
+and its maintenance gates, and [#32](https://github.com/arcitai/factory/issues/32)
+holds the live roadmap of released and pending native functions. Read those issues
+for current status rather than copying it here. Factory adds no runtime, approval
+service or bridge for a function still pending upstream; it waits for the official
+release and qualifies it.
+
+Stable T3 source documents an outside-agent route over MCP with OAuth, which an
+owner-side caller could use to read, start, message and stop threads within a
+chosen writable mode. That mode covers all of the environment's projects. It is
+not a per-project access list, it grants no authority to decide another worker's
+approval, and it is no isolation boundary. Treat it as documented source only
+until it is connected and qualified in the installation; a qualified native route
+like this is preferable to a custom bridge.
+
 Start by identifying the existing project/adoption record. Use
 [the adoption guidance](adoption.md#persistent-choices-and-exceptions) to establish
 relevant persistent choices and separate intent, native application scope and
@@ -25,22 +58,61 @@ Hand ongoing upkeep for the current project to AgentOps within its mandate.
 ## 1. Choose the boundary
 
 Use an ordinary execution account on the host, with access to the selected repos
-and tools. On a shared personal machine, prefer a dedicated VM with its own
-unprivileged guest account. Keep the personal home, SSH agent, browser, clipboard
-and host sockets outside it; admit shared folders/devices only for a stated need.
+and tools. On a shared personal machine, give the agents a separate boundary with
+its own unprivileged account: a VM or a rootless container, selected only after the
+comparison below. Keep the personal home, SSH agent, browser, clipboard and host
+sockets outside it; admit shared folders/devices only for a stated need.
 On a dedicated host, a separate unprivileged OS user may be sufficient for the
 selected workload. It shares the kernel and is not equivalent to a VM.
 Keep deployment/admin credentials outside implementation workers unless a task
 explicitly needs them. A second T3 project or provider config directory under the
 same OS user is not a filesystem sandbox.
 
+When a stronger boundary is needed, compare a **rootless container** and a **VM**
+against the same requirements before selecting either. A rootless container shares
+the host kernel; a VM runs its own guest kernel. Neither is qualified merely by
+starting it. Put the whole execution environment inside the boundary: the T3
+server and the host-side tools it runs, not just a provider executable, because a
+wrapped provider leaves other effectful tools outside it. Compare:
+
+| Requirement | Check in each candidate |
+| --- | --- |
+| Identity and credentials | Only the selected workspace, identity and least-privilege credentials; no inherited owner home, personal connectors, browser profile, SSH agent, privileged or runtime socket, or unrelated project access |
+| Workspaces | The author reaches its selected checkout; an independent reviewer reaches the immutable candidate with allocated scratch output; shared Git metadata does not expose unrelated repositories |
+| Allowed and refused actions | Real file, symlink, process, network, socket and remote-tool operations, tested separately for Codex and Claude; harness sandboxing and account-synced connectors are separate checks |
+| Native operation | Environment connection, provider login, delegation and approvals still work inside, with any callback or localhost reachability recorded and no broad host-network or credential escape |
+| Recovery and cost | Disconnect, restart, recovery, cleanup and revoked grants actually verified, plus the maintenance and configuration effort |
+
+The reusable method requires no separate browser. If a task needs a browser, its
+actual profile, session and access must fit the chosen boundary. Run such a
+comparison only on disposable inputs in a separately prepared test area, with its
+operator, allowed effects and recovery agreed; keep an unavailable check open. The
+Factory comparison and its decision are tracked in
+[#32](https://github.com/arcitai/factory/issues/32). A Cloudflare-based approach
+remains optional research in [#79](https://github.com/arcitai/factory/issues/79),
+not a third required boundary.
+
 Use one persistent AgentOps thread in the owner's existing project when it has the
 right context and access. A separate lead project is optional, not a requirement.
 Activate the lead role in that thread; preserve the project's shared instructions.
 Workers receive the target project's context and skills. Separate provider profiles,
-T3 environments/OS identities or VMs are appropriate when
+T3 environments/OS identities, VMs or containers are appropriate when
 the lead, workers or projects require different filesystem/network trust.
-Do not copy a personal AIOS installation or personal provider home into this setup.
+
+Keep the owner's personal account and the Factory execution account separate,
+each with its own instructions. Do not copy a personal method installation, such
+as The Onlinesourdough Method (OSM, formerly AIOS), a personal
+provider home, Notion workspace, browser profile or credentials into this setup. A
+separate OS account or provider home does not prove that connectors synced to the
+provider account are excluded. Check which tools a fresh native session actually
+exposes, and use the provider's supported local controls to exclude unwanted ones
+for this installation. Preserve unrelated settings and the owner's global
+connections; do not revoke, connect or grant anything account-wide to pass the
+check. A session that was already running may keep its previous tool registry;
+do not claim the change reached it without reading it back, and move it over through
+the supported lifecycle at a natural safe checkpoint. This needs no new chat or
+restart for unrelated native tools or an already-qualified context. The
+repository's GitHub access and native T3 orchestration must keep working.
 
 Preserve any old Factory runtime and private history while qualifying this setup.
 Avoid pointing two active agent writers at the same checkout. Do not run native
@@ -342,12 +414,56 @@ conversation. Test a real question/approval from the phone before relying on it.
 Select notification preferences deliberately. Keep external integrations for a
 later qualified route.
 
-Nightly V2 requires the **beta mobile app**; the stable store apps cannot connect
+In the pinned historical baseline, Nightly V2 requires the **beta mobile app**; the stable store apps cannot connect
 to this baseline. Use the beta links in T3's **Settings → General → Mobile app**
 and prove the actual phone question/response route before relying on it.
 
 [Connections](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/remote-access.md),
 [mobile notifications](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/mobile-notifications.md).
+
+## Keep the host ready after restart
+
+An installation can look ready while the operator's apps do not start after login
+and no maintenance schedule is active. The installer or host owner establishes and
+verifies the chosen startup, service, power, network and schedule settings.
+
+An installation may also choose an owner-side **host coordinator**, sometimes
+called a Planning Agent: a thread with an explicit mandate to keep the host
+continuous, coordinate maintenance that affects several projects, and ask
+Foundation to repair a host condition. It is optional. An existing lead thread can
+take that mandate, so no extra top-level chat, daemon or central queue is needed.
+It does not replace each project's AgentOps, which keeps that product's priorities,
+workers and acceptance, and ADLC still performs the tasks. The role grants no
+administrator rights or personal connectors; host administration stays with the
+person or narrow native route that holds it. Resolve the actual host and accounts,
+client and server routes, effective permissions, and the person who can operate
+recovery when the service is down. After a restart or migration, reuse the
+existing coordinator and leads instead of starting replacements.
+
+Each startup stage is a separate observation:
+
+| Stage | Establish and verify | Limit |
+| --- | --- | --- |
+| Disk unlock | Who unlocks an encrypted disk after boot, and how they learn it is waiting | Nothing below starts until then |
+| Headless service boot | The execution service is enabled, starts at boot without a login and survives logout, as in [section 3](#3-make-the-service-independent-of-the-client) | Read it back after boot; the install command alone is not proof |
+| Network routes | The network, a private route such as Tailscale, T3 Connect and the chosen SSH route come up without a desktop login | A client may reconnect through a fallback route rather than the selected one |
+| Desktop session | Operator apps the owner expects start through the desktop's supported autostart after login | Runs only after someone logs in; it is not service boot |
+| Power and reachability | On external power the host stays awake and reachable with the screen locked; battery protection and suspend follow the owner's choice | Locked operation on power is not battery or suspend recovery |
+
+Prove readiness at each boundary separately: boot, login, client disconnect and
+reconnect, and an actual scheduled wake. After a controlled reboot, read back from
+a fresh native turn that the service, routes, projects, threads and held decisions
+are present, and that the expected apps started after login. One scheduled wake is
+not reboot, disconnected-client or full recovery proof. Notify someone when a stage
+fails or holds, a gap appears or maintenance changed something; do not send daily
+unchanged pings.
+
+Hand each relevant capability over in the existing adoption record, without a new
+template: the selected capability; its actual native owner and control, applied
+scope and readback; where its private evidence lives and who holds it; and the
+exact remaining gap and next action. A missing access, recovery or launcher fact
+stays a named capability gap. Keep host identities, paths, raw history and recovery
+copies private.
 
 ## 5. Adopt selected skills
 
@@ -368,6 +484,11 @@ Select scope deliberately:
 | Foundation | The setup/operator context; not needed by every implementation worker |
 | Agent Ops | The selected project, activated in its Ops thread; use a separate project/profile/identity when its access needs differ |
 | ADLC | The application project, or the native user/config scope described below |
+
+To stage every canonical skill as one flat set with one manifest, run
+`python3 scripts/stage.py all --output "$factory_stage_root/all"`. It refuses a
+missing group or a duplicate skill name, and keeps the same tracked-only, symlink
+and fresh-destination controls. Copy from it only the skills each destination needs.
 
 For Codex, use the native project location `.agents/skills/`. Its documented user
 location is `$HOME/.agents/skills`, shared across that OS user's projects; changing
@@ -409,9 +530,10 @@ requires deliberate reconciliation; failure of the command is not successful ado
 Before removing the temporary stage, retain its `manifest.json` in the persistent
 private adoption record, alongside the version, date and installed destination.
 The manifest is at the bundle root, not inside the copied skill directory.
-Use `.claude/skills` instead for a project-scoped Claude installation. Load a new
-native session and verify the correct skills appear and can read their references.
-Ask it to assess a harmless example; copied files alone are not discovery proof.
+Use `.claude/skills` instead for a project-scoped Claude installation. In the
+intended harness and session, verify the correct skills appear and can read their
+references. Ask it to assess a harmless example; copied files alone are not
+discovery proof.
 Do not replace the application's AGENTS/CLAUDE instructions. Add a short route only
 where the native harness requires one, preserving the canonical source.
 
@@ -419,6 +541,41 @@ In the Factory method repository itself, the Ops thread can read the reviewed
 canonical skill files directly without copying them back into their own source
 tree. Record this as explicit source loading, not native skill discovery. Configure
 the persistent thread with [the operator workspace guide](workspace.md).
+
+### The owner's own AI agent
+
+The owner's everyday AI agent reaches Factory through `factory-entry`. It routes
+each request to the right existing project lead, and loads `factory-foundation`
+when the owner asks to set up or explain a host. Install both from the all-set
+stage into that agent's own native skill scope, such as its user-level skill
+location. Project leads keep their own installations. Keep the owner's agent and
+personal connectors out of the execution account, as in
+[Choose the boundary](#1-choose-the-boundary).
+
+Record four separate states in the adoption record:
+
+- **Requested:** the owner asked for the entry in a named agent and harness.
+- **Installed:** the destination and the retained stage manifest.
+- **Discovered:** a readback from the actual caller surface showing the skill is
+  listed or can be invoked.
+- **Used:** a real request routed through it to the intended lead.
+
+Do not assume a client picks up a newly installed skill in a running session, or
+that it needs a restart; read it back in the intended harness and session. If
+the skill cannot be discovered, the agent may read the canonical file explicitly
+from a reviewed checkout; record that as explicit loading. An inaccessible path is
+a gap to report, not a reason to widen access.
+
+Factory ships portable canonical skills and this staging route. Codex documents
+[plugins](https://developers.openai.com/plugins/build/plugins) as a distribution
+unit for several skills, alongside [repository and user skills](https://learn.chatgpt.com/docs/build-skills).
+Claude has its own [skill locations and invocation](https://code.claude.com/docs/en/skills).
+A Codex plugin is not proof of T3 or Claude discovery. A plugin remains an optional
+later packaging for a harness that needs one; none is delivered or installed here.
+
+To update, stage the new reviewed tag, compare it with the installed copy and its
+retained manifest, then adopt it deliberately. To roll back, restore the prior
+reviewed copy named by its manifest, as in [Removal and recovery](#removal-and-recovery).
 
 ## 6. Prepare the repo and prove one delivery
 
@@ -443,11 +600,12 @@ compatibility are different actions.
 | Component | Native route | Boundary |
 | --- | --- | --- |
 | Desktop/mobile clients | Official application updater or store/beta channel | Match the host's protocol; an updated client does not update the server |
-| T3 background server | The named environment's Update server action or `t3 update <selected-version>` | Reconcile active turns and background commands first; it restarts the service |
+| T3 background server | The named environment's Update server action or `t3 update <selected-version>` | Reconcile active turns and background commands first; it restarts the service. Read back both version and channel; a service keeps its current channel |
 | Claude native installation | Native background updates; `claude doctor` reports installation, channel and updater state | New version takes effect on the next process; custom/copied launchers may prevent adoption |
 | Codex | Native installation/update support, or T3's detected provider update action | Inspect the actual installation; do not infer automatic installation merely from a version-check setting |
 | Linux/Omarchy | Distribution's maintained update command and notifications | Package changes, migrations, prompts and reboot are system administration; a check notification is not an unattended update |
 | Factory skills | Reviewed tag → staged diff → checks → deliberate adoption | Preserve local adaptations and verify discovery; do not auto-overwrite project instructions |
+| Optional method package, such as OSM | The package owner's qualified native route, as in [migrating an optional method](method-migration.md) | Factory does not depend on it; preserve its context home, IDs and standing calls |
 
 Native update checks may stay enabled. Automatically applying updates requires a
 selected, supported and tested maintenance route: idle-work checks, bounded scope,
@@ -455,6 +613,49 @@ recovery, readback and an actionable failure signal. Do not add a Factory update
 or promise scheduling from a skill. An agent must not stop its own host mid-task
 and assume it can inspect the result. Hand off disruptive maintenance to the
 host's existing operator/maintenance facility and reconcile on return.
+
+### Optional scheduled maintenance
+
+When the owner selects nightly maintenance, give the host one owned opportunity through a supported native
+scheduler, such as the OS timer facility or a native T3 scheduled task. It is a
+check that runs once per night for each target. It reads active work and current
+versions, then records what actually happened:
+
+- **No-op:** the component is already current and there is nothing to install. Do
+  not reinstall it.
+- **Deferred:** a change is due but unsafe now, for example because of active
+  work. Record the concrete reason, the next action or revisit trigger, and who
+  holds it. A deferral is never a completed update or continuation.
+- **Installed, restarted, continued:** observed stages that one transaction can
+  pass through in turn. Installing applies an update through the component's
+  native route; restarting activates it and interrupts active turns; continuation
+  means interrupted work actually resumed, read back afterwards. A restart alone
+  is not continuation.
+
+The schedule grants no authority by itself. Installing or restarting still needs
+the existing delegated authority for that component and scope.
+
+OS and packages, the desktop client, the execution service and provider CLIs are
+separate transactions, each with its own channel and owner. One succeeding neither
+updates nor proves another. Manual maintenance or another agreed cadence is also valid. The opportunity is not an installer and does not
+guarantee unattended updates. Prove it from actual trigger evidence, not from the
+configured schedule. After a migration, keep exactly one schedule per night and
+target; retire the old one rather than letting two run. Do not add polling or an
+approval pump.
+
+A blocked update, reboot or client acceptance holds only that operation and the
+work depending on it. Other already-authorized product and method work continues
+in its existing lead and writer, with the specific hold kept visible. An agreed
+short maintenance hold is different: healthy work drains or reaches a checkpoint,
+every actual producer is accounted for and paused (schedules, clients, PR watches
+and other wakes), and each one's prior enabled state is restored afterwards. Do
+not interrupt a healthy job to start maintenance.
+
+Keep the current official runtime and native harnesses; do not run a maintained
+fork or activate a parked custom patch on the execution host. A quoted
+configuration, installed file, native preference, open listener or successful
+reconnect does not by itself prove the allowed tools, isolation, recovery or
+resumed work.
 
 For Omarchy, use the installed version's supported updater; inspect its prompts
 and restart behavior before unattended use. Encrypted boot may still require a
@@ -493,3 +694,30 @@ threads, including archived chats, from T3; the folder and Git repository remain
 on disk. Archiving a thread does not remove its project. Reconcile active work
 first and obtain the owner's explicit deletion decision. Use the native action,
 not manual database edits. Backup retention/deletion is a separate scoped choice.
+
+### Same-host recovery copy
+
+Before a disruptive change, take a consistent private recovery copy on the same
+host:
+
+1. Before stopping anything, establish an operator route independent of the
+   service, so it survives the service disconnecting. Account for the relevant
+   holders of the state, including connected clients and any client SSH
+   auto-launch that could start another server.
+2. Let healthy work drain or reach a checkpoint, then quiesce through supported
+   native controls. If a relevant holder is unknown or cannot be seen, or work
+   does not drain cleanly, defer before stopping. Do not stop or kill every
+   process to force quiescence.
+3. Check that the source is stable before the copy, take the copy, check the
+   source again afterwards, and confirm the copy matches it.
+4. Copy the complete required state: databases with their SQLite companion files,
+   shared attachments, service configuration and the prior version.
+
+Keep the copy private on the same host and verify a restore there. Afterwards,
+check actual reconnection and provider continuation, and that held queues and
+pending decisions survived. Restore exactly the prior connections and enabled
+producers. A root filesystem snapshot alone does not prove a consistent home or
+application recovery; its coverage and consistency depend on the actual subvolume
+and data scope. Watch disk space, clock correctness and log retention. Preserve
+actual failures and history, and read back the current state before any retry.
+Keep commands, process identities, paths and other host facts in the private record.

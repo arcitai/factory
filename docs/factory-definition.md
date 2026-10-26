@@ -1,6 +1,6 @@
 # Factory definition and source ownership
 
-Revision: 0.1.19 · Updated: 2026-10-26
+Revision: 0.1.23 · Updated: 2026-10-26
 
 The [Notion YAML code block](https://gustavanderson.notion.site/4056d2e17f56811b96fec7b970741916) is Factory Lab's only editable declaration. [factory.yaml](../factory.yaml) is a version-marked export: one small description of its purpose, context, roles, selected methods, review
 settings, automation and routine ideas and evaluation proposals. An adopting project chooses its own declaration and context home. A repository is optional for non-software work.
@@ -33,7 +33,7 @@ open choices; it is not an observed inventory of enabled native automations.
 | Artifact | Owning source in this recipe |
 | --- | --- |
 | This project's declared composition and source routes | The Notion YAML code block; `factory.yaml` is a labelled export |
-| Shared architecture, next-edition skills and common policies | [Public Notion guide and Factory Skills](https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a) |
+| Shared architecture, authored skills and common policies | [Public Notion guide and Factory Skills](https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a) |
 | Code, tests, CI/CD, applied native configuration, technical tasks and PR evidence | Their native repository/tool/tracker |
 | Detailed history, logs and usage | The native agent tools |
 | Credentials and private installation facts | Native secret stores and existing private project records |
@@ -47,6 +47,26 @@ released references. Before a source cutover, review and verify the full portabl
 export, required references and intended native loading. A saved page, native
 skill designation or valid YAML is not installation/discovery proof. Benchmarks
 must fix the declaration and skill revisions as well as task/environment inputs.
+
+## Portable skill exports
+
+The shared core is authored in the public Factory Skills library. The `0.1.23`
+distribution exports `factory-foundation`, `factory-agent-ops`, `factory-entry`
+and `factory-evaluate`, with their complete supporting resources. Foundation's
+references retain the accepted host, recovery, owner-entry and optional method
+migration work from #85, #92 and #94. Updating this source does not install it in
+an existing project.
+
+Software and defence skill files keep their reviewed source versions; their
+Notion entries identify them as released references. The `adlc/` directory is a
+retained distribution path, not a requirement that the shared evaluator or every
+Factory project is software work. Native loading and one real Lab task remain
+separate acceptance work.
+
+A maintainer changes an owning Notion source and explicitly exports the selected
+revision and resources. Review and record the actual readback, then freeze the
+portable candidate for checks and release. Do not infer that merely fetching a
+page exercised Notion's Skills API or installed its directory in a harness.
 
 ## Inspiration and credit
 

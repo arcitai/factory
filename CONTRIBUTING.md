@@ -1,12 +1,12 @@
 # Contributing
 
-Revision: 0.1.19 · Updated: 2026-10-26
+Revision: 0.1.23 · Updated: 2026-10-26
 
 Start with a concrete problem, the applicable project goal and observable proof.
 Use an issue or accepted brief; research may end with a decision rather than code.
 Preserve the small method-only scope in [VISION.md](VISION.md).
 
-Resolve [source ownership](docs/factory-definition.md) before editing. The next method edition is authored in Notion; a reviewed distribution uses portable bundles in `foundation/`, `agent-ops/` or `adlc/`. Existing Git bundles remain authoritative for released versions until explicit cutover. Do not maintain two editable originals. A release must retain the exact source/version and required resources; it must not silently export a newer source or require live Notion access to function.
+Resolve [source ownership](docs/factory-definition.md) before editing. Shared methods are authored in Notion; a reviewed distribution uses portable bundles in `foundation/`, `agent-ops/` or `adlc/`. Existing Git bundles remain authoritative for their released versions. The Notion core edition and its complete supporting resources are exported deliberately for this distribution. Do not maintain two editable originals. A release must retain the exact source/version and required resources; it must not silently export a newer source or require live Notion access to function.
 Supporting references belong inside the skill directory so staging keeps them
 usable. The root documentation is for maintainers/operators and is not a hidden
 runtime dependency. Preserve the existing MIT attribution.
@@ -26,7 +26,7 @@ metadata does not leak into issues or PRs.
 These dates describe source edits, not testing or installation. Keep each observed
 version/date next to its claim, including failures and pending checks. A release
 must not refresh historical observations merely by changing document headers.
-Foundation establishes this convention, ADLC updates affected sources and review
+Foundation establishes this convention, the selected work module updates affected sources and review
 checks them, and AgentOps resolves concrete drift within its mandate.
 
 README routes to the public architecture/context entry; setup remains the installation/maintenance path. The chosen context home owns the declared composition; our recipe uses one YAML code block in Notion. `factory.yaml` is only a version-marked export and links to shared methods rather than duplicating their full policy. Edit the original, then make a deliberate reviewed export; do not maintain an agent that synchronizes two editable copies. It is not consumed by a Factory runtime; AgentOps interprets it. Keep

@@ -1,10 +1,15 @@
 # AgentOps in your project
 
-Revision: 0.1.4 · Updated: 2026-10-09
+Revision: 0.1.20 · Updated: 2026-10-22
 
 Keep one pinned **AgentOps** thread in the existing project. Preserve another name
 if the owner has chosen one. The thread holds the lead role and current decisions;
 the repository keeps the instructions and skill sources.
+
+The owner's own AI agent sends this project's work here through `factory-entry`,
+not to the Factory repository's lead. Record this thread as the project's lead in
+the adoption record so the caller can find it again after a resume; see
+[the owner's own AI agent](setup.md#the-owners-own-ai-agent).
 
 ## Where work runs
 

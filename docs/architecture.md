@@ -1,91 +1,74 @@
-# Responsibility and access
+# Technical architecture notes
 
-Revision: 0.1.6 · Updated: 2026-10-09
+Revision: 0.1.23 · Updated: 2026-10-26
 
-Factory has three responsibilities around existing tools. It has no server,
-provider adapter, task database or application runtime of its own.
+The [public guide](https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a)
+owns the seven-layer overview, diagrams and human explanation. These notes cover
+the repository's integration boundaries. [Source ownership](factory-definition.md)
+identifies the originals and versioned exports.
 
-| Responsibility | Owns | Does not establish |
-| --- | --- | --- |
-| Foundation | Project context, native setup, access choices and readiness checks; repair when these change | Product scope, continuous execution or readiness merely because files were installed |
-| AgentOps | Research, priorities, assignments, worker model choices, reviewed skill/context improvements and acceptance within delegated authority | Administrator access, permission to bypass review or self-installed skills |
-| ADLC | The concrete specification, implementation, independent review and authorized delivery | Authority to accept unrelated work or widen its own access |
-| T3 and native harness | Conversations, models, worktree binding, native tools, permissions and recovery | Application deployment, monitoring or per-role OS isolation by naming a thread |
-| OS and GitHub | Actual account/filesystem/process boundaries, token grants and repository protections | Independent review merely because CI is green |
-| Application infrastructure | Hosting, data, deployment, health signals and recovery | A responsibility transferred to T3 by connecting the repository |
+## Responsibilities
 
-AgentOps remains responsible while ADLC works. Foundation is used when a setup
-or context gap affects the task; it is not a stage repeated before every edit.
-The owner decides admission and delivery by default, or delegates either for a
-specific scope. A completed run is not acceptance; published is not installed.
+| Responsibility | Scope |
+| --- | --- |
+| Optional owner entry | Route requests to existing project leads and follow up bounded handoffs |
+| Foundation | Prepare agent environment, project foundation and needed operating conditions |
+| AgentOps | Lead one project within its mandate; assign work and coordinate review and delivery |
+| Domain work | Apply the task method and checks for software, BI, defence, research or other work |
+| Evaluation | Compare agreed outcomes and all-attempt quality, effort, time and available cost |
+| Native tools and services | Execute agents, keep work/history and enforce actual settings and permissions |
+
+A personal Planning Agent is optional. A host coordinator may also own explicitly
+delegated maintenance across projects; neither becomes a global work queue,
+project lead or privileged tier. See the
+[host guide](../foundation/factory-foundation/references/setup.md#keep-the-host-ready-after-restart).
 
 ## Three-level access architecture
 
-The three access levels are **human owner → AgentOps → ADLC workers**. The arrows
-mean scoped authority and assignments, not inherited credentials. Foundation
-prepares and verifies the environments and controls for these levels; it is not
-a fourth privileged agent tier.
+The intended responsibilities are **owner → AgentOps → bounded workers**.
+Assignments do not inherit the owner's or lead's credentials. Foundation prepares
+and checks the actual boundary. Reviewers and evaluators are bounded workers.
 
-| Level | Normal responsibility and access | Example of a separate grant |
-| --- | --- | --- |
-| Human owner | Sets the mandate and controls personal, administrative and account access | Authorizes a specific staging deployment without sharing a personal admin session |
-| AgentOps | Works across Factory and the adopted repository within the mandate: reads project state, coordinates accepted work and reviews outcomes | A staging-only deployment identity for the authorized delivery step, kept outside implementation workers |
-| ADLC worker | Uses its narrower assigned task workspace, build/test tools and task-specific services; reviewers get the candidate and evidence | Access to the specific test service needed to verify the change, with a removal condition |
+For our Notion recipe, the lead is to use a connection limited to selected pages.
+It supplies the chosen skills and task context to workers. A worktree or separate
+chat separates work, but does not prevent access to shared credentials. Test the
+allowed and refused operations through the actual selected tool and account.
+Keep private installation facts and credentials out of this repository.
 
-Each level gets the least access needed. AgentOps can coordinate more while using
-the same restricted baseline as a worker; broader access is an explicit exception.
-For example, assigning a bug fix need not expose deployment credentials to the
-implementer. Deliver through the selected, authorized identity after review.
+## Native configuration and execution
 
-Whether that separation is enforced depends on the actual setup. If the lead and
-worker share an OS account and accessible credentials, the table describes their
-responsibilities but does not prevent a worker from using the lead's access.
-Use separately qualified OS identities/environments or an isolated runtime when
-that prevention is required. Native sandboxes must be tested for the specific
-tools, paths and services in use. Record the demonstrated boundary rather than
-calling three role names three isolated environments.
+The YAML original describes composition and links to methods. AgentOps interprets
+it. Actual tool settings, OS/environment controls, mounts, network rules, service
+permissions and repository protections enforce only what they configure.
+`AGENTS.md` provides project instructions and routes; it grants no access.
 
-## Where the work and authority live
+T3 Code is the reference workspace; another capable native setup is valid. Read
+current installed capabilities separately from released upstream functions and
+dated historical observations. The host guide's Nightly examples keep their
+original dates and are not current stable installation commands. The live native
+roadmap remains [#32](https://github.com/arcitai/factory/issues/32), and the held
+host adoption path remains [#34](https://github.com/arcitai/factory/issues/34).
+The source reconciliation here changes no host or hold.
 
-| Resource | Normal location | Useful check |
-| --- | --- | --- |
-| Operator view | Desktop/phone connected to the selected T3 environment | Same project and thread; route actually in use |
-| Agent processes and worktrees | Execution host, unprivileged service account | Native turn reports host, account, bound checkout and effective permission mode |
-| Method and project instructions | Reviewed source plus selected native skill scope | Loaded sources match the adopted revision |
-| Work status and delivery | GitHub issues/Projects, PRs, CI and releases | Actual fields, credentials and protections read back |
-| Deployment/data/telemetry | Application's chosen infrastructure | Task-specific operation and recovery evidence |
+Where enforced separation is needed, compare supported isolation choices against
+the full execution environment, including any workspace server's own tools.
+Qualify the selected container/VM or native boundary for the task. Factory adds no
+bridge, approval pump, orchestrator or policy engine to fill a native-tool gap.
 
-A client can be on the execution machine itself and still connect to a different
-OS account's service. Closing a client is safe only after service independence
-has been tested. Power, network and encrypted-disk unlock remain host concerns.
-A worktree prevents writers colliding in one checkout; it is not a security wall.
+## Results, learning and experiments
 
-## Least privilege has more than one control
+Project artifacts, task status, logs and usage retain their native sources. Keep
+accepted decisions and reusable lessons in the relevant original; native memory
+is working context. Model/provider choices and permitted data destinations belong
+to the selected project's setup. A shared account or model name is not a policy.
 
-Instructions describe what an agent should do. Native permissions restrict tools
-and selected shell/filesystem/network operations. The OS and remote services
-restrict what the whole account and its credentials can do. These boundaries
-complement each other; a provider profile or pinned AgentOps thread creates no
-new OS identity.
+For model comparisons, fork the same frozen session checkpoint into independent
+attempts with the same input and task state, changing only the role/model under
+test. Subsequent outputs may diverge. A transcript alone does not restore tools,
+data, permissions or hidden provider state. Retain limitations and whole-attempt
+results; see [replay #50](https://github.com/arcitai/factory/issues/50).
 
-AgentOps can have broader coordination authority while sharing workers' baseline
-permissions. Additional repositories, telemetry or delivery operations are granted
-only for a named need. If workers must be technically unable to use the lead's
-credentials, use separate identities/environments or an appropriately isolated
-runtime. A role instruction cannot provide that guarantee under a shared account.
-The [setup guide](../foundation/factory-foundation/references/setup.md#least-privilege-in-practice)
-contains the native configuration and expansion procedure.
-
-## Sources kept by this package
-
-| Need | Canonical source |
-| --- | --- |
-| Purpose and contributor rules | [Vision](../VISION.md), [README](../README.md), [AGENTS](../AGENTS.md) |
-| Versions, checks and release | [Contributing](../CONTRIBUTING.md), [validator](../scripts/check.py), [tests](../tests), [CI](../.github/workflows/check.yml) |
-| Dependencies and installation | Python standard library for optional helpers; pinned CI action; selected native tools/accounts in [setup](../foundation/factory-foundation/references/setup.md) |
-| Access and changing claims | [Security](../SECURITY.md), [qualification](qualification.md), private installation [record](../foundation/factory-foundation/references/adoption.md) |
-
-For applications, reuse their authoritative context. A separate dependencies,
-observability or architecture document needs a real discovery/maintenance benefit;
-see [project context](../foundation/factory-foundation/references/context.md).
-Historical migration and rehearsal detail remains in the earlier reviewed releases.
+Source checks, a rehearsal, installed skills and qualified operation are different
+claims. [Qualification](qualification.md) retains the dated evidence and remaining
+live work. A released method does not prove automatic scheduling, worker isolation,
+recovery, deployment or useful work in a new installation.

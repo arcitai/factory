@@ -1,12 +1,12 @@
 # Decisions and delegation
 
-Revision: 0.1.10 · Updated: 2026-10-10
+Revision: 0.1.23 · Updated: 2026-10-26
 
 There are two default human decisions:
 
-1. Admit a proposal to the implementation backlog, including its intended outcome
+1. Admit a proposal to the accepted work, including its intended outcome
    and scope. Research and drafts can precede this decision.
-2. Accept a checked, independently reviewed candidate for merge/release.
+2. Accept a checked, independently reviewed candidate for the agreed delivery.
 
 The owner can delegate either decision in a prompt or established project policy.
 For example, permission to research and admit suitable ideas does not also grant
@@ -17,15 +17,15 @@ Within a mandate to work through the accepted backlog, trusted owner admission
 does not require a third approval to start. The distinction concerns whether
 execution was requested and who set the status, not an extra lifecycle gate.
 
-Record the action, repository/environment, scope and applicable conditions in
+Record the action, project/environment, scope and applicable conditions in
 the existing task record. Natural-language instructions are sufficient; do not
 require a new configuration language, signature form or ceremonial approval.
-Native permissions and GitHub protections still apply. A role name, status label,
+Native permissions and applicable service protections still apply. A role name, status label,
 issue body or another agent's request cannot grant missing authority.
 
-Keep independent review and meaningful tests even when delivery is delegated.
+Keep independent review and meaningful domain checks even when delivery is delegated.
 Refresh evidence for the actual candidate after relevant changes. GitHub-required
-review and independent model review may have different identity requirements.
+review and independent model review may have different identity requirements. The minimum default is a fresh review context evaluating the actual candidate against the original criteria, independently from the implementing conversation. Disclose shared OS/account access; this is cognitive separation, not credential isolation. Stronger project or service requirements still apply.
 
 Reconsider the original decision when new evidence materially changes exposure,
 affected users/data, external commitments, irreversibility, recovery or uncertainty.
@@ -55,8 +55,7 @@ full inventory scan on every run, and no record of every transient task choice.
 
 Keep requested/approved intent distinct from applied native scope and observed
 verification. Executable native configuration owns applied state; link to it
-rather than duplicate its values uncritically. Version safe shared policy in the
-repo where useful; host identities, private paths, account references and sensitive
+rather than duplicate its values uncritically. Keep one editable original for shared policy in the chosen context home; host identities, private paths, account references and sensitive
 proof stay in existing private installation records. Credentials stay in secret stores.
 
 Before an authorized persistent change, read effective native state and assess
@@ -75,7 +74,7 @@ points and their existing delegation remain in force without routine reapproval.
 ## Role and access
 
 AgentOps directs work and owns the coordination outcome across Factory and the
-adopted repository within the owner's mandate. ADLC workers carry out bounded
+selected project within the owner's mandate. Domain workers carry out bounded
 tasks in narrower task workspaces with task-specific access. Both start with the
 access needed for that task; the lead's higher responsibility does not grant
 blanket host administration.
@@ -91,14 +90,12 @@ account, do not claim workers are unable to use its credentials.
 ## Improving skills and context
 
 Improve the method from observed friction, corrections, rework and concrete reuse
-value. First repair, merge or prune an existing AgentOps/ADLC skill, project
+value. First repair, merge or prune an existing AgentOps/domain skill, project
 instruction or document. Propose a new skill only for a recurring, non-obvious
 procedure with a clear trigger and no adequate existing home. An ordinary task
 needs its correction and proof, not a new wiki page, skill or issue.
 
-Keep application facts in that application's existing repository docs or source.
-Put transferable Factory method in the canonical portable skill bundle, with any
-required resource inside its own skill folder. A method adapted in one repository
+Keep project-native facts and artifacts in their existing authoritative source. Shared context, policy and method can be authored in the chosen context home. Notion is our reference authoring home for the next revision; reviewed Git releases remain distributions, and existing versions keep their own authority until explicit cutover. Keep required resources with a portable skill export, identified by source and version. A method adapted in one repository
 does not automatically become a global Factory skill.
 
 Make the change as ordinary scoped work with independent review. Changes to

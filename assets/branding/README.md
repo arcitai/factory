@@ -1,6 +1,6 @@
 # Brand assets
 
-Revision: 0.1.10 · Updated: 2026-10-10
+Revision: 0.1.23 · Updated: 2026-10-26
 
 `banner.html` is the editable source for `factory-banner.png` (1536 × 384).
 Serve this directory locally, wait for `document.fonts.ready`, and capture the
@@ -14,3 +14,5 @@ and logo, including their use in this banner, are not licensed for reuse under
 Factory's MIT license. The Geist fonts retain their separate license in
 `fonts/LICENSE.txt`. These presentation assets are not included in the staged
 Factory skills.
+
+`factory-icon.png` is the transparent blue factory glyph for the public Notion guide, created with ImageGen to match the owner's existing Notion icon style. It is a presentation asset under the same branding exception, not part of a staged skill.
