@@ -3,7 +3,7 @@ name: factory-foundation
 description: Prepare or assess a factory's agent environment, project foundation and operating conditions for the intended work, across software, BI, defence and research.
 license: MIT
 metadata:
-  version: "0.1.24"
+  version: "0.1.25"
   updated: "2026-10-27"
 ---
 
@@ -37,7 +37,8 @@ Keep project bootstrap instructions thin: common constraints, source routes and 
 
 - Read the actual versions, selected provider/account, tools and effective native settings. A binary, connection, copied skill or available model name is not a working installation.
 - Separate the human's personal access, the lead's bounded coordination access and the worker's assigned task access. Reviewers/evaluators are bounded workers, not administrators.
-- For each source or project-service connection, agree its targets and operations, credential's OS account and storage, expiry, revocation route and responsible holder. Check actual allowed and refused access. For GitHub, use the scoped connection guidance in `references/github.md`; a personal login or role name is not proof of the agreed boundary.
+- For each source or project-service connection, agree its targets and operations, credential's OS account, storage and delivery, expiry, revocation route and responsible holder. Check actual allowed and refused access. For GitHub, use the scoped connection guidance in `references/github.md`; a personal login or role name is not proof of the agreed boundary.
+- Where an agent must use a credential without receiving its value, use a native credential broker outside its execution boundary. A secret store or redacted field does not establish this; readable mounts and environment variables deliver the value. Bind credentials to the selected project, environment and role through native controls, keep only references in context and declarations, and verify useful service access, an out-of-scope refusal, unreadable raw values, wrong-environment refusal and withdrawal of access, including cached credentials and global fallback.
 - Selection of context is coordination; service permissions, OS/environment boundaries, mounts, network and tool controls enforce access. A worktree separates changes, not readable files or credentials.
 - For the Notion recipe, grant the lead only the intended source pages through a scoped connection. Supply selected skill/context files to workers; do not expose the lead's credential or inherited personal connector routes. Read-only access cannot write progress; use the existing native task record or a task-scoped handoff document until a scoped write route is available. If an inherited connector exceeds the accepted task access, hold dependent worker execution until the exposure is removed, isolated or explicitly resolved by the owner; do not treat a role instruction as the repair.
 - Check an allowed operation and one that should be refused in the actual worker/tool environment. Record success, approval request, permission denial and OS refusal distinctly. A document's claim is not proof of enforcement.
