@@ -72,7 +72,7 @@ See [source ownership](docs/factory-definition.md) and [contributing](CONTRIBUTI
 | Step | Status and next work |
 | --- | --- |
 | Method and distribution | v0.1.23 completed the transition through #98, reconciling #85, #92 and #94. This export clarifies scoped project-service connections in Foundation. |
-| Factory Lab | Notion/GitHub read and refusal checks and the Skills API export were run on 27 October; GitHub writes still need proof. A separate T3 v0.1.2 preflight observed lead skill loading and was held. Credential handling, workers and a complete task remain unqualified. [Native isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open. |
+| Factory Lab | Operator checks verified scoped Notion/GitHub access and the Skills API export on 27 October. The scoped GitHub connection also completed [PR #100](https://github.com/arcitai/factory/pull/100) and the 0.1.24 release. A separate T3 v0.1.2 preflight observed lead skill loading and was held. Provider credential handling, GitHub-token revocation and write-refusal checks, workers and one complete native task remain unqualified. [Native isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open. |
 | Improvement | Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Automations, reviewer defaults and update ownership remain open choices. |
 | Other factories | Adopt the reviewed method project by project through Foundation, after the Lab path works. |
 
