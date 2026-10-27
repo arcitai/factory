@@ -2,7 +2,7 @@
 
 # Factory
 
-Revision: 0.1.24 · Updated: 2026-10-27
+Revision: 0.1.25 · Updated: 2026-10-27
 
 A portable method for using AI agents across software, BI, defence and research.
 Start small, use existing tools, and add complexity when a real task needs it.
@@ -60,6 +60,13 @@ contains their instructions and supporting files. Databricks remains a future
 enterprise option. Project code, data, applied configuration, technical tasks and
 results stay in their existing native sources. Keep one editable original.
 
+A secret store protects stored values. When an agent must use a credential
+without receiving its value, a native credential broker outside the execution
+boundary can authenticate its service calls. Native controls and upstream service
+grants still enforce what the agent can access. For details, see the public
+[Context & access](https://gustavanderson.notion.site/Context-access-4056d2e17f5681e29517ecc664a137ed)
+guide.
+
 This repository contains reviewed portable distributions, bounded staging/check
 helpers, and Factory Lab's technical work. Required references travel with each
 skill. Use a reviewed release without live Notion access, or read the selected
@@ -71,9 +78,9 @@ See [source ownership](docs/factory-definition.md) and [contributing](CONTRIBUTI
 
 | Step | Status and next work |
 | --- | --- |
-| Method and distribution | v0.1.23 completed the transition through #98, reconciling #85, #92 and #94. This export clarifies scoped project-service connections in Foundation. |
-| Factory Lab | Operator checks verified scoped Notion/GitHub access and the Skills API export on 27 October. The scoped GitHub connection also completed [PR #100](https://github.com/arcitai/factory/pull/100) and the 0.1.24 release. A separate T3 v0.1.2 preflight observed lead skill loading and was held. Provider credential handling, GitHub-token revocation and write-refusal checks, workers and one complete native task remain unqualified. [Native isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open. |
-| Improvement | Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Automations, reviewer defaults and update ownership remain open choices. |
+| Method and distribution | The #98 transition is complete. Shared methods are authored in Notion and exported deliberately. This revision adds conditional native credential-broker guidance. |
+| Factory Lab | On 27 October, separate Z13 sandbox environments ran native T3 0.1.2: AgentOps loaded its role and used scoped connections, an implementer authored a small README change in a worktree, and a fresh Opus 5.5 High reviewer accepted it against read-only inputs. Coordination and delivery remain operator-assisted. Native service restart and selected access refusals were observed. [Isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open for the limits below. |
+| Improvement | Next: qualify automatic worker handoff and recovery before unattended intake. Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Reviewer defaults, automations and update ownership remain open choices. |
 | Other factories | Adopt the reviewed method project by project through Foundation, after the Lab path works. |
 
 The [qualification record](docs/qualification.md) separates source checks,
