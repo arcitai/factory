@@ -2,7 +2,7 @@
 
 # Factory
 
-Revision: 0.1.23 · Updated: 2026-10-26
+Revision: 0.1.24 · Updated: 2026-10-27
 
 A portable method for using AI agents across software, BI, defence and research.
 Start small, use existing tools, and add complexity when a real task needs it.
@@ -71,8 +71,8 @@ See [source ownership](docs/factory-definition.md) and [contributing](CONTRIBUTI
 
 | Step | Status and next work |
 | --- | --- |
-| Method and distribution | The public guide, declaration and portable skills describe the setup. This repo transition reconciles #85, #92, #94 and #98. |
-| Factory Lab | Next: qualify its scoped source connection, actual skill loading, worker boundaries and one real task. [Native isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) retain their live requirements. |
+| Method and distribution | v0.1.23 completed the transition through #98, reconciling #85, #92 and #94. This export clarifies scoped project-service connections in Foundation. |
+| Factory Lab | Notion/GitHub read and refusal checks and the Skills API export were run on 27 October; GitHub writes still need proof. A separate T3 v0.1.2 preflight observed lead skill loading and was held. Credential handling, workers and a complete task remain unqualified. [Native isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open. |
 | Improvement | Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Automations, reviewer defaults and update ownership remain open choices. |
 | Other factories | Adopt the reviewed method project by project through Foundation, after the Lab path works. |
 
