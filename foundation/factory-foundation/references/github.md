@@ -1,6 +1,6 @@
 # Prepare repository work tracking and delivery
 
-Revision: 0.1.12 · Updated: 2026-10-11
+Revision: 0.1.24 · Updated: 2026-10-27
 
 Inspect the actual repository, owner, default branch, existing instructions,
 checks, labels, Projects and deployment rules. Preserve established conventions.
@@ -14,8 +14,42 @@ Check `gh auth status` there, then read the intended repository, a relevant issu
 or PR and its checks. Git fetch/push credentials and Project permissions are
 separate capabilities; test the read paths and qualify writes only as part of an
 authorized action. A browser login or successful Git clone does not establish all
-of them. Reuse adequate existing credentials and request only missing access.
+of them. Reuse existing credentials only when their actual grants fit the agreed
+boundary; request only missing access.
 Never print tokens or copy a personal credential store into the execution account.
+
+For a new scoped connection, record the repositories, required operations,
+credential's OS account and storage, authorizer, expiry, and revocation route.
+A role name is not a credential boundary. For a small single-owner setup, a
+fine-grained personal access token can limit writes and private reads to selected
+repositories and permissions. Give no administration, secrets, workflow-write,
+status/check-write or organization permissions unless the accepted task needs them. All public
+repositories remain readable; a successful public read does not prove scoping.
+
+Use a maintained native GitHub App integration when its installation permissions
+and supported endpoints fit better. Do not build an App backend or token service
+just to satisfy this recipe. If no native route provides a required capability,
+record the limitation rather than falling back to a broad personal login.
+
+Keep the lead's coordination/delivery credential outside worker environments.
+Workers need their selected files and tools; remote write access is conditional.
+An inherited token, credential store/helper, SSH key or forwarding socket that
+exceeds the worker's boundary holds dependent execution until it is excluded or
+the owner explicitly resolves that access.
+Check actual allowed repository/issue/check operations and a refused operation
+against a known existing private repository outside the grant. Test writes only
+through authorized disposable resources or real accepted work. For a permission
+that must be absent, verify an applicable refusal without changing real settings.
+Check the actual rules protecting delivery, including bypass actors and the
+required checks' source: token scope does not require PR review or stop a direct
+push by itself. An inaccessible
+protection setting stays unverified, and is not a reason to grant administration.
+
+Qualify the required write path through a real authorized PR or task update.
+Use a disposable credential/resource for destructive revocation tests; otherwise
+verify the native removal route and record revocation as untested. Expiry alone
+is not a revocation test. Keep credential values in native secret storage; keep
+private targets and grant details in private installation records.
 
 Before the first commit, check `git var GIT_AUTHOR_IDENT` and
 `git var GIT_COMMITTER_IDENT` in the intended checkout. GitHub login does not
@@ -140,6 +174,8 @@ contributors graph. A shared credential still has its actual shared grants.
 [Multiple authors](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors),
 [contributors graph](https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors).
 
-Sources: [Projects API](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects),
+Sources: [Fine-grained tokens and limitations](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens),
+[GitHub Apps](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps),
+[Projects API](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects),
 [built-in workflows](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations),
 [rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
