@@ -1,6 +1,6 @@
 # Technical architecture notes
 
-Revision: 0.1.23 · Updated: 2026-10-26
+Revision: 0.1.26 · Updated: 2026-10-28
 
 The [public guide](https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a)
 owns the seven-layer overview, diagrams and human explanation. These notes cover
@@ -18,9 +18,8 @@ identifies the originals and versioned exports.
 | Evaluation | Compare agreed outcomes and all-attempt quality, effort, time and available cost |
 | Native tools and services | Execute agents, keep work/history and enforce actual settings and permissions |
 
-A personal Planning Agent is optional. A host coordinator may also own explicitly
-delegated maintenance across projects; neither becomes a global work queue,
-project lead or privileged tier. See the
+A personal Planning Agent is optional. Explicitly delegated host maintenance may have an operator; this does not require
+an additional coordinating model, global work queue or privileged project lead. See the
 [host guide](../foundation/factory-foundation/references/setup.md#keep-the-host-ready-after-restart).
 
 ## Three-level access architecture
@@ -35,6 +34,22 @@ chat separates work, but does not prevent access to shared credentials. Test the
 allowed and refused operations through the actual selected tool and account.
 Keep private installation facts and credentials out of this repository.
 
+Each project lead needs a scoped execution boundary. The current Lab qualification
+uses sibling lead, implementer and reviewer VMs on Z13, with a single pinned
+AgentOps in the operator app. Explicitly trusted related projects may share an
+environment and its access. All processes inside one environment share that
+environment's service bindings; separate conversations and worktrees do not
+isolate those credentials.
+
+The owner's target is isolated, on-demand workers controlled by AgentOps inside
+its own environment, with minimal actions on the physical host and no extra LLM
+middleman. A prepared environment can host several fresh sessions when shared
+access is acceptable; this is weaker than one fresh sandbox per agent. The current
+T3 link starts tasks in existing environments, not new Docker microVMs.
+Guest-local Docker can create containers, but that alone does not establish
+per-worker network, credential or kernel isolation. Automatic provisioning,
+cleanup and the chosen boundary still need qualification in [#32](https://github.com/arcitai/factory/issues/32).
+
 ## Native configuration and execution
 
 The YAML original describes composition and links to methods. AgentOps interprets
@@ -48,7 +63,7 @@ dated historical observations. The host guide's Nightly examples keep their
 original dates and are not current stable installation commands. The live native
 roadmap remains [#32](https://github.com/arcitai/factory/issues/32), and the held
 host adoption path remains [#34](https://github.com/arcitai/factory/issues/34).
-The source reconciliation here changes no host or hold.
+Package source, actual installation changes and remaining holds are recorded separately.
 
 Where enforced separation is needed, compare supported isolation choices against
 the full execution environment, including any workspace server's own tools.

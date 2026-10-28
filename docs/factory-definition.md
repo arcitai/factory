@@ -1,6 +1,6 @@
 # Factory definition and source ownership
 
-Revision: 0.1.23 · Updated: 2026-10-26
+Revision: 0.1.26 · Updated: 2026-10-28
 
 The [Notion YAML code block](https://gustavanderson.notion.site/4056d2e17f56811b96fec7b970741916) is Factory Lab's only editable declaration. [factory.yaml](../factory.yaml) is a version-marked export: one small description of its purpose, context, roles, selected methods, review
 settings, automation and routine ideas and evaluation proposals. An adopting project chooses its own declaration and context home. A repository is optional for non-software work.
@@ -38,7 +38,7 @@ open choices; it is not an observed inventory of enabled native automations.
 | Detailed history, logs and usage | The native agent tools |
 | Credentials and private installation facts | Native secret stores and existing private project records |
 
-Notion owns and explains the declaration. AgentOps reads it there, or uses an explicitly selected reviewed export at its recorded version. A requested composition or shared skill/policy change ends in its owning Notion source. Produce a versioned Git export only for a reviewed release, reproducible experiment or migration. Exports record the canonical code block's UTF-8 SHA-256 (LF, trailing newline) and the source page's last-edited timestamp as well as the declaration version. Preserve that source/version and content snapshot; do not silently refresh it mid-run. No agent maintains parallel originals or automatic two-way synchronization.
+Notion owns and explains the declaration. AgentOps reads it there, or uses an explicitly selected reviewed export at its recorded version. A requested composition or shared skill/policy change ends in its owning Notion source. Produce a versioned Git export only for a reviewed release, reproducible experiment or migration. Exports record the canonical code block's UTF-8 SHA-256 (LF, trailing newline) and the canonical code block's last-edited timestamp as well as the declaration version. Preserve that source/version and content snapshot; do not silently refresh it mid-run. No agent maintains parallel originals or automatic two-way synchronization.
 Notion is replaceable; Databricks remains a parked enterprise recipe, not a dependency.
 
 The existing Git skill bundles remain the released reference for their own
@@ -51,7 +51,7 @@ must fix the declaration and skill revisions as well as task/environment inputs.
 ## Portable skill exports
 
 The shared core is authored in the public Factory Skills library. The `0.1.23`
-distribution exports `factory-foundation`, `factory-agent-ops`, `factory-entry`
+distribution introduced exports of `factory-foundation`, `factory-agent-ops`, `factory-entry`
 and `factory-evaluate`, with their complete supporting resources. Foundation's
 references retain the accepted host, recovery, owner-entry and optional method
 migration work from #85, #92 and #94. Updating this source does not install it in
@@ -62,6 +62,12 @@ Notion entries identify them as released references. The `adlc/` directory is a
 retained distribution path, not a requirement that the shared evaluator or every
 Factory project is software work. Native loading and one real Lab task remain
 separate acceptance work.
+
+For 0.1.26, the native Skills API snapshot supplies AgentOps/Foundation and all
+their supporting files. The portable export normalizes native frontmatter,
+Notion-only preambles, line breaks and inline-code markup, restoring portable relative reference links; supporting files retain
+exact source bytes. Existing software/defence versions remain unchanged. The PR
+records the selected native snapshot and file hashes separately from installation proof.
 
 A maintainer changes an owning Notion source and explicitly exports the selected
 revision and resources. Review and record the actual readback, then freeze the

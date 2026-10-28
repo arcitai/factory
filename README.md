@@ -2,7 +2,7 @@
 
 # Factory
 
-Revision: 0.1.25 · Updated: 2026-10-27
+Revision: 0.1.26 · Updated: 2026-10-28
 
 A portable method for using AI agents across software, BI, defence and research.
 Start small, use existing tools, and add complexity when a real task needs it.
@@ -24,9 +24,11 @@ your own context home, tracker, source hosting and infrastructure.
 | Work modules | Supply domain methods and checks: [software](adlc/README.md), [scoped defence](adlc/factory-security/SKILL.md), and future dedicated BI and research methods |
 | [Evaluation](adlc/factory-evaluate/SKILL.md) | Compare outcomes, defects, cost, time and human effort before recommending a change |
 
-Independent review checks the actual result against the original requirements in
-a fresh context. Reviewer numbers, roles and models are project choices. A model
-judge's verdict does not replace tests, reconciliations or other domain evidence.
+Independent review checks the actual result against the original requirements.
+By default, use two fresh reviewers: one for objective/domain evidence, one for
+qualitative intent, usefulness and experience. Delivery waits until both reviewers’ blocking concerns are resolved.
+Projects and tasks can override roles, numbers and models within their mandate
+and stronger requirements. Model judgments do not replace meaningful domain checks.
 
 An optional [Factory entry skill](agent-ops/factory-entry/SKILL.md) helps your own
 Planning Agent route requests to existing project leads. Each project keeps its
@@ -34,8 +36,10 @@ own AgentOps; Factory Lab develops this method rather than managing every projec
 
 ## Start with a new or existing project
 
-1. Ask Foundation to assess the intended work. Reuse the project's sources,
+1. Your Planning Agent can ask Foundation to prepare a new or existing project.
+   Select the project's own context home and reuse its sources,
    useful conventions and existing checks; prepare only missing capabilities.
+   Link the shared method rather than copying the public guide into every project.
    Follow [setup](foundation/factory-foundation/references/setup.md) for the
    selected native tools.
 2. Select the declaration and skills, with their revisions. Our Lab's
@@ -78,9 +82,9 @@ See [source ownership](docs/factory-definition.md) and [contributing](CONTRIBUTI
 
 | Step | Status and next work |
 | --- | --- |
-| Method and distribution | The #98 transition is complete. Shared methods are authored in Notion and exported deliberately. This revision adds conditional native credential-broker guidance. |
-| Factory Lab | On 27 October, separate Z13 sandbox environments ran native T3 0.1.2: AgentOps loaded its role and used scoped connections, an implementer authored a small README change in a worktree, and a fresh Opus 5.5 High reviewer accepted it against read-only inputs. Coordination and delivery remain operator-assisted. Native service restart and selected access refusals were observed. [Isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open for the limits below. |
-| Improvement | Next: qualify automatic worker handoff and recovery before unattended intake. Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Reviewer defaults, automations and update ownership remain open choices. |
+| Method and distribution | The #98 transition is complete. Shared methods are authored in Notion and exported deliberately. This revision selects two independent reviewers by default, clarifies project context bootstrap and exports the Factory-only connection and execution-boundary guidance. |
+| Factory Lab | The active AgentOps is pinned in the existing operator app. On 28 October, the dedicated Z13 Lab moved to official Nightly 3796 for native linked-environment delegation; stable 0.1.3 lacks that change. Factory-only Notion insert/update and two idle service-recovery cycles were observed. A native author → two reviewers → repair → two fresh reviewers path completed with one operator-detected approval, and a read-only reverse-control probe refused access to the lead. Approval notification, remote worktree isolation and on-demand per-agent provisioning remain gaps. [Isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open for the limits below. |
+| Improvement | Next: qualify automatic worker handoff and recovery before unattended intake. Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Two reviewers are selected; automation and update ownership remain open choices. The target is AgentOps-managed, on-demand isolated sandboxes inside its own environment; provisioning and safe model/network access remain unqualified. |
 | Other factories | Adopt the reviewed method project by project through Foundation, after the Lab path works. |
 
 The [qualification record](docs/qualification.md) separates source checks,
