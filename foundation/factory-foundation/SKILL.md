@@ -25,7 +25,7 @@ These areas are preparation scopes, not three compulsory machines or access leve
 
 ## Adopt or update an existing project
 
-Use the adoption guidance (`references/adoption.md#update-an-existing-project`) when an existing project should align with a selected reviewed Factory revision. Compare installed methods and local adaptations before changing files; preserve product work, context and current authority. A project visible in a workspace is not necessarily an adopted installation.
+Use [the adoption guidance](references/adoption.md#update-an-existing-project) when an existing project should align with a selected reviewed Factory revision. Compare installed methods and local adaptations before changing files; preserve product work, context and current authority. A project visible in a workspace is not necessarily an adopted installation.
 
 ## Establish context and skills
 
@@ -39,7 +39,7 @@ Keep project bootstrap instructions thin: common constraints, source routes and 
 
 - Read the actual versions, selected provider/account, tools and effective native settings. A binary, connection, copied skill or available model name is not a working installation.
 - Separate the human's personal access, the lead's bounded coordination access and the worker's assigned task access. Reviewers/evaluators are bounded workers, not administrators.
-- For each source or project-service connection, agree its targets and operations, credential's OS account, storage and delivery, expiry, revocation route and responsible holder. Check actual allowed and refused access. For GitHub, use the scoped connection guidance in `references/github.md`; a personal login or role name is not proof of the agreed boundary.
+- For each source or project-service connection, agree its targets and operations, credential's OS account, storage and delivery, expiry, revocation route and responsible holder. Check actual allowed and refused access. For GitHub, use the scoped connection guidance in [references/github.md](references/github.md); a personal login or role name is not proof of the agreed boundary.
 - Where an agent must use a credential without receiving its value, use a native credential broker outside its execution boundary. A secret store or redacted field does not establish this; readable mounts and environment variables deliver the value. Bind credentials to the selected project, environment and role through native controls, keep only references in context and declarations, and verify useful service access, an out-of-scope refusal, unreadable raw values, wrong-environment refusal and withdrawal of access, including cached credentials and global fallback.
 - Selection of context is coordination; service permissions, OS/environment boundaries, mounts, network and tool controls enforce access. A worktree separates changes, not readable files or credentials.
 - For the Notion recipe, give the lead a scoped connection to its selected project pages, with only the read, update and insert operations authorized for its work. The Lab's grant is Factory-only; personal Data & Context is excluded. Keep real service credentials outside the execution boundary through a native broker where required. Supply workers selected skill/context files, never the lead's connection. A same-environment process shares its brokered reach; a worker that must not have it needs a separate boundary. Read-only access cannot write progress; use the native task record or a scoped handoff until an authoring route is authorized. If an inherited connector exceeds the accepted task access, hold dependent worker execution until the exposure is removed, isolated or explicitly resolved by the owner; do not treat a role instruction as the repair.
@@ -61,8 +61,8 @@ For each required capability, record its scope, owning source, disposition and r
 
 A required gap holds dependent work, not unrelated authorized work. A recorded gap is not readiness. Hand the result to AgentOps, which maintains project choices within its mandate and routes concrete setup repairs back to Foundation. The work module verifies each changed deliverable and updates affected context.
 
-For an optional owner-side entry, use `factory-entry` and the selected native installation route in `references/setup.md`. For a personal method package changing identity, consult `references/method-migration.md`; Factory depends on no such package.
+For an optional owner-side entry, use `factory-entry` and the selected native installation route in [references/setup.md](references/setup.md). For a personal method package changing identity, consult [references/method-migration.md](references/method-migration.md); Factory depends on no such package.
 
-For software/T3-specific preparation, consult only the relevant bundled reference: `references/adoption.md`, `context.md`, `engineering.md`, `ci-delivery.md`, `github.md`, `setup.md` or `workspace.md`. These imported references retain their observed versions/dates; old worked examples are not current installation proof. Qualify them against the chosen tools before applying them.
+For software/T3-specific preparation, consult only the relevant bundled reference: [references/adoption.md](references/adoption.md), [context.md](references/context.md), [engineering.md](references/engineering.md), [ci-delivery.md](references/ci-delivery.md), [github.md](references/github.md), [setup.md](references/setup.md) or [workspace.md](references/workspace.md). These imported references retain their observed versions/dates; old worked examples are not current installation proof. Qualify them against the chosen tools before applying them.
 
 Factory Foundation installs no Factory daemon and grants no authority beyond the request.

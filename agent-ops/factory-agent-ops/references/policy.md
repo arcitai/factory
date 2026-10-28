@@ -34,8 +34,8 @@ review and independent model review may have different identity requirements.
 By default, use two fresh reviewers, independent of the implementing conversation
 and of each other's verdict. One checks objective requirements, domain checks and
 evidence; the other checks qualitative intent, usefulness and the intended user
-or reader experience. These roles apply across work modules. Both must resolve
-blocking concerns before delegated delivery; an inconclusive blocker remains
+or reader experience. These roles apply across work modules. Delivery waits until
+both reviewers' blocking concerns are resolved; an inconclusive blocker remains
 open. A project or task may change reviewer count, roles or models within its
 mandate, actual capabilities, budget and stronger project/service requirements.
 Record the selected override with the task. A model verdict does not replace
@@ -105,20 +105,25 @@ tasks in narrower task workspaces with task-specific access. Both start with the
 access needed for that task; the lead's higher responsibility does not grant
 blanket host administration.
 
-Give each project's AgentOps a scoped environment and give workers narrower,
-separate environments. In the VM reference recipe these are siblings on the host,
-not VMs nested under AgentOps. Trusted related projects, such as one product's
-mobile and web frontends, may explicitly share an environment; record that they
-share its access. Responsibility does not grant host administration. Processes
-inside one environment can use its service bindings, including brokered ones.
+Give each project's AgentOps a scoped environment and keep workers behind
+boundaries that enforce their narrower access. Trusted related projects, such as
+one product's mobile and web frontends, may explicitly share an environment;
+record that they share its access. Responsibility does not grant host
+administration. Processes sharing an environment may also share its service bindings.
 
-Several fresh task or review sessions may share a worker environment when they
-may have the same access. Give writers separate worktrees where required. The
-reviewer count does not determine the number of VMs; a new access boundary may
-require another environment. Foundation prepares the necessary environments and
-their lifecycle. Automatic VM creation or idle shutdown is a separate capability
-to qualify, not an implied effect of delegating a task. Keep the owner's AgentOps
-visible; workers remain task threads rather than mandatory pinned agents.
+The current Lab qualification uses prepared sibling VMs. Its target is one
+isolated, on-demand sandbox per agent, created and removed by AgentOps inside its
+own environment, with minimal physical-host actions and no extra coordinator LLM.
+That capability is not yet qualified; follow the actual limits in Factory #32.
+This Lab target does not prescribe a backend for every adopting project.
+
+Several fresh task or review sessions may share a worker environment only as an
+explicitly accepted, weaker arrangement. Give writers separate worktrees where
+required; these do not isolate credentials. Foundation prepares and qualifies the
+sandbox capability; AgentOps uses it for task lifecycle within its mandate.
+Automatic creation, startup and cleanup are separate capabilities to qualify,
+not implied effects of delegation. Pin only the persistent AgentOps lead;
+workers stay unpinned task threads.
 
 Record each additional grant in the project's private installation record: who
 or which role receives it, target, environment, purpose, when it was granted,

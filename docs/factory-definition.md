@@ -38,7 +38,7 @@ open choices; it is not an observed inventory of enabled native automations.
 | Detailed history, logs and usage | The native agent tools |
 | Credentials and private installation facts | Native secret stores and existing private project records |
 
-Notion owns and explains the declaration. AgentOps reads it there, or uses an explicitly selected reviewed export at its recorded version. A requested composition or shared skill/policy change ends in its owning Notion source. Produce a versioned Git export only for a reviewed release, reproducible experiment or migration. Exports record the canonical code block's UTF-8 SHA-256 (LF, trailing newline) and the source page's last-edited timestamp as well as the declaration version. Preserve that source/version and content snapshot; do not silently refresh it mid-run. No agent maintains parallel originals or automatic two-way synchronization.
+Notion owns and explains the declaration. AgentOps reads it there, or uses an explicitly selected reviewed export at its recorded version. A requested composition or shared skill/policy change ends in its owning Notion source. Produce a versioned Git export only for a reviewed release, reproducible experiment or migration. Exports record the canonical code block's UTF-8 SHA-256 (LF, trailing newline) and the canonical code block's last-edited timestamp as well as the declaration version. Preserve that source/version and content snapshot; do not silently refresh it mid-run. No agent maintains parallel originals or automatic two-way synchronization.
 Notion is replaceable; Databricks remains a parked enterprise recipe, not a dependency.
 
 The existing Git skill bundles remain the released reference for their own
@@ -65,7 +65,7 @@ separate acceptance work.
 
 For 0.1.26, the native Skills API snapshot supplies AgentOps/Foundation and all
 their supporting files. The portable export normalizes native frontmatter,
-Notion-only preambles, line breaks and inline-code markup; supporting files retain
+Notion-only preambles, line breaks and inline-code markup, restoring portable relative reference links; supporting files retain
 exact source bytes. Existing software/defence versions remain unchanged. The PR
 records the selected native snapshot and file hashes separately from installation proof.
 

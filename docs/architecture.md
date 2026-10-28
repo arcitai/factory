@@ -18,9 +18,8 @@ identifies the originals and versioned exports.
 | Evaluation | Compare agreed outcomes and all-attempt quality, effort, time and available cost |
 | Native tools and services | Execute agents, keep work/history and enforce actual settings and permissions |
 
-A personal Planning Agent is optional. A host coordinator may also own explicitly
-delegated maintenance across projects; neither becomes a global work queue,
-project lead or privileged tier. See the
+A personal Planning Agent is optional. Explicitly delegated host maintenance may have an operator; this does not require
+an additional coordinating model, global work queue or privileged project lead. See the
 [host guide](../foundation/factory-foundation/references/setup.md#keep-the-host-ready-after-restart).
 
 ## Three-level access architecture

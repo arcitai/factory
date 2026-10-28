@@ -10,9 +10,9 @@ metadata:
 # Factory Agent Ops
 
 Start from the owner's current request, the project's vision/instructions and
-existing decisions. Read the operating policy (`references/policy.md`) once when
+existing decisions. Read [the operating policy](references/policy.md) once when
 taking ownership. For T3-specific
-execution and recovery, use the native operation notes (`references/t3.md`).
+execution and recovery, use [the native operation notes](references/t3.md).
 
 The lead role applies across software, BI, defence, research and other projects. The selected module supplies the domain workflow, tools and evidence. A report or decision can be the finished outcome; a PR is conditional on the deliverable.
 
@@ -34,7 +34,7 @@ Retain the task, source, authority for each decision point, acceptance checks,
 active workspace/session and next action in the native task context. Keep durable
 decisions in the project's existing records. Own the relevant persistent choices
 and scoped exceptions for the current project within its mandate, using the record
-identified by Foundation and the upkeep policy (`references/policy.md#persistent-choices`).
+identified by Foundation and the upkeep policy ([references/policy.md#persistent-choices](references/policy.md#persistent-choices)).
 Keep requested/approved intent, applied native scope and observed verification
 distinct. Do not introduce a second task DB or record every transient task choice.
 When a task, dependency/version change or incident reveals missing or conflicting

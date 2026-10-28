@@ -99,24 +99,28 @@ Workers receive the target project's context and skills. Separate provider profi
 T3 environments/OS identities, VMs or containers are appropriate when
 the lead, workers or projects require different filesystem/network trust.
 
-The reference VM recipe gives each project/AgentOps its own environment and
-workers separate, narrower environments on the same host. They are siblings,
-not nested VMs. Trusted related projects may explicitly share an environment and
-its access. Use one native GUI to follow their projects, threads and results.
+The current Lab qualification uses prepared sibling VMs for its lead and workers.
+Its target is one isolated, on-demand sandbox per agent, created and removed by
+AgentOps inside its own environment, with minimal physical-host actions and no
+extra coordinating model. That capability is unqualified and tracked in
+[#32](https://github.com/arcitai/factory/issues/32). These are Lab recipe choices;
+adopting projects select a boundary that enforces their actual requirements.
+Trusted related projects may explicitly share an environment and its access.
+Use one native GUI to follow projects, threads and results.
 An operator-assisted relay between servers does not prove automatic delegation.
 Prefer stable; qualify an official Nightly when a needed capability is absent
 from stable, and record the exact limitation/version in the installation and issue.
 Do not build a replacement orchestration engine.
 
-An environment may run several fresh agent sessions with the same permitted
-access. Separate worktrees protect concurrent changes; separate environments
-protect different access boundaries. Adding a fifth reviewer need not create a
-fifth VM. Prepare only the environment types the selected work needs. Record who
-can create, start and stop them, whether stopped environments retain history,
-and which lifecycle actions are actually automatic. Native T3 delegation to a
-prepared environment does not provision a Docker VM. Qualify any on-demand
-creation or idle shutdown separately; do not grant host administration to workers
-to make it appear autonomous. Pin the persistent lead, not every worker.
+Several fresh sessions may share an environment only as an explicitly accepted,
+weaker arrangement. Separate worktrees protect concurrent changes, not credentials.
+Foundation prepares and qualifies only the sandbox capability the work needs;
+AgentOps uses the accepted capability for its tasks. Record who can create,
+start and stop sandboxes, whether stopped environments retain history, and which
+actions are actually automatic. Native T3 delegation to a prepared environment
+does not provision a Docker VM. Qualify on-demand creation and idle shutdown
+separately; do not grant host administration to workers to make it appear
+autonomous. Pin only the persistent AgentOps lead; workers stay unpinned.
 
 Keep the owner's personal account and the Factory execution account separate,
 each with its own instructions. Do not copy a personal method installation, such
