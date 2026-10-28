@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.23 · Updated: 2026-10-26
+Revision: 0.1.26 · Updated: 2026-10-28
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -99,6 +99,25 @@ Workers receive the target project's context and skills. Separate provider profi
 T3 environments/OS identities, VMs or containers are appropriate when
 the lead, workers or projects require different filesystem/network trust.
 
+The reference VM recipe gives each project/AgentOps its own environment and
+workers separate, narrower environments on the same host. They are siblings,
+not nested VMs. Trusted related projects may explicitly share an environment and
+its access. Use one native GUI to follow their projects, threads and results.
+An operator-assisted relay between servers does not prove automatic delegation.
+Prefer stable; qualify an official Nightly when a needed capability is absent
+from stable, and record the exact limitation/version in the installation and issue.
+Do not build a replacement orchestration engine.
+
+An environment may run several fresh agent sessions with the same permitted
+access. Separate worktrees protect concurrent changes; separate environments
+protect different access boundaries. Adding a fifth reviewer need not create a
+fifth VM. Prepare only the environment types the selected work needs. Record who
+can create, start and stop them, whether stopped environments retain history,
+and which lifecycle actions are actually automatic. Native T3 delegation to a
+prepared environment does not provision a Docker VM. Qualify any on-demand
+creation or idle shutdown separately; do not grant host administration to workers
+to make it appear autonomous. Pin the persistent lead, not every worker.
+
 Keep the owner's personal account and the Factory execution account separate,
 each with its own instructions. Do not copy a personal method installation, such
 as The Onlinesourdough Method (OSM, formerly AIOS), a personal
@@ -106,7 +125,9 @@ provider home, Notion workspace, browser profile or credentials into this setup.
 separate OS account or provider home does not prove that connectors synced to the
 provider account are excluded. Check which tools a fresh native session actually
 exposes, and use the provider's supported local controls to exclude unwanted ones
-for this installation. Preserve unrelated settings and the owner's global
+for this installation. Confirm that the installed version recognizes the setting;
+an unknown key is not a control. Missing connectors under an inference-only login
+do not prove an exclusion setting works. Preserve unrelated settings and the owner's global
 connections; do not revoke, connect or grant anything account-wide to pass the
 check. A session that was already running may keep its previous tool registry;
 do not claim the change reached it without reading it back, and move it over through
