@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.26 · Updated: 2026-10-28
+Revision: 0.1.27 · Updated: 2026-10-29
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -122,26 +122,51 @@ does not provision a Docker VM. Qualify on-demand creation and idle shutdown
 separately; do not grant host administration to workers to make it appear
 autonomous. Pin only the persistent AgentOps lead; workers stay unpinned.
 
-Keep the owner's personal account and the Factory execution account separate,
-each with its own instructions. Do not copy a personal method installation, such
-as The Onlinesourdough Method (OSM, formerly AIOS), a personal
-provider home, Notion workspace, browser profile or credentials into this setup. A
-separate OS account or provider home does not prove that connectors synced to the
-provider account are excluded. Check which tools a fresh native session actually
-exposes, and use the provider's supported local controls to exclude unwanted ones
-for this installation. Confirm that the installed version recognizes the setting;
-an unknown key is not a control. Missing connectors under an inference-only login
-do not prove an exclusion setting works. Preserve unrelated settings and the owner's global
-connections; do not revoke, connect or grant anything account-wide to pass the
-check. A session that was already running may keep its previous tool registry;
-do not claim the change reached it without reading it back, and move it over through
-the supported lifecycle at a natural safe checkpoint. This needs no new chat or
-restart for unrelated native tools or an already-qualified context. The
-repository's GitHub access and native T3 orchestration must keep working.
+Keep the owner's personal context and Factory execution context separate. Do not
+copy a personal method installation, provider home, Notion workspace, browser
+profile or credentials into the execution account. Record only the relevant
+identity and private source routes in the existing installation record.
 
 Preserve any old Factory runtime and private history while qualifying this setup.
 Avoid pointing two active agent writers at the same checkout. Do not run native
 services as root. Keep the host powered, awake and network-accessible.
+
+### Verify the effective account
+
+Resolve the actual execution host, OS/service user, provider account and
+organization, native configuration home, launch route and applicable project or
+session overrides. Model authentication and permission to use company or personal
+systems are separate capabilities.
+
+Inspect loaded user/project instructions, personal-context pointers, skills,
+plugins and effective tools, including connectors imported from the provider
+account. A separate user or empty configuration directory does not establish
+their absence. Distinguish files on disk, CLI inventory and the tools exposed in
+a fresh actual worker through the selected T3 or other harness route.
+
+Compare that worker's capabilities with its assigned scope. Where a correction
+is needed, verify a supported control for that exact route/version. Confirm that
+the installed version recognizes the setting; an unknown key is not a control.
+Apply it only within the authorized scope, then check required presence and
+unwanted absence in a fresh worker. Preserve unrelated settings, the owner's
+personal connectors, GitHub access and native orchestration. Record the personal-client preservation
+check separately; an unavailable check stays a gap. Do not revoke or broaden
+account-wide access to make the result pass.
+
+Claude Code documentation checked 2026-10-29 says `disableClaudeAiConnectors: true`
+controls connectors fetched by CLI/SDK sessions. It does not control connectors
+delivered by the desktop app's local/SSH sessions, or explicitly supplied MCP
+servers. An inference-only `claude setup-token` login does not fetch account
+connectors; their absence there does not demonstrate that an exclusion setting
+worked. Verify the selected route rather than applying this example universally.
+See [Claude's connector delivery and controls](https://code.claude.com/docs/en/mcp#how-connectors-reach-claude-code).
+
+Record active sessions that retain an older tool registry; move affected work at
+a safe checkpoint rather than silently interrupting it. Recheck the affected
+boundary after relevant account/organization, connector, instruction, configuration
+or harness changes. Reuse unchanged proof instead of repeating the full check on
+every small task. See the [installation context](adoption.md#relevant-installation-context)
+for the retained evidence and remaining gaps.
 
 ## Least privilege in practice
 

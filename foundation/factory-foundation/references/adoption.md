@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.23 · Updated: 2026-10-26
+Revision: 0.1.27 · Updated: 2026-10-29
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -107,6 +107,11 @@ Reuse the following existing choice families only where they matter:
 - Execution host and OS identity, client route, service owner, native versions,
   provider profiles and billing/usage source: the provider account and history it
   covers, the native Usage view and filters used, known coverage gaps, and who reads it.
+- Effective account/context boundary: account and organization, configuration home
+  and launch overrides, loaded instruction/skill/plugin sources, worker-visible
+  tools including account imports, scoped corrections and personal-client
+  preservation or gaps. Keep configuration, CLI and actual-worker proof distinct;
+  follow [the effective-account check](setup.md#verify-the-effective-account).
 - Model profile: a small editable default per role or kind of work, such as lead
   research, implementation, independent review and small mechanical work, with
   any concrete exception and its reason. Use live native provider, model and option
