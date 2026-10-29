@@ -2,7 +2,7 @@
 
 # Factory
 
-Revision: 0.1.26 · Updated: 2026-10-28
+Revision: 0.1.27 · Updated: 2026-10-29
 
 A portable method for using AI agents across software, BI, defence and research.
 Start small, use existing tools, and add complexity when a real task needs it.
@@ -82,9 +82,9 @@ See [source ownership](docs/factory-definition.md) and [contributing](CONTRIBUTI
 
 | Step | Status and next work |
 | --- | --- |
-| Method and distribution | The #98 transition is complete. Shared methods are authored in Notion and exported deliberately. This revision selects two independent reviewers by default, clarifies project context bootstrap and exports the Factory-only connection and execution-boundary guidance. |
-| Factory Lab | The active AgentOps is pinned in the existing operator app. On 28 October, the dedicated Z13 Lab moved to official Nightly 3796 for native linked-environment delegation; stable 0.1.3 lacks that change. Factory-only Notion insert/update and two idle service-recovery cycles were observed. A native author → two reviewers → repair → two fresh reviewers path completed with one operator-detected approval, and a read-only reverse-control probe refused access to the lead. Approval notification, remote worktree isolation and on-demand per-agent provisioning remain gaps. [Isolation #32](https://github.com/arcitai/factory/issues/32) and [host adoption #34](https://github.com/arcitai/factory/issues/34) remain open for the limits below. |
-| Improvement | Next: qualify automatic worker handoff and recovery before unattended intake. Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Two reviewers are selected; automation and update ownership remain open choices. The target is AgentOps-managed, on-demand isolated sandboxes inside its own environment; provisioning and safe model/network access remain unqualified. |
+| Method and distribution | The #98 transition is complete. Shared methods are authored in Notion and exported deliberately. Two independent reviewers are the default. This revision clarifies effective account, instruction and connector checks; [#80](https://github.com/arcitai/factory/issues/80) retains their live-route acceptance. |
+| Factory Lab | AgentOps is pinned in the existing operator app. The dedicated Lab uses official Nightly 3796 for linked-environment delegation; stable 0.1.3 lacks it. On 29 October, two bounded trials used fresh worker VMs, native worktrees and two independent reviews; worker recovery and later history archives were checked. A separate native service candidate passed empty-parent start/stop. Cold provisioning and active-worker recovery in that candidate remain open in [#32](https://github.com/arcitai/factory/issues/32). Shared-client/host maintenance remains under [#34](https://github.com/arcitai/factory/issues/34). |
+| Improvement | Next: qualify durable worker provisioning and recovery before unattended intake. Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Automation and update ownership remain open choices. The bounded trials retain an earlier history loss and model stalls; they are qualification evidence, not unattended adoption. |
 | Other factories | Adopt the reviewed method project by project through Foundation, after the Lab path works. |
 
 The [qualification record](docs/qualification.md) separates source checks,
