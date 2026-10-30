@@ -3,8 +3,8 @@ name: factory-foundation
 description: Prepare or assess a factory's agent environment, project foundation and operating conditions for the intended work, across software, BI, defence and research.
 license: MIT
 metadata:
-  version: "0.1.27"
-  updated: "2026-10-29"
+  version: "0.1.28"
+  updated: "2026-10-30"
 ---
 
 # Factory Foundation
