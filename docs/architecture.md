@@ -1,6 +1,6 @@
 # Technical architecture notes
 
-Revision: 0.1.26 · Updated: 2026-10-28
+Revision: 0.1.28 · Updated: 2026-10-30
 
 The [public guide](https://gustavanderson.notion.site/Factory-a-practical-guide-4046d2e17f568159a603de2dd6b91c2a)
 owns the seven-layer overview, diagrams and human explanation. These notes cover
@@ -34,12 +34,15 @@ chat separates work, but does not prevent access to shared credentials. Test the
 allowed and refused operations through the actual selected tool and account.
 Keep private installation facts and credentials out of this repository.
 
-Each project lead needs a scoped execution boundary. The current Lab qualification
-uses sibling lead, implementer and reviewer VMs on Z13, with a single pinned
-AgentOps in the operator app. Explicitly trusted related projects may share an
-environment and its access. All processes inside one environment share that
-environment's service bindings; separate conversations and worktrees do not
-isolate those credentials.
+Each project lead needs a scoped execution boundary. In the current Lab, the
+single AgentOps, pinned in the operator app, runs in its own environment on Z13
+and creates and removes fresh per-task worker VMs through the native project
+controller (bounded trials on 29–30 October 2026). Prepared worker environments
+remain temporary fallbacks; unattended operation and the other open gaps remain
+under [#32](https://github.com/arcitai/factory/issues/32). Explicitly trusted
+related projects may share an environment and its access. All processes inside
+one environment share that environment's service bindings; separate conversations
+and worktrees do not isolate those credentials.
 
 The owner's target is isolated, on-demand workers controlled by AgentOps inside
 its own environment, with minimal actions on the physical host and no extra LLM

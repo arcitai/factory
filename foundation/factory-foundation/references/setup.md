@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.27 · Updated: 2026-10-29
+Revision: 0.1.28 · Updated: 2026-10-30
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -99,10 +99,14 @@ Workers receive the target project's context and skills. Separate provider profi
 T3 environments/OS identities, VMs or containers are appropriate when
 the lead, workers or projects require different filesystem/network trust.
 
-The current Lab qualification uses prepared sibling VMs for its lead and workers.
-Its target is one isolated, on-demand sandbox per agent, created and removed by
-AgentOps inside its own environment, with minimal physical-host actions and no
-extra coordinating model. That capability is unqualified and tracked in
+The Lab's target is one isolated, on-demand sandbox per agent, created and removed
+by AgentOps inside its own environment, with minimal physical-host actions and no
+extra coordinating model. In bounded trials (R7 on 29 October 2026; rc1 on Stable
+0.1.5 in Auto on 30 October 2026), the lead created and removed fresh per-task
+worker VMs through the native project controller. Prepared baseline worker
+environments remain only as temporary fallbacks pending retirement. Unattended
+intake, approval-free operation, account-wide isolation, boot/login startup,
+updates and GUI/new-VM restore remain unqualified and tracked in
 [#32](https://github.com/arcitai/factory/issues/32). These are Lab recipe choices;
 adopting projects select a boundary that enforces their actual requirements.
 Trusted related projects may explicitly share an environment and its access.
@@ -118,9 +122,10 @@ Foundation prepares and qualifies only the sandbox capability the work needs;
 AgentOps uses the accepted capability for its tasks. Record who can create,
 start and stop sandboxes, whether stopped environments retain history, and which
 actions are actually automatic. Native T3 delegation to a prepared environment
-does not provision a Docker VM. Qualify on-demand creation and idle shutdown
-separately; do not grant host administration to workers to make it appear
-autonomous. Pin only the persistent AgentOps lead; workers stay unpinned.
+does not provision a VM; in the Lab, AgentOps creates a worker VM through the
+native project controller before delegating to it. Qualify on-demand creation and
+idle shutdown separately; do not grant host administration to workers to make it
+appear autonomous. Pin only the persistent AgentOps lead; workers stay unpinned.
 
 Keep the owner's personal context and Factory execution context separate. Do not
 copy a personal method installation, provider home, Notion workspace, browser

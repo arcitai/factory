@@ -1,6 +1,6 @@
 # Decisions and delegation
 
-Revision: 0.1.26 · Updated: 2026-10-28
+Revision: 0.1.28 · Updated: 2026-10-30
 
 There are two default human decisions:
 
@@ -111,10 +111,12 @@ one product's mobile and web frontends, may explicitly share an environment;
 record that they share its access. Responsibility does not grant host
 administration. Processes sharing an environment may also share its service bindings.
 
-The current Lab qualification uses prepared sibling VMs. Its target is one
-isolated, on-demand sandbox per agent, created and removed by AgentOps inside its
-own environment, with minimal physical-host actions and no extra coordinator LLM.
-That capability is not yet qualified; follow the actual limits in Factory #32.
+The Lab's target is one isolated, on-demand sandbox per agent, created and
+removed by AgentOps inside its own environment, with minimal physical-host actions
+and no extra coordinator LLM. Bounded Lab trials on 29–30 October 2026 observed
+AgentOps creating and removing fresh per-task worker sandboxes; prepared
+environments remain temporary fallbacks. Unattended operation and the other open
+limits still follow Factory #32.
 This Lab target does not prescribe a backend for every adopting project.
 
 Several fresh task or review sessions may share a worker environment only as an
