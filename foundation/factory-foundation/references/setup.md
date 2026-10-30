@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.29 · Updated: 2026-10-30
+Revision: 0.1.31 · Updated: 2026-10-30
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -407,6 +407,44 @@ connection route, projects, pins, archives, transcripts and a harmless provider
 turn. Record missing history or changed behavior before restarting real work.
 [Updating](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/updating.md),
 [V2 migration and backup](https://github.com/pingdotgg/t3code/blob/ec80933ac8cd02fec5c97b342462ccc9567cdb1e/docs/user/thread-migration.md).
+
+### Telemetry opt-out
+
+When this recipe uses T3 Code and Claude Code, the execution host opts out of
+their telemetry unless a project records an authorized exception in its own
+persistent-choice record. A telemetry-on exception names the egress it allows;
+it does not silently widen network access. Both products stay replaceable; this
+says nothing about other harnesses. It covers the host's T3 service and the
+Claude processes it starts, including worker sandboxes; operator clients are
+outside it and unverified (the T3 desktop app, including its Local environment,
+reads the variable from the Mac's shell profile, and the phone app's crash
+reports have their own Diagnostics setting).
+
+For T3 0.1.5, set `T3CODE_TELEMETRY_ENABLED=false` in the T3 server environment
+before it starts. T3 documents that this stops product events and relay tracing.
+For Claude Code, set `DISABLE_TELEMETRY` to a nonempty value, such as `1`, in the
+Claude process environment. Cover the lead and every worker sandbox through the
+native environment mechanism, such as the service environment or a sandbox's
+create-time environment. Never pass secrets that way. Keep the model and
+permission mode explicit: telemetry off changes Claude's default mode for
+sessions that set none.
+
+Verify the effect instead of assuming it. After the restart and at least one
+turn, Claude's system/init message in the T3 provider event log should report
+`analytics_disabled: true`. The server trace in the T3 userdata `logs/` directory
+should show `AnalyticsService.record` spans but no `AnalyticsService.sendBatch`
+attempt and no `ingest.t3.codes` request. Where possible, compare with a
+pre-change trace or an unflagged control that did show them. Keep local history
+and usage records. This is not zero egress and does not change provider data
+retention. OpenTelemetry relay tracing was not separately observed. On Claude
+2.1.306, effects on error reports, feature flags, Monitor and idle compaction are
+unverified. T3 relay diagnostics are lost. Vendor behaviour can change with
+versions; re-verify after each T3 or Claude upgrade.
+
+Sources: [T3 telemetry](https://github.com/pingdotgg/t3code/blob/v0.1.5/docs/user/telemetry.md),
+[T3 analytics delivery](https://github.com/pingdotgg/t3code/blob/v0.1.5/apps/server/src/telemetry/AnalyticsService.ts),
+[Claude Code changelog](https://github.com/anthropics/claude-code/blob/b3f291d131924810e2b7713ededc144843a229d5/CHANGELOG.md)
+(2.1.283–2.1.314); dated Lab evidence in [#108](https://github.com/arcitai/factory/issues/108).
 
 ## 4. Connect the operator clients
 
