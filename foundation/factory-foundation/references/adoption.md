@@ -1,6 +1,6 @@
 # Adoption record
 
-Revision: 0.1.27 · Updated: 2026-10-29
+Revision: 0.1.29 · Updated: 2026-10-30
 
 Foundation identifies the appropriate existing project/adoption record and
 establishes the relevant choices. AgentOps maintains them and scoped exceptions
@@ -52,6 +52,23 @@ A repository's `AGENTS.md` can point to the selected methods and shared rules;
 it does not need to copy them all. A declaration belongs in the project's chosen
 context home. Notion is our reference, not a dependency for using a released bundle.
 For an optional method package changing identity, use [method migration](method-migration.md).
+
+### Notion skill directories
+
+In our Notion recipe, the lead's existing scoped connection reads a skill's whole
+directory with `GET /v1/ai/skills/{id}`: a `version_id` and a temporary signed
+archive containing `SKILL.md` and its **Files**. `POST /v1/ai/skills/{id}/upload`
+writes a gzipped tar with `SKILL.md` `name`/`description` frontmatter and replaces
+the page's title, Description, content and Files. Before uploading, back up the
+complete current directory and compare its `version_id` immediately beforehand; the
+API has no precondition field. After an uncertain result, reconcile the same object
+before any retry. Read back the new `version_id` and the exact supporting-file bytes.
+Notion renders the native `SKILL.md`: check semantic correspondence with the portable
+file, not byte identity. `version_id` is not the package version; update the page's
+Version, Source and Status explicitly. Ordinary page-property REST does not expose
+Files. Workers do not receive this connection. See the
+[Skills API](https://developers.notion.com/reference/agent-skills/get-skill-directory)
+(Notion-Version 2026-03-11).
 
 ## Persistent choices and exceptions
 
