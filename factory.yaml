@@ -1,17 +1,17 @@
 # Versioned export; the canonical editable original is the Notion YAML block.
 # Original: https://gustavanderson.notion.site/4056d2e17f56811b96fec7b970741916
-# Canonical block last edited: 2026-10-28T08:09:00.000Z
-# Canonical YAML SHA-256 (UTF-8, LF, trailing newline): 98f48a4287d9b4fd14c39780adc70c5932af2185fd3546b22a5fab97f8f7647f
-# Declaration version: 0.3; exported 2026-10-28 for Factory 0.1.26 candidate.
+# Canonical block last edited: 2026-10-30T01:27:00.000Z
+# Canonical YAML SHA-256 (UTF-8, LF, trailing newline): 6ab1161838a2e8970c5ce823e32d97a089a989cfd841cc45029588aa8a299c27
+# Declaration version: 0.4; exported 2026-10-30 for Factory 0.1.27 status correction.
 # Edit the original before a new reviewed export.
 
-# Factory Lab declaration; version 0.3.
+# Factory Lab declaration; version 0.4.
 # Interpreted by AgentOps; not applied configuration.
 # Native tools enforce only what is configured and verified in them.
 # This file grants no authority or access and does not override existing holds.
 # Inspired by Warp Factories; not their schema or a compatible Warp definition.
 # Reference: https://www.warp.dev/blog/the-factory-stack
-definition_version: "0.3"
+definition_version: "0.4"
 name: arcitai-factory-lab
 description: Develop, qualify and publish the portable Factory method.
 status: candidate
@@ -27,8 +27,8 @@ context:
 
 workspace:
   selected: t3-code  # Lab choice, not a method requirement
-  channel: nightly  # stable preferred; this candidate needs linked-environment delegation
-  candidate_version: 0.1.4-nightly.20261027.3796
+  channel: stable  # stable preferred; Lab moved to it on 29 October 2026 (#34)
+  candidate_version: 0.1.5
   environments: separate-project-lead-and-narrower-worker-environments
   shared_environment: explicit-trusted-related-projects-only
   operator_view: one-native-gui

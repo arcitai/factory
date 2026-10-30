@@ -2,7 +2,7 @@
 
 # Factory
 
-Revision: 0.1.27 · Updated: 2026-10-29
+Revision: 0.1.27 · Updated: 2026-10-30
 
 A portable method for using AI agents across software, BI, defence and research.
 Start small, use existing tools, and add complexity when a real task needs it.
@@ -83,8 +83,8 @@ See [source ownership](docs/factory-definition.md) and [contributing](CONTRIBUTI
 | Step | Status and next work |
 | --- | --- |
 | Method and distribution | The #98 transition is complete. Shared methods are authored in Notion and exported deliberately. Two independent reviewers are the default. This revision clarifies effective account, instruction and connector checks; [#80](https://github.com/arcitai/factory/issues/80) retains their live-route acceptance. |
-| Factory Lab | AgentOps is pinned in the existing operator app. The dedicated Lab uses official Nightly 3796 for linked-environment delegation; stable 0.1.3 lacks it. On 29 October, two bounded trials used fresh worker VMs, native worktrees and two independent reviews; worker recovery and later history archives were checked. A separate native service candidate passed empty-parent start/stop. Cold provisioning and active-worker recovery in that candidate remain open in [#32](https://github.com/arcitai/factory/issues/32). Shared-client/host maintenance remains under [#34](https://github.com/arcitai/factory/issues/34). |
-| Improvement | Next: qualify durable worker provisioning and recovery before unattended intake. Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Automation and update ownership remain open choices. The bounded trials retain an earlier history loss and model stalls; they are qualification evidence, not unattended adoption. |
+| Factory Lab | AgentOps is pinned in the existing operator app. Since the 29 October maintenance, the Lab AgentOps server runs official T3 Stable 0.1.5; three older baseline environments remain on Nightly 3796 as temporary fallbacks. A same-host userdata restore returned the same pinned lead and history. Earlier that day, the native controller cold-provisioned a digest-pinned image, and worker test data persisted through a parent SIGKILL. In R7, the lead created three fresh Stable 0.1.5 workers; after repair, two independent reviews accepted, the writer resumed useful model work in the same thread after restart and verified history archives preceded cleanup ([#32](https://github.com/arcitai/factory/issues/32)). A whole-service stop is not yet clean (exit 125); an idle guest TERM (exit 130) returned automatically once. Shared-client/host maintenance, updates and new-VM GUI archive restore remain under [#34](https://github.com/arcitai/factory/issues/34); boot/login startup under [#83](https://github.com/arcitai/factory/issues/83) and #34. |
+| Improvement | Next: useful model, review and delivery work from the restored Stable Ops, then clean stop, boot/login and maintenance before unattended intake. Later: [same-session comparisons #50](https://github.com/arcitai/factory/issues/50), [ZeroShot-style loops #97](https://github.com/arcitai/factory/issues/97), and [review quality #99](https://github.com/arcitai/factory/issues/99). Automation and update ownership remain open choices. The trials retain R3's history loss, model stalls, R7's failed and interrupted review attempts and its two operator approvals; route evidence is limited ([#32](https://github.com/arcitai/factory/issues/32)) and account evidence remains under [#80](https://github.com/arcitai/factory/issues/80). They are qualification evidence, not unattended adoption. |
 | Other factories | Adopt the reviewed method project by project through Foundation, after the Lab path works. |
 
 The [qualification record](docs/qualification.md) separates source checks,
