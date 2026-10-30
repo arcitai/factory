@@ -1,6 +1,6 @@
 # Set up the host and operator client
 
-Revision: 0.1.28 · Updated: 2026-10-30
+Revision: 0.1.29 · Updated: 2026-10-30
 
 This reference setup uses T3 Code on a Linux execution host, with a Mac and
 optionally a phone as clients. The host can be a laptop, workstation or VPS.
@@ -103,8 +103,9 @@ The Lab's target is one isolated, on-demand sandbox per agent, created and remov
 by AgentOps inside its own environment, with minimal physical-host actions and no
 extra coordinating model. In bounded trials (R7 on 29 October 2026; rc1 on Stable
 0.1.5 in Auto on 30 October 2026), the lead created and removed fresh per-task
-worker VMs through the native project controller. Prepared baseline worker
-environments remain only as temporary fallbacks pending retirement. Unattended
+worker VMs through the native project controller. The prepared baseline worker
+environments were retired on 30 October 2026 (stopped; disks and verified history
+copies retained, not a clean-stop qualification) and are no longer fallbacks. Unattended
 intake, approval-free operation, account-wide isolation, boot/login startup,
 updates and GUI/new-VM restore remain unqualified and tracked in
 [#32](https://github.com/arcitai/factory/issues/32). These are Lab recipe choices;

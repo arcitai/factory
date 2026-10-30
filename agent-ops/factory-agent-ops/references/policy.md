@@ -1,6 +1,6 @@
 # Decisions and delegation
 
-Revision: 0.1.28 · Updated: 2026-10-30
+Revision: 0.1.29 · Updated: 2026-10-30
 
 There are two default human decisions:
 
@@ -114,8 +114,9 @@ administration. Processes sharing an environment may also share its service bind
 The Lab's target is one isolated, on-demand sandbox per agent, created and
 removed by AgentOps inside its own environment, with minimal physical-host actions
 and no extra coordinator LLM. Bounded Lab trials on 29–30 October 2026 observed
-AgentOps creating and removing fresh per-task worker sandboxes; prepared
-environments remain temporary fallbacks. Unattended operation and the other open
+AgentOps creating and removing fresh per-task worker sandboxes; the earlier
+prepared environments were retired on 30 October 2026 and are no longer fallbacks.
+Unattended operation and the other open
 limits still follow Factory #32.
 This Lab target does not prescribe a backend for every adopting project.
 
